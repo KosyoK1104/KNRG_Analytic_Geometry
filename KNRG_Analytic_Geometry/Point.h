@@ -7,15 +7,20 @@ class Point : public Element
 {
 public:
 	Point();
+	Point(double x, double y, double z);
+	Point(const Point& p);
+	Point& operator=(const Point& p);
 	~Point();
 
-	 void setX(double x);
-	 void setY(double y);
-	 void setZ(double z);
+	bool operator==(const Point& p);
 
-	 double getX() const;
-	 double getY() const;
-	 double getZ() const;
+	void setX(double x);
+	void setY(double y);
+	void setZ(double z);
+
+	double getX() const;
+	double getY() const;
+	double getZ() const;
 
 private:
 	double x, y, z;
