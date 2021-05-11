@@ -8,10 +8,11 @@
 using namespace std;
 class Vector : public Point
 {
-
+public:
 	Vector();
 	Vector(double, double, double);
 	Vector(const Point&, const Point&);
+	Vector(const Vector& rhs);
 	Vector& operator=(const Vector&);
 	~Vector();
 
