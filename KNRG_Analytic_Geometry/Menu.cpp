@@ -3,7 +3,7 @@
 using namespace std;
 
 char menuInput[1024];
-int cntInput = 0, entEle = 0;
+int cntInput = 0, cntEle = 0;
 Element* elementsArr[100];
 
 void Menu()
@@ -30,35 +30,35 @@ void Menu()
 		}
 		system("CLS");
 	}
+}
 
-	Point CreatePointObject()
-	{
-		int x, y, z;
-		cout << "Enter x coordinate: \n";
-		cin >> x;
-		cout << "Enter y coordinate: \n";
-		cin >> y;
-		cout << "Enter z coordinate: \n";
-		cin >> z;
-		Point temp(x, y, z);
-		elementsArr[cntElements++] = new Point(temp);
+Point CreatePointObject()
+{
+	double x, y, z;
+	cout << "Enter x coordinate: \n";
+	cin >> x;
+	cout << "Enter y coordinate: \n";
+	cin >> y;
+	cout << "Enter z coordinate: \n";
+	cin >> z;
+	Point temp(x, y, z);
+	elementsArr[cntEle++] = new Point(temp);
 
-		return temp;
-	}
+	return temp;
+}
 
-	Vector CreateVectorObject()
-	{
-		int x, y, z;
-		cout << "Enter x coordinate: \n";
-		cin >> x;
-		cout << "Enter y coordinate: \n";
-		cin >> y;
-		cout << "Enter z coordinate: \n";
-		cin >> z;
+Vector CreateVectorObject()
+{
+	double x, y, z;
+	cout << "Enter x coordinate: \n";
+	cin >> x;
+	cout << "Enter y coordinate: \n";
+	cin >> y;
+	cout << "Enter z coordinate: \n";
+	cin >> z;
 
-		Vector temp(x, y, z);
-		elementsArr[cntElements++] = new Vector(temp);
+	Vector temp(x, y, z);
+	elementsArr[cntEle++] = new Vector(temp);
 
-		return temp;
-	}
+	return temp;
 }

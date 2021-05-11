@@ -4,7 +4,7 @@
 #include "Point.h"
 #include "Element.h"
 #include<iostream>
-#include<cmath>e
+#include<cmath>
 using namespace std;
 class Vector : public Point
 {
