@@ -12,6 +12,7 @@ public:
 	Vector();
 	Vector(double, double, double);
 	Vector(const Point&, const Point&);
+	Vector(const Vector& rhs);
 	Vector& operator=(const Vector&);
 	~Vector();
 
