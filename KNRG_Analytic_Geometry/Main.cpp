@@ -1,7 +1,11 @@
 #include <iostream>
+#include "Element.h"
+#include "Menu.h"
+#include "Point.h"
+#include "Vector.h"
 
 int main()
 {
-    std::cout << "Hello World!\n";
+    Menu();
 }
 
