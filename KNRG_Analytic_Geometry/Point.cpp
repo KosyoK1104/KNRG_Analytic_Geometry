@@ -9,11 +9,9 @@ Point::Point(double x, double y, double z) {
 };
 
 Point::Point(const Point& p) {
-	if (this != &p) {
-		x = p.getX();
-		y = p.getY();
-		z = p.getZ();
-	}
+	x = p.getX();
+	y = p.getY();
+	z = p.getZ();
 };
 
 Point& Point::operator=(const Point& p) {
@@ -25,8 +23,24 @@ Point& Point::operator=(const Point& p) {
 	return *this;
 }
 
+Point::~Point()
+{
+	std::cout << "Point destructed";
+}
+
 bool Point::operator==(const Point& p) {
 	return (x == p.x) && (y == p.y) && (z == p.z);
+}
+
+std::ostream& Point::ins(std::ostream& out) const
+{
+	return out << std::endl << "The cordinates of this point are:" << std::endl << "x: " << x << std::endl << "y: " << y << std::endl << "z: " << z << std::endl;
+}
+
+std::istream& Point::ext(std::istream& in)
+{
+	in >> x >> y >> z;
+	return in;
 }
 
 void Point::setX(double x) { 

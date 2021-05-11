@@ -14,6 +14,9 @@ public:
 
 	bool operator==(const Point& p);
 
+	virtual std::ostream& ins(std::ostream& out) const;
+	virtual std::istream& ext(std::istream& lhs);
+
 	void setX(double x);
 	void setY(double y);
 	void setZ(double z);
