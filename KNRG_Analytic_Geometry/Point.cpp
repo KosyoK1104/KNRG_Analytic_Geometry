@@ -2,9 +2,29 @@
 
 Point::Point() :x(0), y(0), z(0) {};
 
-void Point::setX(double x) { this->x = x; };
-void Point::setY(double y) { this->y = y; };
-void Point::setZ(double z) { this->z = z; };
+Point::Point(double x, double y, double z) :x(x), y(y), z(z) {};
+
+Point::Point(const Point& p) {
+	if (this != &p) {
+		x = p.getX();
+		y = p.getY();
+		z = p.getZ();
+	}
+}
+
+
+void Point::setX(double x) { 
+	this->x = x; 
+};
+
+void Point::setY(double y) { 
+	this->y = y; 
+};
+
+void Point::setZ(double z) { 
+	this->z = z; 
+};
+
 
 double Point::getX() const{
 	return x;
