@@ -19,11 +19,13 @@ void Menu()
 			<< "4. Segment\n"
 			<< "5. Triangle\n"
 			<< "6. Tetrahedron\n"
-			<< "7. Exit\n";
+			<< "0. Exit\n";
 
 		cin >> optionSelect;
 		switch (optionSelect)
 		{
+		case 0:
+			exit(EXIT_SUCCESS);
 			Point p(CreatePointObject());
 			ExecutePointOperations(p);
 			break;
