@@ -62,3 +62,13 @@ Vector CreateVectorObject()
 
 	return temp;
 }
+
+void ExecutePointOperations(Point& p)
+{
+	int opt;
+	cout << "Avalable Point operations: \n"
+		<< "1. Print object\n";
+	cin >> opt;
+
+	system("pause");
+}
