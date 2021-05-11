@@ -36,6 +36,6 @@ double dulzh = dulzhinaVector();
 double i, j, k;
 i = x / dulzh;
 j = y / dulzh;
-k = k / dulzh;
+k = z / dulzh;
 return Vector(i, j, k);
 }
