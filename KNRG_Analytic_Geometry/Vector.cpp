@@ -22,3 +22,20 @@ Vector& Vector::operator=(const Vector& rhs)
 }
 Vector::~Vector() {
 }
+//zadacha 2
+double Vector::dulzhinaVector()
+{
+	return (sqrt(pow(getX(), 2) + pow(getY(), 2) + pow(getZ(), 2) == 0));
+}
+Vector Vector::posokaVector() 
+{
+double x = getX();
+double y = getY();
+double z = getZ();
+double dulzh = dulzhinaVector();
+double i, j, k;
+i = x / dulzh;
+j = y / dulzh;
+k = k / dulzh;
+return Vector(i, j, k);
+}

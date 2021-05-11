@@ -4,6 +4,7 @@
 #include "Point.h"
 #include "Element.h"
 #include<iostream>
+#include<cmath>e
 using namespace std;
 class Vector : public Point
 {
@@ -14,6 +15,9 @@ class Vector : public Point
 	Vector& operator=(const Vector&);
 	~Vector();
 
+	//zadacha 2
+	double dulzhinaVector();
+	Vector posokaVector();
 
 };
 
