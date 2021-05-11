@@ -25,7 +25,7 @@ void Menu()
 		switch (optionSelect)
 		{
 			Point p(CreatePointObject());
-			ExecutePointOperations(p);
+			ExecutePointOperations(p); // puskame operaciq
 			break;
 		}
 		system("CLS");
