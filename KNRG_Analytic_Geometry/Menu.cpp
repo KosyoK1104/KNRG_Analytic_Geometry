@@ -27,11 +27,11 @@ void Menu()
 		case 0:
 			exit(EXIT_SUCCESS);
 		case 1:
+			system("CLS");
 			Point p(CreatePointObject());
 			ExecutePointOperations(p);
 			break;
 		}
-		system("CLS");
 	}
 }
 

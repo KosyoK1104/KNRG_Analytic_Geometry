@@ -1,6 +1,8 @@
 #include <iostream>
 #include "Point.h"
 #include "Vector.h"
+#include <cstdlib>
+
 void Menu();
 Point CreatePointObject();
 Vector CreateVectorObject();
