@@ -25,7 +25,7 @@ Point& Point::operator=(const Point& p) {
 
 Point::~Point()
 {
-	std::cout << "Point destructed";
+	std::cout << "Point destructed\n";
 }
 
 bool Point::operator==(const Point& p) {
