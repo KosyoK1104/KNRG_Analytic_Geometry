@@ -30,8 +30,8 @@ void Menu()
 			case 1:
 			{
 				system("cls");
-				Point p(CreatePointObject());
-				ExecutePointOperations(p);
+				//Point p(CreatePointObject());
+				ExecutePointOperations();
 				break;
 			}
 			case 2:
@@ -66,34 +66,41 @@ Point CreatePointObject()
 	return temp;
 }
 
-void ExecutePointOperations(Point& p)
+void ExecutePointOperations()
 {
 	int opt;
-	cout << "Avalable Point operations: \n"
-		<< "1. Print Point coordinates\n"
-		<< "2. Compare the coordinates of two points\n";
-	cin >> opt;
-
-	switch (opt) 
+	do
 	{
-	case 1:
-	{
-		int opt;
+		cout << "Avalable Point operations: \n"
+			<< "1. Create a new Point\n"
+			<< "2. Print Point coordinates\n"
+			<< "3. Compare the coordinates of two Points\n";
 		cin >> opt;
-		cout << *elementsArr[opt];
-		//cout << p;
-		break;
-	}
-	case 2:
-	{	
-		ComparePoints();
-		//system("cls");
-		break;
-	}
-	case 0: break;
 
-	system("pause");
-	}
+		switch(opt)
+		{
+		case 1:
+		{
+			CreatePointObject();
+			break;
+		}
+		case 2:
+		{
+			int opt;
+			cin >> opt;
+			cout << *elementsArr[opt];
+			break;
+		}
+		case 3:
+		{
+			ComparePoints();
+			break;
+		}
+		case 0: break;
+
+			system("pause");
+		}
+	} while (opt != 0);
 }
 
 void ComparePoints()

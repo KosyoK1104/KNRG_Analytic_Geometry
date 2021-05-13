@@ -7,7 +7,7 @@
 void Menu();
 
 Point CreatePointObject();
-void ExecutePointOperations(Point& p);
+void ExecutePointOperations();
 void ComparePoints();
 
 Vector CreateVectorObject();
