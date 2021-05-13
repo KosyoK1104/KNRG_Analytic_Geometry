@@ -9,3 +9,8 @@ std::ostream& operator<<(std::ostream& out, const Element& rhs) {
 std::istream& operator>>(std::istream& in, Element& rhs) {
 	return rhs.ext(in);
 };
+
+/*bool Element::operator==(const Element& e)
+{
+	return false;
+}*/
