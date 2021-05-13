@@ -2,9 +2,13 @@
 #include "Point.h"
 #include "Vector.h"
 #include <cstdlib>
+#include <typeinfo>
 
 void Menu();
+
 Point CreatePointObject();
-Vector CreateVectorObject();
 void ExecutePointOperations(Point& p);
+void ComparePoints();
+
+Vector CreateVectorObject();
 void ExecuteVectorOperations(Vector& v);
