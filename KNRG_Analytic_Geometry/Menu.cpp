@@ -4,7 +4,7 @@ using namespace std;
 
 char menuInput[1024];
 int cntInput = 0, cntEle = 0;
-Element* elementsArr[100];
+Element** elementsArr = new Element*[100];
 
 void Menu()
 {
@@ -78,15 +78,19 @@ void ExecutePointOperations(Point& p)
 	{
 	case 1:
 	{
-		cout << p;
+		int opt;
+		cin >> opt;
+		cout << *elementsArr[opt];
+		//cout << p;
 		break;
 	}
 	case 2:
 	{	
 		ComparePoints();
-		system("cls");
+		//system("cls");
 		break;
 	}
+	case 0: break;
 
 	system("pause");
 	}
