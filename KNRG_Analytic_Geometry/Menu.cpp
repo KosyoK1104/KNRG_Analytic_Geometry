@@ -180,7 +180,7 @@ void ExecuteVectorOperations(Vector& v)
 		case 6:
 		{
 			Vector newV(CreateVectorObject());
-			std::cout << (std::boolalpha) << v + newV << '\n';
+			//std::cout << (std::boolalpha) << v + newV << '\n';
 			break;
 		}
 		case 7:

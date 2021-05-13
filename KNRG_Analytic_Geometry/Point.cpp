@@ -13,7 +13,6 @@ Point::Point(const Point& p) {
 	y = p.getY();
 	z = p.getZ();
 };
-
 Point& Point::operator=(const Point& p) {
 	if (this != &p) {
 		x = p.getX();
