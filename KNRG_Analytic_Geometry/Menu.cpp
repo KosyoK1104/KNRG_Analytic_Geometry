@@ -22,18 +22,35 @@ void Menu()
 			<< "0. Exit\n";
 
 		cin >> optionSelect;
+
 		switch (optionSelect)
 		{
-		case 0:
-			exit(EXIT_SUCCESS);
-		case 1:
-			system("CLS");
-			Point p(CreatePointObject());
-			ExecutePointOperations(p);
-			break;
+			case 0:
+				exit(EXIT_SUCCESS);
+			case 1:
+			{
+				system("CLS");
+				Point p(CreatePointObject());
+				ExecutePointOperations(p);
+				break;
+			}
+			case 2:
+			{
+				system("CLS");
+				Vector v(CreateVectorObject());
+				ExecuteVectorOperations(v);
+				break;
+			}
+			case 3:
+			{
+				//
+			}
+
 		}
 	}
 }
+
+//Point Create and Execute
 
 Point CreatePointObject()
 {
@@ -46,22 +63,6 @@ Point CreatePointObject()
 	cin >> z;
 	Point temp(x, y, z);
 	elementsArr[cntEle++] = new Point(temp);
-
-	return temp;
-}
-
-Vector CreateVectorObject()
-{
-	double x, y, z;
-	cout << "Enter x coordinate: \n";
-	cin >> x;
-	cout << "Enter y coordinate: \n";
-	cin >> y;
-	cout << "Enter z coordinate: \n";
-	cin >> z;
-
-	Vector temp(x, y, z);
-	elementsArr[cntEle++] = new Vector(temp);
 
 	return temp;
 }
@@ -81,3 +82,22 @@ void ExecutePointOperations(Point& p)
 
 	system("pause");
 }
+
+//Vector Create and Execute
+
+Vector CreateVectorObject()
+{
+	double x, y, z;
+	cout << "Enter x coordinate: \n";
+	cin >> x;
+	cout << "Enter y coordinate: \n";
+	cin >> y;
+	cout << "Enter z coordinate: \n";
+	cin >> z;
+
+	Vector temp(x, y, z);
+	elementsArr[cntEle++] = new Vector(temp);
+
+	return temp;
+}
+
