@@ -26,6 +26,7 @@ void Menu()
 		{
 		case 0:
 			exit(EXIT_SUCCESS);
+		case 1:
 			Point p(CreatePointObject());
 			ExecutePointOperations(p);
 			break;
@@ -71,6 +72,12 @@ void ExecutePointOperations(Point& p)
 	cout << "Avalable Point operations: \n"
 		<< "1. Print object\n";
 	cin >> opt;
+
+	switch (opt) {
+	case 1:
+		cout << p;
+		break;
+	}
 
 	system("pause");
 }
