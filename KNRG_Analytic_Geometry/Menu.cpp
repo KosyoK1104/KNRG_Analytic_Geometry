@@ -37,8 +37,8 @@ void Menu()
 			case 2:
 			{
 				system("cls");
-				Vector v(CreateVectorObject());
-				ExecuteVectorOperations(v);
+				//Vector v(CreateVectorObject());
+				//ExecuteVectorOperations(v);
 				break;
 			}
 			case 3:
@@ -113,14 +113,18 @@ void ComparePoints()
 
 	if (typeid(elementsArr[opt1]) == typeid(elementsArr[opt2])) 
 	{
-		if(elementsArr[opt1] == elementsArr[opt2])
+		if(*static_cast<Point*>(elementsArr[opt1]) == *static_cast<Point*>(elementsArr[opt2]))
 		{
-			cout << "Points are with equal coordinates";
+			
+			cout << "Points are with equal coordinates\n";
 		}
 		else
 		{
-			cout << "Points are NOT with equal coordinates";
+			cout << "Points are NOT with equal coordinates\n";
 		}
+	}
+	else {
+		cout << "Shto si pederast da slagash razlichni obekti";
 	}
 }
 

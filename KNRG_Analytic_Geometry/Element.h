@@ -10,7 +10,7 @@ public:
 	virtual std::ostream& ins(std::ostream& out) const = 0;
 	virtual std::istream& ext(std::istream& in) = 0;
 
-	//virtual bool operator==(const Element& e) = 0;
+	virtual bool operator==(const Element& e);
 };
 
 std::ostream& operator<< (std::ostream& out, const Element& rhs);
