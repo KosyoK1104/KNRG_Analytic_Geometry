@@ -33,7 +33,7 @@ void Menu()
 			break;
 		}
 	}
-}
+}//shte ti izqm puteto
 
 Point CreatePointObject()
 {
