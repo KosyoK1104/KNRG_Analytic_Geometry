@@ -162,19 +162,19 @@ void ExecuteVectorOperations(Vector& v)
 		}
 		case 3:
 		{
-			std::cout << (std::boolalpha) << v.isVectorNull() << '\n';
+			//std::cout << (std::boolalpha) << v.isVectorNull() << '\n';
 			break;
 		}
 		case 4:
 		{
 			Vector newV(CreateVectorObject());
-			std::cout << (std::boolalpha) << v.vectorParallelism(newV) << '\n';
+			//std::cout << (std::boolalpha) << v.vectorParallelism(newV) << '\n';
 			break;
 		}
 		case 5:
 		{
 			Vector newV(CreateVectorObject());
-			std::cout << (std::boolalpha) << v.vectorPerpendicularity(newV) << '\n';
+			//std::cout << (std::boolalpha) << v.vectorPerpendicularity(newV) << '\n';
 			break;
 		}
 		case 6:
@@ -186,7 +186,7 @@ void ExecuteVectorOperations(Vector& v)
 		case 7:
 		{
 			Vector newV(CreateVectorObject());
-			std::cout << v * newV << '\n';
+			//std::cout << v * newV << '\n';
 			break;
 		}
 		case 8:
