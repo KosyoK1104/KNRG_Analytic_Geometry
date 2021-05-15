@@ -50,6 +50,7 @@ bool paralelVector(Vector& v) {
 	}
 	else {
 		cout << "Vectors are not paralel" << endl;
+		return false;
 	}
 }
 
@@ -64,19 +65,19 @@ bool perpendicularVector(Vector& v) {
 	}
 }
 //zadacha 3
-Vector Vector::operator +(const Vector& rhs) {
+Vector Vector::operator+(const Vector& rhs) {
 	cout << "Result after addition is new vector: " << endl;
-	return Vector(getX() + rhs.getX(), getY() + rhs.getY, getZ() + rhs.getZ());
+	return Vector(getX() + rhs.getX(), getY() + rhs.getY(), getZ() + rhs.getZ());
 }
 
-Vector Vector::operator -(const Vector& rhs) {
+Vector Vector::operator-(const Vector& rhs) {
 	cout << "Result after substraction is new vector: " << endl;
-	return Vector(getX() - rhs.getX(), getY() - rhs.getY, getZ() - rhs.getZ());
+	return Vector(getX() - rhs.getX(), getY() - rhs.getY(), getZ() - rhs.getZ());
 }
 
 Vector Vector::operator *(const Vector& rhs) {
 	cout << "Result after substraction is new vector: " << endl;
-	return getX() * rhs.getX() + getY() * rhs.getY + getZ() * rhs.getZ();
+	return getX() * rhs.getX() + getY() * rhs.getY() + getZ() * rhs.getZ();
 }
 double Vector::operator()(const Vector& v2, const Vector& v3) {
 	cout << "Result after multiplication: " << endl;
@@ -89,4 +90,4 @@ ostream& Vector::ins(ostream& out)const {
 
 istream& Vector::ext(istream& in){
 	return in;
-}
+} 
