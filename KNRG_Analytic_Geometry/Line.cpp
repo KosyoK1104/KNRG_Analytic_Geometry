@@ -70,5 +70,5 @@ bool Line::operator||(const Line& line)
 
 bool Line::operator+(const Point& p)
 {
-	return 
+	return 0;
 }
