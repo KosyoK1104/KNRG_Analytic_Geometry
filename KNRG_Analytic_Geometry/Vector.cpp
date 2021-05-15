@@ -39,7 +39,7 @@ j = y / dulzh;
 k = z / dulzh;
 return Vector(i, j, k);
 }
-bool zeroVector() {
+bool Vector::zeroVector() {
 	return (getX() == 0 && getY() == 0 && getZ() == 0);
 }
 bool Vector::paralelVector(Vector& v) {
