@@ -19,6 +19,14 @@ public:
 	//zadacha 2
 	double dulzhinaVector();
 	Vector posokaVector();
+	bool vectoraENula();
+	bool paralelVector(Vector&);
+	perpendicularVector(Vector&);
+
+
+	//zadacha 3
+	Vector operator +(const Vector&);
+	Vector operator -(const Vector&);
 
 };
 
