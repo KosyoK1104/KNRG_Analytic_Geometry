@@ -19,6 +19,18 @@ public:
 	//zadacha 2
 	double dulzhinaVector();
 	Vector posokaVector();
+	bool zeroVector();
+	bool paralelVector(Vector&);
+	bool perpendicularVector(Vector&);
+
+
+	//zadacha 3
+	Vector operator+(const Vector&);
+	Vector operator-(const Vector&);
+	double operator*(const Vector&);
+	double operator()(const Vector&, const Vector&);
+	virtual ostream& ins(std::ostream&)const;
+	virtual istream& ext(std::istream&);
 
 };
 
