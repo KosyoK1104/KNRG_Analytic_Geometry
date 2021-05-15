@@ -66,3 +66,12 @@ double Point::getY() const {
 double Point::getZ() const {
 	return z;
 }
+
+double Point::findDistanceToPoint(Point& smth) const
+
+{
+	return sqrt((pow((getX() - smth.getX()), 2))
+		+ (pow((getY() - smth.getY()), 2))
+		+ (pow((getZ() - smth.getZ()), 2)));
+
+}

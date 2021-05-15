@@ -25,6 +25,7 @@ public:
 	double getY() const;
 	double getZ() const;
 
+	double findDistanceToPoint(Point& smth) const;
 private:
 	double x, y, z;
 };
