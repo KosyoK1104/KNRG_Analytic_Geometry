@@ -41,9 +41,8 @@ return Vector(i, j, k);
 }
 bool zeroVector() {
 	return (getX() == 0 && getY() == 0 && getZ() == 0);
-
 }
-bool paralelVector(Vector& v) {
+bool Vector::paralelVector(Vector& v) {
 	if (this->getX() / v.getX() == this->getY() && this->getY() / v.getY() == this->getZ() / v.getZ()) {
 		cout << "Vectors are paralel" << endl;
 		return true;
@@ -54,7 +53,7 @@ bool paralelVector(Vector& v) {
 	}
 }
 
-bool perpendicularVector(Vector& v) {
+bool Vector::perpendicularVector(Vector& v) {
 	if (this->getX() * v.getX() + this->getY() * v.getY() + this->getZ() * getZ() == 0) {
 		cout << "Vectors are perpendicular" << endl;
 		return true;
@@ -75,8 +74,8 @@ Vector Vector::operator-(const Vector& rhs) {
 	return Vector(getX() - rhs.getX(), getY() - rhs.getY(), getZ() - rhs.getZ());
 }
 
-Vector Vector::operator *(const Vector& rhs) {
-	cout << "Result after substraction is new vector: " << endl;
+double Vector::operator *(const Vector& rhs) {
+	std::cout << "The result after multiplication is a real number with value ";
 	return getX() * rhs.getX() + getY() * rhs.getY() + getZ() * rhs.getZ();
 }
 double Vector::operator()(const Vector& v2, const Vector& v3) {
