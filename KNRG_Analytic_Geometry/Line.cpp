@@ -61,3 +61,14 @@ Point Line::getPointB() {
 Vector Line::getVectorAB() {
 	return vectorAB;
 }
+
+bool Line::operator||(const Line& line)
+{
+	return ((vectorAB.getX() / line.vectorAB.getX()) == (vectorAB.getY() / line.vectorAB.getY()) == (vectorAB.getZ() == line.vectorAB.getZ()));
+
+}
+
+bool Line::operator+(const Point& p)
+{
+	return 
+}

@@ -17,7 +17,8 @@ public:
     Point getPointB();
     Vector getVectorAB();
 
-
+    bool operator||(const Line&);
+    bool operator+(const Point&);
 
 private:
     Point pointA;
