@@ -115,7 +115,7 @@ void ComparePoints()
 	{
 		if(*static_cast<Point*>(elementsArr[opt1]) == *static_cast<Point*>(elementsArr[opt2]))
 		{
-			
+			cout << *elementsArr[opt1] << endl;
 			cout << "Points are with equal coordinates\n";
 		}
 		else
@@ -151,7 +151,7 @@ void ExecuteVectorOperations(Vector& v)
 	int opt;
 	std::cout << "Vector operations: \n"
 		<< "1. Get length\n"
-		<< "2. Get directional vector\n"
+		<< "2. Get direction of vector\n"
 		<< "3. Check if vector is null\n"
 		<< "4. Check if vector is parallel /w new vector\n"
 		<< "5. Check if vector is perpendicular /w new vector\n"
@@ -216,8 +216,3 @@ void ExecuteVectorOperations(Vector& v)
 
 	system("pause");
 }
-
-
-
-
-
