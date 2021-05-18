@@ -13,13 +13,13 @@ void Menu()
 	while (true)
 	{
 		cout << "Select an object: \n"
+			<< "0. Exit\n"
 			<< "1. Point\n"
 			<< "2. Vector\n"
 			<< "3. Line\n"
 			<< "4. Segment\n"
 			<< "5. Triangle\n"
-			<< "6. Tetrahedron\n"
-			<< "0. Exit\n";
+			<< "6. Tetrahedron\n";
 
 		cin >> optionSelect;
 
@@ -75,6 +75,7 @@ void ExecutePointOperations()
 	do
 	{
 		cout << "Avalable Point operations: \n"
+			<< "0. Exit to Main Menu\n"
 			<< "1. Create a new Point\n"
 			<< "2. Print Point coordinates\n"
 			<< "3. Compare the coordinates of two Points\n";
@@ -156,6 +157,7 @@ void ExecuteVectorOperations()
 	int opt;
 	do {
 		std::cout << "Vector operations: \n"
+			<< "0. Exit to Main Menu\n"
 			<< "1. Create a vector\n"
 			<< "2. Get length\n"
 			<< "3. Get direction of vector\n"
@@ -174,6 +176,7 @@ void ExecuteVectorOperations()
 		case 1:
 		{
 			cout << "Please choose the way you want to create a vector: \n"
+				<< "0. Exit to Main Menu\n"
 				<< "1. Input with coordinates\n"
 				<< "2. Input with points\n";
 			cin >> opt;
