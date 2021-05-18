@@ -157,14 +157,14 @@ void ExecuteVectorOperations()
 	do {
 		std::cout << "Vector operations: \n"
 			<< "1. Create a vector\n"
-			<< "1. Get length\n"
-			<< "2. Get direction of vector\n"
-			<< "3. Check if vector is null\n"
-			<< "4. Check if vector is parallel /w new vector\n"
-			<< "5. Check if vector is perpendicular /w new vector\n"
-			<< "6. Make a sum /w new vector \n"
-			<< "7. Scalar multiplication /w new vector \n"
-			<< "8.Print Vector\n";
+			<< "2. Get length\n"
+			<< "3. Get direction of vector\n"
+			<< "4. Check if vector is null\n"
+			<< "5. Check if vector is parallel /w new vector\n"
+			<< "6. Check if vector is perpendicular /w new vector\n"
+			<< "7. Make a sum /w new vector \n"
+			<< "8. Scalar multiplication /w new vector \n"
+			<< "9. Print Vector\n";
 
 		cin >> opt;
 
@@ -194,13 +194,13 @@ void ExecuteVectorOperations()
 			}
 			case 2:
 			{
-				unsigned int A, B;
+				unsigned int a, b;
 				cout << "Enter A: \n";
-				cin >> A;
+				cin >> a;
 				cout << "Enter B: \n";
-				cin >> B;
+				cin >> b;
 
-				Vector CreateVectorObject(*dynamic_cast<Point*>(elementsArr[A]), *dynamic_cast<Point*>(elementsArr[B]));
+				Vector CreateVectorObject(*dynamic_cast<Point*>(elementsArr[a]), *dynamic_cast<Point*>(elementsArr[b]));
 				break;
 			}
 			}
@@ -210,7 +210,7 @@ void ExecuteVectorOperations()
 		{
 			int opt;
 			cin >> opt;
-			std::cout << static_cast<Vector*>(elementsArr[opt])->dulzhinaVector() << '\n';
+			cout << static_cast<Vector*>(elementsArr[opt])->dulzhinaVector() << '\n';
 			break;
 		}
 		case 3:

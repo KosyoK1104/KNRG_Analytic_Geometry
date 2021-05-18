@@ -11,7 +11,8 @@ Point CreatePointObject();
 void ExecutePointOperations();
 void ComparePoints();
 
-Vector CreateVectorObject();
+Vector CreateVectorObject(double x, double y, double z);
+Vector CreateVectorObject(Point& a, Point& b);
 void ExecuteVectorOperations();
 
 //Triangle CreateTriangleObject();
