@@ -18,7 +18,6 @@ public:
 
 	//zadacha 2
 	double dulzhinaVector();
-	void dulzhina();
 	Vector posokaVector();
 	bool zeroVector();
 	bool paralelVector(Vector&);
