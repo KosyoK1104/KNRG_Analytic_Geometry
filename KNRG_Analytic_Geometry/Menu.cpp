@@ -38,12 +38,15 @@ void Menu()
 			{
 				system("cls");
 				//Vector v(CreateVectorObject());
-				//ExecuteVectorOperations(v);
+				ExecuteVectorOperations();
 				break;
 			}
 			case 3:
 			{
-				//
+				system("cls");
+				//ExecuteTriangleOperations();
+				break;
+
 			}
 
 		}
@@ -130,15 +133,8 @@ void ComparePoints()
 
 //Vector Create and Execute
 
-Vector CreateVectorObject()
+Vector CreateVectorObject(double x, double y, double z)
 {
-	double x, y, z;
-	cout << "Enter x coordinate: \n";
-	cin >> x;
-	cout << "Enter y coordinate: \n";
-	cin >> y;
-	cout << "Enter z coordinate: \n";
-	cin >> z;
 
 	Vector temp(x, y, z);
 	elementsArr[cntEle++] = new Vector(temp);
@@ -146,33 +142,75 @@ Vector CreateVectorObject()
 	return temp;
 }
 
-void ExecuteVectorOperations(Vector& v)
+Vector CreateVectorObject(Point& a, Point& b)
+{
+
+	Vector temp(a, b);
+	elementsArr[cntEle++] = new Vector(temp);
+
+	return temp;
+}
+
+void ExecuteVectorOperations()
 {
 	int opt;
-	std::cout << "Vector operations: \n"
-		<< "1. Get length\n"
-		<< "2. Get direction of vector\n"
-		<< "3. Check if vector is null\n"
-		<< "4. Check if vector is parallel /w new vector\n"
-		<< "5. Check if vector is perpendicular /w new vector\n"
-		<< "6. Make a sum /w new vector \n"
-		<< "7. Scalar multiplication /w new vector \n"
-		<< "8.Print Vector\n";
+	do {
+		std::cout << "Vector operations: \n"
+			<< "1. Create a vector\n"
+			<< "1. Get length\n"
+			<< "2. Get direction of vector\n"
+			<< "3. Check if vector is null\n"
+			<< "4. Check if vector is parallel /w new vector\n"
+			<< "5. Check if vector is perpendicular /w new vector\n"
+			<< "6. Make a sum /w new vector \n"
+			<< "7. Scalar multiplication /w new vector \n"
+			<< "8.Print Vector\n";
 
-	cin >> opt;
+		cin >> opt;
 
-	if (opt > 0 && opt < 9)
-	{
+
 		switch (opt)
 		{
 		case 1:
 		{
-			std::cout << v.dulzhinaVector() << '\n';
+			cout << "Please choose the way you want to create a vector: \n"
+				<< "1. Input with coordinates\n"
+				<< "2. Input with points\n";
+			cin >> opt;
+
+			switch (opt)
+			{
+			case 1:
+			{
+				double x, y, z;
+				cout << "Enter x coordinate: \n";
+				cin >> x;
+				cout << "Enter y coordinate: \n";
+				cin >> y;
+				cout << "Enter z coordinate: \n";
+				cin >> z;
+				Vector CreateVectorObject(x, y, z);
+				break;
+			}
+			case 2:
+			{
+				unsigned int A, B;
+				cout << "Enter A: \n";
+				cin >> A;
+				cout << "Enter B: \n";
+				cin >> B;
+
+				Vector CreateVectorObject(*static_cast<Point*>(elementsArr[A]), *static_cast<Point*>(elementsArr[B]));
+				break;
+			}
+			}
 			break;
 		}
 		case 2:
 		{
-			std::cout << v.posokaVector() << '\n';
+			int opt;
+			cin >> opt;
+			std::cout << static_cast<Vector*>(elementsArr[opt])->dulzhinaVector() << '\n';
 			break;
 		}
 		case 3:
@@ -182,37 +220,43 @@ void ExecuteVectorOperations(Vector& v)
 		}
 		case 4:
 		{
-			Vector newV(CreateVectorObject());
+			//Vector newV(CreateVectorObject());
 			//std::cout << (std::boolalpha) << v.vectorParallelism(newV) << '\n';
 			break;
 		}
 		case 5:
 		{
-			Vector newV(CreateVectorObject());
+			//Vector newV(CreateVectorObject());
 			//std::cout << (std::boolalpha) << v.vectorPerpendicularity(newV) << '\n';
 			break;
 		}
 		case 6:
 		{
-			Vector newV(CreateVectorObject());
+			//Vector newV(CreateVectorObject());
 			//std::cout << (std::boolalpha) << v + newV << '\n';
 			break;
 		}
 		case 7:
 		{
-			Vector newV(CreateVectorObject());
+			//Vector newV(CreateVectorObject());
 			//std::cout << v * newV << '\n';
 			break;
 		}
 		case 8:
 		{
-			cout << v << '\n';
+			//cout << v << '\n';
 			break;
 		}
 		default:
 			break;
 		}
-	}
-
-	system("pause");
+	} while (opt > 0 && opt < 9 );
 }
+	//system("pause");
+
+
+/*Triangle CreateTriangleObject()
+{
+
+
+}*/
