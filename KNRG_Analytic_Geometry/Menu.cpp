@@ -200,7 +200,7 @@ void ExecuteVectorOperations()
 				cout << "Enter B: \n";
 				cin >> B;
 
-				Vector CreateVectorObject(*static_cast<Point*>(elementsArr[A]), *static_cast<Point*>(elementsArr[B]));
+				Vector CreateVectorObject(*dynamic_cast<Point*>(elementsArr[A]), *dynamic_cast<Point*>(elementsArr[B]));
 				break;
 			}
 			}
@@ -252,8 +252,6 @@ void ExecuteVectorOperations()
 		}
 	} while (opt > 0 && opt < 9 );
 }
-	//system("pause");
-
 
 /*Triangle CreateTriangleObject()
 {

@@ -47,6 +47,7 @@ int Line::angleTwoLines(Line& l)
 	}
 	else {
 		std::cout << "Cannot calculate angle of the two lines\n";
+		return 0;
 	}
 }
 
