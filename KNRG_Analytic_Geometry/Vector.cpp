@@ -28,6 +28,10 @@ double Vector::dulzhinaVector()
 {
 	return (sqrt(pow(getX(), 2) + pow(getY(), 2) + pow(getZ(), 2) == 0));
 }
+
+void Vector::dulzhina() {
+	cout << dulzhinaVector() << endl;
+}
 Vector Vector::posokaVector() 
 {
 double x = getX();
