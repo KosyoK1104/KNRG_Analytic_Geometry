@@ -13,13 +13,13 @@ void Menu()
 	while (true)
 	{
 		cout << "Select an object: \n"
+			<< "0. Exit\n"
 			<< "1. Point\n"
 			<< "2. Vector\n"
 			<< "3. Line\n"
 			<< "4. Segment\n"
 			<< "5. Triangle\n"
-			<< "6. Tetrahedron\n"
-			<< "0. Exit\n";
+			<< "6. Tetrahedron\n";
 
 		cin >> optionSelect;
 
@@ -30,20 +30,25 @@ void Menu()
 			case 1:
 			{
 				system("cls");
+				//Point p(CreatePointObject());
 				ExecutePointOperations();
 				break;
 			}
 			case 2:
 			{
 				system("cls");
+				//Vector v(CreateVectorObject());
 				ExecuteVectorOperations();
 				break;
 			}
 			case 3:
 			{
 				system("cls");
+				//ExecuteTriangleOperations();
 				break;
+
 			}
+
 		}
 	}
 }
@@ -70,10 +75,10 @@ void ExecutePointOperations()
 	do
 	{
 		cout << "Avalable Point operations: \n"
+			<< "0. Exit to Main Menu\n"
 			<< "1. Create a new Point\n"
 			<< "2. Print Point coordinates\n"
-			<< "3. Compare the coordinates of two Points\n"
-			<< "0. Exit to Main Menu\n";
+			<< "3. Compare the coordinates of two Points\n";
 		cin >> opt;
 
 		switch(opt)
@@ -131,30 +136,28 @@ void ComparePoints()
 
 Vector CreateVectorObject(double x, double y, double z)
 {
+
 	Vector temp(x, y, z);
-	elementsArr[++cntEle] = new Vector(temp);
+	elementsArr[cntEle++] = new Vector(temp);
 
 	return temp;
 }
 
 Vector CreateVectorObject(Point& a, Point& b)
 {
+
 	Vector temp(a, b);
-	elementsArr[++cntEle] = new Vector(temp);
+	elementsArr[cntEle++] = new Vector(temp);
 
 	return temp;
-}
-
-Vector posokaVector()
-{
-
 }
 
 void ExecuteVectorOperations()
 {
 	int opt;
 	do {
-		cout << "Vector operations: \n"
+		std::cout << "Vector operations: \n"
+			<< "0. Exit to Main Menu\n"
 			<< "1. Create a vector\n"
 			<< "2. Get length\n"
 			<< "3. Get direction of vector\n"
@@ -163,8 +166,7 @@ void ExecuteVectorOperations()
 			<< "6. Check if vector is perpendicular /w new vector\n"
 			<< "7. Make a sum /w new vector \n"
 			<< "8. Scalar multiplication /w new vector \n"
-			<< "9. Print Vector\n"
-			<< "0. Exit to Main Menu\n";
+			<< "9. Print Vector\n";
 
 		cin >> opt;
 
@@ -216,7 +218,7 @@ void ExecuteVectorOperations()
 		}
 		case 3:
 		{
-			posokaVector();
+			//std::cout << (std::boolalpha) << v.isVectorNull() << '\n';
 			break;
 		}
 		case 4:
@@ -256,5 +258,6 @@ void ExecuteVectorOperations()
 
 /*Triangle CreateTriangleObject()
 {
+
 
 }*/

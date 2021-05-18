@@ -30,15 +30,15 @@ double Vector::dulzhinaVector()
 }
 Vector Vector::posokaVector() 
 {
-	double x = getX();
-	double y = getY();
-	double z = getZ();
-	double dulzh = dulzhinaVector();
-	double i, j, k;
-	i = x / dulzh;
-	j = y / dulzh;
-	k = z / dulzh;
-	return Vector(i, j, k);
+double x = getX();
+double y = getY();
+double z = getZ();
+double dulzh = dulzhinaVector();
+double i, j, k;
+i = x / dulzh;
+j = y / dulzh;
+k = z / dulzh;
+return Vector(i, j, k);
 }
 bool Vector::zeroVector() {
 	return (getX() == 0 && getY() == 0 && getZ() == 0);
