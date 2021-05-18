@@ -8,6 +8,7 @@ Vector::Vector(double x, double y, double z) {
 Vector::Vector(const Point& A, const Point& B)
 {
 	Vector tmp(B.getX() - A.getX(), B.getY() - A.getY(), B.getZ() - A.getZ());
+	cout << "Vector constructed";
 }
 Vector::Vector(const Vector& rhs) 
 {
