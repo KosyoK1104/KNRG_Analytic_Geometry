@@ -7,12 +7,12 @@
 
 void Menu();
 
-Point CreatePointObject();
+void CreatePointObject();
 void ExecutePointOperations();
 void ComparePoints();
 
-Vector CreateVectorObject(double x, double y, double z);
-Vector CreateVectorObject(Point& a, Point& b);
+void CreateVectorObject(double x, double y, double z);
+void CreateVectorObject(Point& a, Point& b);
 void ExecuteVectorOperations();
 
 //Triangle CreateTriangleObject();

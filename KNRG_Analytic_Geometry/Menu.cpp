@@ -55,7 +55,7 @@ void Menu()
 
 //Point Create and Execute
 
-Point CreatePointObject()
+void CreatePointObject()
 {
 	double x, y, z;
 	cout << "Enter x coordinate: \n";
@@ -64,9 +64,7 @@ Point CreatePointObject()
 	cin >> y;
 	cout << "Enter z coordinate: \n";
 	cin >> z;
-	Point temp(x, y, z);
-	elementsArr[++cntEle] = new Point(temp);
-	return temp;
+	elementsArr[++cntEle] = new Point(x, y, z);
 }
 
 void ExecutePointOperations()
@@ -134,22 +132,14 @@ void ComparePoints()
 
 //Vector Create and Execute
 
-Vector CreateVectorObject(double x, double y, double z)
+void CreateVectorObject(double x, double y, double z)
 {
-
-	Vector temp(x, y, z);
-	elementsArr[cntEle++] = new Vector(temp);
-
-	return temp;
+	elementsArr[++cntEle] = new Vector(x, y, z);
 }
 
-Vector CreateVectorObject(Point& a, Point& b)
+void CreateVectorObject(Point& a, Point& b)
 {
-
-	Vector temp(a, b);
-	elementsArr[cntEle++] = new Vector(temp);
-
-	return temp;
+	elementsArr[++cntEle] = new Vector(a, b);
 }
 
 void ExecuteVectorOperations()
@@ -169,7 +159,6 @@ void ExecuteVectorOperations()
 			<< "9. Print Vector\n";
 
 		cin >> opt;
-
 
 		switch (opt)
 		{
@@ -192,7 +181,7 @@ void ExecuteVectorOperations()
 				cin >> y;
 				cout << "Enter z coordinate: \n";
 				cin >> z;
-				Vector CreateVectorObject(x, y, z);
+				CreateVectorObject(x, y, z);
 				break;
 			}
 			case 2:
@@ -203,7 +192,7 @@ void ExecuteVectorOperations()
 				cout << "Enter B: \n";
 				cin >> b;
 
-				Vector CreateVectorObject(*dynamic_cast<Point*>(elementsArr[a]), *dynamic_cast<Point*>(elementsArr[b]));
+				CreateVectorObject(*dynamic_cast<Point*>(elementsArr[a]), *dynamic_cast<Point*>(elementsArr[b]));
 				break;
 			}
 			}

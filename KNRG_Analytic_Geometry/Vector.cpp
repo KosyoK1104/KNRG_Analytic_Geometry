@@ -1,14 +1,21 @@
 #include "Vector.h"
-Vector::Vector() : Point() {}
+Vector::Vector(){}
 Vector::Vector(double x, double y, double z) {
 	setX(x);
 	setY(y);
 	setZ(z);
+	cout << "v const\n";
 }
 Vector::Vector(const Point& A, const Point& B)
 {
-	Vector tmp(B.getX() - A.getX(), B.getY() - A.getY(), B.getZ() - A.getZ());
-	cout << "Vector constructed";
+	setX(B.getX() - A.getX());
+	//cout << B.getX() - A.getX() << endl;
+	setY(B.getY() - A.getY());
+	//cout << B.getY() - A.getY() << endl;
+	setZ(B.getZ() - A.getZ());
+	//cout << B.getZ() - A.getZ() << endl;
+	//Vector tmp(B.getX() - A.getX(), B.getY() - A.getY(), B.getZ() - A.getZ());
+	cout << "Vector constructed\n";
 }
 Vector::Vector(const Vector& rhs) 
 {
@@ -22,10 +29,12 @@ Vector& Vector::operator=(const Vector& rhs)
 	return *this;
 }
 Vector::~Vector() {
+	cout << "v desc\n";
 }
 //zadacha 2
 double Vector::dulzhinaVector()
 {
+	//cout << sqrt(pow(getX(), 2) + pow(getY(), 2) + pow(getZ(), 2));
 	return sqrt(pow(getX(), 2) + pow(getY(), 2) + pow(getZ(), 2));
 }
 Vector Vector::posokaVector() 
