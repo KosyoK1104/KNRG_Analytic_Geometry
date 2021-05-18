@@ -17,8 +17,9 @@ public:
     double FindTriangleSurface() const;
     double FindTrianglePerimeter() const;
    
-    virtual std::ostream& ins(std::ostream&)const;
-    virtual std::istream& ext(std::istream&);
+    std::ostream& ins(std::ostream&)const;
+    std::istream& ext(std::istream&);
+
 private :
     Point x, y, z;
     double a, b, c;
