@@ -13,6 +13,7 @@ void ComparePoints();
 
 Vector CreateVectorObject(double x, double y, double z);
 Vector CreateVectorObject(Point& a, Point& b);
+Vector posokaVector();
 void ExecuteVectorOperations();
 
 //Triangle CreateTriangleObject();
