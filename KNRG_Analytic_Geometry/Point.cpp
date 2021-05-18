@@ -28,7 +28,7 @@ Point::~Point()
 }
 
 bool Point::operator==(const Point& p) {
-	return (x == p.x) && (y == p.y) && (z == p.z);
+	return (x == p.getX()) && (y == p.getY()) && (z == p.getZ());
 }
 
 std::ostream& Point::ins(std::ostream& out) const
@@ -67,8 +67,7 @@ double Point::getZ() const {
 	return z;
 }
 
-double Point::findDistanceToPoint(Point& smth) const
-
+double Point::findDistanceToPoint(const Point& smth)
 {
 	return sqrt((pow((getX() - smth.getX()), 2))
 		+ (pow((getY() - smth.getY()), 2))

@@ -13,12 +13,16 @@ public:
 
     int angleTwoLines(Line&);
 
-    Point getPointA();
-    Point getPointB();
-    Vector getVectorAB();
+    Point getPointA() const;
+    Point getPointB() const;
+    Vector getVectorAB() const;
 
     bool operator||(const Line&);
     bool operator+(const Point&);
+    bool operator==(const Line&);
+    bool operator&&(const Line&);
+    bool operator!=(const Line&);
+    bool operator|(const Line&);
 
 private:
     Point pointA;
