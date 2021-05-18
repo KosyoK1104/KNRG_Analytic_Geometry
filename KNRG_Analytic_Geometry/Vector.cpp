@@ -26,7 +26,7 @@ Vector::~Vector() {
 //zadacha 2
 double Vector::dulzhinaVector()
 {
-	return (sqrt(pow(getX(), 2) + pow(getY(), 2) + pow(getZ(), 2) == 0));
+	return sqrt(pow(getX(), 2) + pow(getY(), 2) + pow(getZ(), 2));
 }
 
 void Vector::dulzhina() {
