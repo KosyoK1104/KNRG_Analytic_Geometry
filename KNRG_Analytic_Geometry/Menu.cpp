@@ -13,13 +13,13 @@ void Menu()
 	while (true)
 	{
 		cout << "Select an object: \n"
-			<< "0. Exit\n"
 			<< "1. Point\n"
 			<< "2. Vector\n"
 			<< "3. Line\n"
 			<< "4. Segment\n"
 			<< "5. Triangle\n"
-			<< "6. Tetrahedron\n";
+			<< "6. Tetrahedron\n"
+			<< "0. Exit\n";
 
 		cin >> optionSelect;
 
@@ -73,10 +73,10 @@ void ExecutePointOperations()
 	do
 	{
 		cout << "Avalable Point operations: \n"
-			<< "0. Exit to Main Menu\n"
 			<< "1. Create a new Point\n"
 			<< "2. Print Point coordinates\n"
-			<< "3. Compare the coordinates of two Points\n";
+			<< "3. Compare the coordinates of two Points\n"
+			<< "0. Exit to Main Menu\n";
 		cin >> opt;
 
 		switch(opt)
@@ -147,7 +147,6 @@ void ExecuteVectorOperations()
 	int opt;
 	do {
 		std::cout << "Vector operations: \n"
-			<< "0. Exit to Main Menu\n"
 			<< "1. Create a vector\n"
 			<< "2. Get length\n"
 			<< "3. Get direction of vector\n"
@@ -156,7 +155,8 @@ void ExecuteVectorOperations()
 			<< "6. Check if vector is perpendicular /w new vector\n"
 			<< "7. Make a sum /w new vector \n"
 			<< "8. Scalar multiplication /w new vector \n"
-			<< "9. Print Vector\n";
+			<< "9. Print Vector\n"
+			<< "0. Exit to Main Menu\n";
 
 		cin >> opt;
 
@@ -165,9 +165,9 @@ void ExecuteVectorOperations()
 		case 1:
 		{
 			cout << "Please choose the way you want to create a vector: \n"
-				<< "0. Exit to Main Menu\n"
 				<< "1. Input with coordinates\n"
-				<< "2. Input with points\n";
+				<< "2. Input with points\n"
+				<< "0. Exit to Main Menu\n";
 			cin >> opt;
 
 			switch (opt)
@@ -207,7 +207,10 @@ void ExecuteVectorOperations()
 		}
 		case 3:
 		{
-			//std::cout << (std::boolalpha) << v.isVectorNull() << '\n';
+			int opt;
+			cout << "Please choose an existing Vector: ";
+			cin >> opt;
+			cout << static_cast<Vector*>(elementsArr[opt])->posokaVector() << '\n';
 			break;
 		}
 		case 4:
