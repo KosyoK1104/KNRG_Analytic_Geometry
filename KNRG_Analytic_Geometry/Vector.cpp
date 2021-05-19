@@ -94,7 +94,7 @@ double Vector::operator()(const Vector& v2, const Vector& v3) {
 }
 
 ostream& Vector::ins(ostream& out)const {
-	return out << "Vector is with coordinates: " << endl << "X=" << getX() << endl << "Y=" << getY() << endl << "Z=" << getZ() << endl;
+	return out /*<< "Vector is with coordinates: "*/ << endl << "X=" << getX() << endl << "Y=" << getY() << endl << "Z=" << getZ() << endl;
 }
 
 istream& Vector::ext(istream& in){

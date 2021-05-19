@@ -23,7 +23,6 @@ public:
 	bool paralelVector(Vector&);
 	bool perpendicularVector(Vector&);
 
-
 	//zadacha 3
 	Vector operator+(const Vector&);
 	Vector operator-(const Vector&);

@@ -12,7 +12,7 @@ void Menu()
 
 	while (true)
 	{
-		cout << "Select an object: \n"
+		cout << "Available objects: \n"
 			<< "1. Point\n"
 			<< "2. Vector\n"
 			<< "3. Line\n"
@@ -21,6 +21,8 @@ void Menu()
 			<< "6. Tetrahedron\n"
 			<< "0. Exit\n";
 
+		cout << "\n";
+		cout << "Please select an object: ";
 		cin >> optionSelect;
 
 		switch (optionSelect)
@@ -58,11 +60,11 @@ void Menu()
 void CreatePointObject()
 {
 	double x, y, z;
-	cout << "Enter x coordinate: \n";
+	cout << "Enter x coordinate: ";
 	cin >> x;
-	cout << "Enter y coordinate: \n";
+	cout << "Enter y coordinate: ";
 	cin >> y;
-	cout << "Enter z coordinate: \n";
+	cout << "Enter z coordinate: ";
 	cin >> z;
 	elementsArr[++cntEle] = new Point(x, y, z);
 }
@@ -77,29 +79,38 @@ void ExecutePointOperations()
 			<< "2. Print Point coordinates\n"
 			<< "3. Compare the coordinates of two Points\n"
 			<< "0. Exit to Main Menu\n";
+		cout << "\n";
+		cout << "Please enter your choice: ";
 		cin >> opt;
 
 		switch(opt)
 		{
 		case 1:
 		{
+			system("cls");
 			CreatePointObject();
+			cout << "\n";
 			break;
 		}
 		case 2:
 		{
+			system("cls");
 			int opt;
+			cout << "Please select the point you want to print: ";
 			cin >> opt;
 			cout << *elementsArr[opt];
+			cout << "\n";
 			break;
 		}
 		case 3:
 		{
+			system("cls");
 			ComparePoints();
+			cout << "\n";
 			break;
 		}
-		case 0: break;
-
+		case 0: 
+			break;
 			system("pause");
 		}
 	} while (opt != 0);
@@ -108,9 +119,9 @@ void ExecutePointOperations()
 void ComparePoints()
 {
 	unsigned int opt1, opt2;
-	cout << "First Point: \n";
+	cout << "First Point: ";
 	cin >> opt1;
-	cout << "Second Point: \n";
+	cout << "Second Point: ";
 	cin >> opt2;
 
 	if (typeid(elementsArr[opt1]) == typeid(elementsArr[opt2])) 
@@ -146,7 +157,7 @@ void ExecuteVectorOperations()
 {
 	int opt;
 	do {
-		std::cout << "Vector operations: \n"
+		std::cout << "Available vector operations: \n"
 			<< "1. Create a vector\n"
 			<< "2. Get length\n"
 			<< "3. Get direction of vector\n"
@@ -157,42 +168,49 @@ void ExecuteVectorOperations()
 			<< "8. Scalar multiplication /w new vector \n"
 			<< "9. Print Vector\n"
 			<< "0. Exit to Main Menu\n";
-
+		cout << "\n";
+		cout << "Please enter your choice: ";
 		cin >> opt;
 
 		switch (opt)
 		{
 		case 1:
 		{
-			cout << "Please choose the way you want to create a vector: \n"
+			system("cls");
+			cout << "Available ways to create a vector: \n"
 				<< "1. Input with coordinates\n"
 				<< "2. Input with points\n"
 				<< "0. Exit to Main Menu\n";
+			cout << "\n";
+			cout << "Please enter your choice: ";
 			cin >> opt;
 
 			switch (opt)
 			{
 			case 1:
 			{
+				system("cls");
 				double x, y, z;
-				cout << "Enter x coordinate: \n";
+				cout << "Enter x coordinate: ";
 				cin >> x;
-				cout << "Enter y coordinate: \n";
+				cout << "Enter y coordinate: ";
 				cin >> y;
-				cout << "Enter z coordinate: \n";
+				cout << "Enter z coordinate: ";
 				cin >> z;
 				CreateVectorObject(x, y, z);
+				cout << "\n";
 				break;
 			}
 			case 2:
 			{
+				system("cls");
 				unsigned int a, b;
 				cout << "Enter A: \n";
 				cin >> a;
 				cout << "Enter B: \n";
 				cin >> b;
-
 				CreateVectorObject(*dynamic_cast<Point*>(elementsArr[a]), *dynamic_cast<Point*>(elementsArr[b]));
+				cout << "\n";
 				break;
 			}
 			}
@@ -200,23 +218,39 @@ void ExecuteVectorOperations()
 		}
 		case 2:
 		{
+			system("cls");
 			int opt;
+			cout << "Please choose an existing Vector to find it's lenght: ";
 			cin >> opt;
-			cout << static_cast<Vector*>(elementsArr[opt])->dulzhinaVector() << '\n';
+			cout << "The lenght of Vector " << opt << " is " << static_cast<Vector*>(elementsArr[opt])->dulzhinaVector() << '\n';
+			cout << "\n";
 			break;
 		}
 		case 3:
 		{
+			system("cls");
 			int opt;
-			cout << "Please choose an existing Vector: ";
+			cout << "Please choose an existing Vector to find it's direction: ";
 			cin >> opt;
-			cout << static_cast<Vector*>(elementsArr[opt])->posokaVector() << '\n';
+			cout << "The direction of Vector " << opt << " is: " << static_cast<Vector*>(elementsArr[opt])->posokaVector() << '\n';
+			cout << "\n";
 			break;
 		}
 		case 4:
 		{
-			//Vector newV(CreateVectorObject());
-			//std::cout << (std::boolalpha) << v.vectorParallelism(newV) << '\n';
+			system("cls");
+			int opt;
+			cout << "Please choose an existing Vector to check if it's zero: ";
+			cin >> opt;
+			if ((static_cast<Vector*>(elementsArr[opt])->zeroVector()) == 1) 
+			{
+				cout << "Vector " << opt << " is zero vector\n";
+			}
+			else
+			{
+				cout << "Vector " << opt << " is NOT zero vector\n";
+			}
+			cout << "\n";
 			break;
 		}
 		case 5:
