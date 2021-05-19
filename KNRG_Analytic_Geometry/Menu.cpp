@@ -255,8 +255,9 @@ void ExecuteVectorOperations()
 		}
 		case 5:
 		{
-			//Vector newV(CreateVectorObject());
-			//std::cout << (std::boolalpha) << v.vectorPerpendicularity(newV) << '\n';
+			system("cls");
+			int opt;
+			cout << "Please choose two vectors to check if they are parallel";
 			break;
 		}
 		case 6:
