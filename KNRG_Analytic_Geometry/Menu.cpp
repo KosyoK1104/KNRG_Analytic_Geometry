@@ -262,7 +262,7 @@ void ExecuteVectorOperations()
 			int opt1, opt2;
 			cout << "Please choose two vectors to check if they are parallel";
 			cin >> opt1 >> opt2;
-			dynamic_cast<Vector*>(elementsArr[opt1])->paralelVector(dynamic_cast<Vector*>(elementsArr[opt2]));
+			dynamic_cast<Vector*>(elementsArr[opt1])->paralelVector(*static_cast<Vector*>(elementsArr[opt2]));
 			break;
 		}
 		case 6:
