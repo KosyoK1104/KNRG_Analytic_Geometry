@@ -164,9 +164,11 @@ void ExecuteVectorOperations()
 			<< "4. Check if vector is null\n"
 			<< "5. Check if vector is parallel /w new vector\n"
 			<< "6. Check if vector is perpendicular /w new vector\n"
-			<< "7. Make a sum /w new vector \n"
-			<< "8. Scalar multiplication /w new vector \n"
-			<< "9. Print Vector\n"
+			<< "7. Sum two vectors\n"
+			<< "8. Substract two vectors\n"
+			<< "9. Multiply vector with real number\n"
+			<< "10. Scalar multiply two vectors\n"
+			<< "11. Print Vector\n"
 			<< "0. Exit to Main Menu\n";
 		cout << "\n";
 		cout << "Please enter your choice: ";
@@ -242,7 +244,7 @@ void ExecuteVectorOperations()
 			int opt;
 			cout << "Please choose an existing Vector to check if it's zero: ";
 			cin >> opt;
-			if ((static_cast<Vector*>(elementsArr[opt])->zeroVector()) == 1) 
+			if ((static_cast<Vector*>(elementsArr[opt])->zeroVector()) == 1)
 			{
 				cout << "Vector " << opt << " is zero vector\n";
 			}
@@ -262,7 +264,7 @@ void ExecuteVectorOperations()
 			cout << "Enter the first vector: ";
 			cin >> opt1;
 			cout << "Enter the second vector: ";
-			cin	>> opt2;
+			cin >> opt2;
 			dynamic_cast<Vector*>(elementsArr[opt1])->paralelVector(*static_cast<Vector*>(elementsArr[opt2]));
 			cout << "\n";
 			break;
@@ -282,13 +284,47 @@ void ExecuteVectorOperations()
 		}
 		case 7:
 		{
-			//Vector newV(CreateVectorObject());
-			//std::cout << v * newV << '\n';
+			system("cls");
+			int opt1, opt2;
+			cout << "Please choose two vectors to sum:\n";
+			cout << "Enter the first vector: ";
+			cin >> opt1;
+			cout << "Enter the second vector: ";
+			cin >> opt2;
+			cout << *(static_cast<Vector*>(elementsArr[opt1])) + *(static_cast<Vector*>(elementsArr[opt2]));
+			cout << "\n";
 			break;
 		}
 		case 8:
 		{
-			//cout << v << '\n';
+			system("cls");
+			int opt1, opt2;
+			cout << "Please choose two vectors to substract:\n";
+			cout << "Enter the first vector: ";
+			cin >> opt1;
+			cout << "Enter the second vector: ";
+			cin >> opt2;
+			cout << *(static_cast<Vector*>(elementsArr[opt1])) - *(static_cast<Vector*>(elementsArr[opt2]));
+			cout << "\n";
+			break;
+		}
+		case 9:
+		{
+			system("cls");
+			
+			break;
+		}
+		case 10:
+		{
+			system("cls");
+			int opt1, opt2;
+			cout << "Please choose two vectors to multiply:\n";
+			cout << "Enter the first vector: ";
+			cin >> opt1;
+			cout << "Enter the second vector: ";
+			cin >> opt2;
+			cout << *(static_cast<Vector*>(elementsArr[opt1])) * *(static_cast<Vector*>(elementsArr[opt2]));
+			cout << "\n";
 			break;
 		}
 		default:

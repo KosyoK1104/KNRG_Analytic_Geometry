@@ -75,7 +75,7 @@ bool Vector::perpendicularVector(Vector& v) {
 }
 //zadacha 3
 Vector Vector::operator+(const Vector& rhs) {
-	cout << "Result after addition is new vector: " << endl;
+	cout << "Result after addition is new vector with coordinates: " << endl;
 	return Vector(getX() + rhs.getX(), getY() + rhs.getY(), getZ() + rhs.getZ());
 }
 
@@ -84,7 +84,7 @@ Vector Vector::operator-(const Vector& rhs) {
 	return Vector(getX() - rhs.getX(), getY() - rhs.getY(), getZ() - rhs.getZ());
 }
 
-double Vector::operator *(const Vector& rhs) {
+double Vector::operator*(const Vector& rhs) {
 	std::cout << "The result after multiplication is a real number with value ";
 	return getX() * rhs.getX() + getY() * rhs.getY() + getZ() * rhs.getZ();
 }
