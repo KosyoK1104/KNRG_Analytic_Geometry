@@ -1,16 +1,6 @@
 #include "Triangle.h"
 Triangle::~Triangle() {}
 
-std::ostream& Triangle::ins(std::ostream& out) const
-{
-    return std::cout << ' ';
-}
-
-std::istream& Triangle::ext(std::istream& in)
-{
-    return in;
-}
-
 
 Triangle::Triangle() : a(0), b(0), c(0)
 {
@@ -104,8 +94,25 @@ double Triangle::findTriangleSurface() const
 	return Surface;
 }
 
+Point& Triangle::findTriangleMedicenter() const
+{
+	double mx;
+	mx = (this->x.getX() + this->y.getX() + this->z.getX()) / 3.0;
+	double my;
+	my = (this->x.getY() + this->y.getY() + this->z.getY()) / 3.0;
+	double mz;
+	mz = (this->x.getZ() + this->y.getZ() + this->z.getZ()) / 3.0;
+
+	Point mediCenter = Point(mx, my, mz);
+
+	return mediCenter;
+
+}
+
+
+
 std::ostream& Triangle::ins(std::ostream& out)const {
-	return out << "\nTriangle has the following sides:\nSide a: " << a << "\nSide b: " << b << "\nSide c: " << c << std::endl;
+	return out << "\n The triangle has the following sides:\na: " << a << "\nb: " << b << "\nc: " << c << std::endl;
 }
 
 

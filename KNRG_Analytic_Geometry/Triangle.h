@@ -21,7 +21,8 @@ public:
     void findTriangleKindA() const;
     double findTriangleSurface() const;
     double findTrianglePerimeter() const;
-   
+    Point& findTriangleMedicenter() const;
+
     std::ostream& ins(std::ostream&)const;
     std::istream& ext(std::istream&);
 
