@@ -312,7 +312,14 @@ void ExecuteVectorOperations()
 		case 9:
 		{
 			system("cls");
-			// TUKA TRQBVA UMNOJENIE NA VEKTOR S REALNO CHISLO
+			int opt1;
+			double a;
+			cout << "Please choose an existing Vector: ";
+			cin >> opt1;
+			cout << "Please enter a real number: ";
+			cin >> a;
+			cout << *(static_cast<Vector*>(elementsArr[opt1])) * a << "\n";
+			cout << "\n";
 			break;
 		}
 		case 10:
@@ -331,13 +338,22 @@ void ExecuteVectorOperations()
 		case 11:
 		{
 			system("cls");
-			// TUKA TRQBVA UMNOJENIE NA DVA VEKTORA I DA DAVA KATO REZULTAT VEKTOR
+			
 			break;
 		}
 		case 12:
 		{
 			system("cls");
-			// TUKA TRQBVA MIKSIRANO UMNOJENIE NA TRI VEKTORA I DA DAVA KATO REZULTAT VEKTOR
+			int opt1, opt2, opt3;
+			cout << "Please choose two vectors and real number to multiply:\n";
+			cout << "Enter the first vector: ";
+			cin >> opt1;
+			cout << "Enter the second vector: ";
+			cin >> opt2;
+			cout << "Enter the third vector: ";
+			cin >> opt3;
+			cout << (*static_cast<Vector*>(elementsArr[opt1]))(*(static_cast<Vector*>(elementsArr[opt2])), *(static_cast<Vector*>(elementsArr[opt3]))) << "\n";
+			cout << "\n";
 			break;
 		}
 		default:
