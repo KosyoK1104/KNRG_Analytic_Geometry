@@ -1,5 +1,4 @@
 #include "Tetrahedron.h"
-using namespace std;
 
 Tetrahedron::Tetrahedron(Point& a, Point& b, Point& c, Point& d)
 {
@@ -33,3 +32,30 @@ Tetrahedron& Tetrahedron::operator=() {
 	}
 	return *this;
 }
+Tetrahedron::~Tetrahedron()
+{
+	std::cout<<"Tetrahedron distructing..."<<std::endl;
+}
+
+bool Tetrahedron::vsichkiStraniSaRavni() const 
+{
+	const bool saRavni = this->t1.getA() == this->t1.getB() == this->t1.getC() ==
+		this->t2.getA() == this->t2.getC() == this->t3.getC();
+
+	return saRavni;
+}
+
+double Tetrahedron::izchisliLiceNaPovurhnina() const
+{
+	const double liceNaPovurhnina = sqrt(3) * pow(this->t1.getA(), 2);
+
+	return liceNaPovurhnina;
+}
+
+double Tetrahedron::izchisliObem() const
+{
+	const double obem = (1.0 / 12) * sqrt(2) * pow(this->t1.getA(), 2);
+
+	return obem;
+}
+
