@@ -168,7 +168,8 @@ void ExecuteVectorOperations()
 			<< "8. Substract two vectors\n"
 			<< "9. Multiply vector with real number\n"
 			<< "10. Scalar multiply two vectors\n"
-			<< "11. Print Vector\n"
+			<< "11. Multiply two vectors\n"
+			<< "12. Mixed multiplication of three vectors\n"
 			<< "0. Exit to Main Menu\n";
 		cout << "\n";
 		cout << "Please enter your choice: ";
@@ -291,7 +292,7 @@ void ExecuteVectorOperations()
 			cin >> opt1;
 			cout << "Enter the second vector: ";
 			cin >> opt2;
-			cout << *(static_cast<Vector*>(elementsArr[opt1])) + *(static_cast<Vector*>(elementsArr[opt2]));
+			cout << *(static_cast<Vector*>(elementsArr[opt1])) + *(static_cast<Vector*>(elementsArr[opt2])) << "\n";
 			cout << "\n";
 			break;
 		}
@@ -304,14 +305,14 @@ void ExecuteVectorOperations()
 			cin >> opt1;
 			cout << "Enter the second vector: ";
 			cin >> opt2;
-			cout << *(static_cast<Vector*>(elementsArr[opt1])) - *(static_cast<Vector*>(elementsArr[opt2]));
+			cout << *(static_cast<Vector*>(elementsArr[opt1])) - *(static_cast<Vector*>(elementsArr[opt2])) << "\n";
 			cout << "\n";
 			break;
 		}
 		case 9:
 		{
 			system("cls");
-			
+			// TUKA TRQBVA UMNOJENIE NA VEKTOR S REALNO CHISLO
 			break;
 		}
 		case 10:
@@ -323,8 +324,20 @@ void ExecuteVectorOperations()
 			cin >> opt1;
 			cout << "Enter the second vector: ";
 			cin >> opt2;
-			cout << *(static_cast<Vector*>(elementsArr[opt1])) * *(static_cast<Vector*>(elementsArr[opt2]));
+			cout << *(static_cast<Vector*>(elementsArr[opt1])) * *(static_cast<Vector*>(elementsArr[opt2])) << "\n";
 			cout << "\n";
+			break;
+		}
+		case 11:
+		{
+			system("cls");
+			// TUKA TRQBVA UMNOJENIE NA DVA VEKTORA I DA DAVA KATO REZULTAT VEKTOR
+			break;
+		}
+		case 12:
+		{
+			system("cls");
+			// TUKA TRQBVA MIKSIRANO UMNOJENIE NA TRI VEKTORA I DA DAVA KATO REZULTAT VEKTOR
 			break;
 		}
 		default:
