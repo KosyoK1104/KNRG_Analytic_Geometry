@@ -1,15 +1,16 @@
+#pragma once
 #include <exception>
 #include <string>
-#include "Point.h"
 
-class EqualPointException :
+class VectorLenghtException :
     public std::exception
 {
 public:
-    EqualPointException(std::string const&);
-    EqualPointException(char const*);
-    
+    VectorLenghtException(std::string const&);
+    VectorLenghtException(char const*);
     const char* what() const;
+
 private:
     std::string errorMessage;
 };
+

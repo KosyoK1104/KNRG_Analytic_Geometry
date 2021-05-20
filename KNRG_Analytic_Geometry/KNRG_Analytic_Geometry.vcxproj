@@ -148,6 +148,7 @@
     <ClCompile Include="Segment.cpp" />
     <ClCompile Include="Triangle.cpp" />
     <ClCompile Include="Vector.cpp" />
+    <ClCompile Include="VectorLenghtException.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Element.h" />
@@ -158,6 +159,7 @@
     <ClInclude Include="Segment.h" />
     <ClInclude Include="Triangle.h" />
     <ClInclude Include="Vector.h" />
+    <ClInclude Include="VectorLenghtException.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
