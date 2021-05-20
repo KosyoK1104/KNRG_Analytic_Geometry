@@ -10,12 +10,17 @@ public:
     Triangle();
     Triangle(Point&, Point&, Point&);
     Triangle(const Triangle&);
-
     ~Triangle();
 
-    void FindTriangleKind() const;
-    double FindTriangleSurface() const;
-    double FindTrianglePerimeter() const;
+    double getA() const;
+    double getB() const;
+    double getC() const;
+
+
+    void findTriangleKindS() const;
+    void findTriangleKindA() const;
+    double findTriangleSurface() const;
+    double findTrianglePerimeter() const;
    
     virtual std::ostream& ins(std::ostream&)const;
     virtual std::istream& ext(std::istream&);
