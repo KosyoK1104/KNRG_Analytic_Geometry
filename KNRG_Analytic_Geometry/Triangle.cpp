@@ -1,6 +1,16 @@
 #include "Triangle.h"
 Triangle::~Triangle() {}
 
+std::ostream& Triangle::ins(std::ostream& out) const
+{
+    return std::cout << ' ';
+}
+
+std::istream& Triangle::ext(std::istream& in)
+{
+    return in;
+}
+
 
 Triangle::Triangle() : a(0), b(0), c(0)
 {
@@ -97,4 +107,6 @@ double Triangle::findTriangleSurface() const
 std::ostream& Triangle::ins(std::ostream& out)const {
 	return out << "\nTriangle has the following sides:\nSide a: " << a << "\nSide b: " << b << "\nSide c: " << c << std::endl;
 }
+
+
 

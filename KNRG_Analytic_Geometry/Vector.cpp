@@ -1,13 +1,21 @@
 #include "Vector.h"
-Vector::Vector() : Point() {}
+Vector::Vector(){}
 Vector::Vector(double x, double y, double z) {
 	setX(x);
 	setY(y);
 	setZ(z);
+	cout << "v const\n";
 }
 Vector::Vector(const Point& A, const Point& B)
 {
-	Vector tmp(B.getX() - A.getX(), B.getY() - A.getY(), B.getZ() - A.getZ());
+	setX(B.getX() - A.getX());
+	//cout << B.getX() - A.getX() << endl;
+	setY(B.getY() - A.getY());
+	//cout << B.getY() - A.getY() << endl;
+	setZ(B.getZ() - A.getZ());
+	//cout << B.getZ() - A.getZ() << endl;
+	//Vector tmp(B.getX() - A.getX(), B.getY() - A.getY(), B.getZ() - A.getZ());
+	cout << "Vector constructed\n";
 }
 Vector::Vector(const Vector& rhs) 
 {
@@ -21,11 +29,13 @@ Vector& Vector::operator=(const Vector& rhs)
 	return *this;
 }
 Vector::~Vector() {
+	cout << "v desc\n";
 }
 //zadacha 2
 double Vector::dulzhinaVector()
 {
-	return (sqrt(pow(getX(), 2) + pow(getY(), 2) + pow(getZ(), 2) == 0));
+	//cout << sqrt(pow(getX(), 2) + pow(getY(), 2) + pow(getZ(), 2));
+	return sqrt(pow(getX(), 2) + pow(getY(), 2) + pow(getZ(), 2));
 }
 Vector Vector::posokaVector() 
 {
@@ -84,7 +94,7 @@ double Vector::operator()(const Vector& v2, const Vector& v3) {
 }
 
 ostream& Vector::ins(ostream& out)const {
-	return out << "Vector is with coordinates: " << endl << "X=" << getX() << endl << "Y=" << getY() << endl << "Z=" << getZ() << endl;
+	return out /*<< "Vector is with coordinates: "*/ << endl << "X=" << getX() << endl << "Y=" << getY() << endl << "Z=" << getZ() << endl;
 }
 
 istream& Vector::ext(istream& in){
