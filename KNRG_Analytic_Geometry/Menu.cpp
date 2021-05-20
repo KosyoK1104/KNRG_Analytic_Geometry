@@ -292,7 +292,7 @@ void ExecuteVectorOperations()
 			cin >> opt1;
 			cout << "Enter the second vector: ";
 			cin >> opt2;
-			cout << *(static_cast<Vector*>(elementsArr[opt1])) + *(static_cast<Vector*>(elementsArr[opt2])) << "\n";
+			cout << (*(static_cast<Vector*>(elementsArr[opt1])) + *(static_cast<Vector*>(elementsArr[opt2]))) << "\n";
 			cout << "\n";
 			break;
 		}
@@ -305,7 +305,7 @@ void ExecuteVectorOperations()
 			cin >> opt1;
 			cout << "Enter the second vector: ";
 			cin >> opt2;
-			cout << *(static_cast<Vector*>(elementsArr[opt1])) - *(static_cast<Vector*>(elementsArr[opt2])) << "\n";
+			cout << (*(static_cast<Vector*>(elementsArr[opt1])) - *(static_cast<Vector*>(elementsArr[opt2]))) << "\n";
 			cout << "\n";
 			break;
 		}
