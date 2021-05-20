@@ -235,8 +235,18 @@ void ExecuteVectorOperations()
 			int opt;
 			cout << "Please choose an existing Vector to find it's direction: ";
 			cin >> opt;
-			cout << "The direction of Vector " << opt << " is: " << static_cast<Vector*>(elementsArr[opt])->posokaVector() << '\n';
-			cout << "\n";
+			try {
+				if (static_cast<Vector*>(elementsArr[opt])->zeroVector()) {
+					throw VectorLenghtException("The vector is null vector!");
+				}
+				else {
+					cout << "The direction of Vector " << opt << " is: " << static_cast<Vector*>(elementsArr[opt])->posokaVector() << '\n';
+					cout << "\n";
+				}
+			}
+			catch (VectorLenghtException& e) {
+				cerr << e.what() << "\n";
+			}
 			break;
 		}
 		case 4:

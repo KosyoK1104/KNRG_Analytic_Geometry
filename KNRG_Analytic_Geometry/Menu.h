@@ -2,6 +2,8 @@
 #include "Point.h"
 #include "Vector.h"
 #include "Triangle.h"
+#include "EqualPointException.h"
+#include "VectorLenghtException.h"
 #include <cstdlib>
 #include <typeinfo>
 
