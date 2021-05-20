@@ -32,21 +32,19 @@ void Menu()
 			case 1:
 			{
 				system("cls");
-				//Point p(CreatePointObject());
 				ExecutePointOperations();
 				break;
 			}
 			case 2:
 			{
 				system("cls");
-				//Vector v(CreateVectorObject());
 				ExecuteVectorOperations();
 				break;
 			}
 			case 3:
 			{
 				system("cls");
-				//ExecuteTriangleOperations();
+				ExecuteLineOperations();
 				break;
 
 			}
@@ -54,8 +52,6 @@ void Menu()
 		}
 	}
 }
-
-//Point Create and Execute
 
 void CreatePointObject()
 {
@@ -143,8 +139,6 @@ void ComparePoints()
 	}
 }
 
-//Vector Create and Execute
-
 void CreateVectorObject(double x, double y, double z)
 {
 	elementsArr[++cntEle] = new Vector(x, y, z);
@@ -159,7 +153,7 @@ void ExecuteVectorOperations()
 {
 	int opt;
 	do {
-		std::cout << "Available vector operations: \n"
+		cout << "Available vector operations: \n"
 			<< "1. Create a vector\n"
 			<< "2. Get length\n"
 			<< "3. Get direction of vector\n"
@@ -384,8 +378,94 @@ void ExecuteVectorOperations()
 	} while (opt != 0);
 }
 
-/*Triangle CreateTriangleObject()
+void CreateLineObject(Vector& ab, Point& a)
 {
+	elementsArr[++cntEle] = new Line(ab, a);
+}
+void CreateLineObject(Point& a, Point& b)
+{
+	elementsArr[++cntEle] = new Line(a, b);
+}
+void ExecuteLineOperations() 
+{
+	int opt;
+	do 
+	{
+		cout << "Available line operations: \n"
+			<< "1. Create a line\n"
+			<< "2. Find the direction of the line\n"
+			<< "3. Find the normal vector - NE BACHKA MA NE BACHKA MA NE BACHKA MA NE BACHKA MA\n"
+			<< "4. Find the angle between two lines\n"
+			<< "5. Check if a point lays on a line\n"
+			<< "6. Check if a line is parallel to another line\n"
+			<< "7. Check if a line coincides to another line\n"
+			<< "8. Check if a line crosses another line\n"
+			<< "9. Check if a line is being intercrossed by another line\n"
+			<< "10. Check if a line is perpendicular to another line\n"
+			<< "0. Exit to Main Menu\n";
 
+		cout << "\n";
+		cout << "Please enter your choice: ";
+		cin >> opt;
 
-}*/
+		switch(opt)
+		{
+		case 1:
+		{
+			do {
+				system("cls");
+				cout << "Available ways to create a line: \n"
+					<< "1. Input with points\n"
+					<< "2. Input with vector and point\n"
+					<< "0. Exit to Main Menu\n";
+				cout << "\n";
+				cout << "Please enter your choice: ";
+				cin >> opt;
+
+				switch (opt)
+				{
+				case 1:
+				{
+					system("cls");
+					unsigned int a, b;
+					cout << "Enter first point: ";
+					cin >> a;
+					cout << "Enter second point: ";
+					cin >> b;
+					CreateLineObject(*dynamic_cast<Point*>(elementsArr[a]), *dynamic_cast<Point*>(elementsArr[b]));
+					cout << "\n";
+					break;
+				}
+				case 2:
+				{
+					system("cls");
+					unsigned int a, b;
+					cout << "Enter a vector: \n";
+					cin >> a;
+					cout << "Enter a point: \n";
+					cin >> b;
+					CreateLineObject(*dynamic_cast<Vector*>(elementsArr[a]), *dynamic_cast<Point*>(elementsArr[b]));
+					cout << "\n";
+					break;
+				}
+				default:
+					system("cls");
+					cout << "Please choose a valid option from the list below\n";
+					cout << "\n";
+					break;
+
+				}
+			} while (opt != 0);
+			break;
+		}
+		case 2:
+		{
+			int opt;
+			cout << "Enter a line: ";
+			cin >> opt;
+			cout << static_cast<Line*>(elementsArr[opt])->lineDirection();
+		}
+		}
+		
+	} while (opt != 0);
+}
