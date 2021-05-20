@@ -54,11 +54,11 @@ bool Vector::zeroVector() {
 }
 bool Vector::paralelVector(Vector& v) {
 	if (this->getX() / v.getX() == this->getY() && this->getY() / v.getY() == this->getZ() / v.getZ()) {
-		cout << "Vectors are paralel" << endl;
+		cout << "Vectors are parallel" << endl;
 		return true;
 	}
 	else {
-		cout << "Vectors are not paralel" << endl;
+		cout << "Vectors are not parallel" << endl;
 		return false;
 	}
 }

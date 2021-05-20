@@ -258,7 +258,7 @@ void ExecuteVectorOperations()
 		{
 			system("cls");
 			int opt1, opt2;
-			cout << "Please choose two vectors to check if they are parallel\n";
+			cout << "Please choose two vectors to check if they are parallel:\n";
 			cout << "Enter the first vector: ";
 			cin >> opt1;
 			cout << "Enter the second vector: ";
@@ -269,8 +269,15 @@ void ExecuteVectorOperations()
 		}
 		case 6:
 		{
-			//Vector newV(CreateVectorObject());
-			//std::cout << (std::boolalpha) << v + newV << '\n';
+			system("cls");
+			int opt1, opt2;
+			cout << "Please choose two vectors to check if they are perpendicular:\n";
+			cout << "Enter the first vector: ";
+			cin >> opt1;
+			cout << "Enter the second vector: ";
+			cin >> opt2;
+			dynamic_cast<Vector*>(elementsArr[opt1])->perpendicularVector(*static_cast<Vector*>(elementsArr[opt2]));
+			cout << "\n";
 			break;
 		}
 		case 7:
