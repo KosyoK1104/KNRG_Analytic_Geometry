@@ -84,17 +84,22 @@ Vector Vector::operator-(const Vector& rhs) {
 	return Vector(getX() - rhs.getX(), getY() - rhs.getY(), getZ() - rhs.getZ());
 }
 
-double Vector::operator *(const Vector& rhs) {
-	std::cout << "The result after multiplication is a real number with value: ";
+Vector Vector::operator^(const Vector& v) {
+	cout << "Result after vector multiplication of two vectors is new vector: " << endl;
+	return Vector(getX() * v.getX(), getY() * v.getY(), getZ() * v.getZ());
+}
+
+double Vector::operator*(const Vector& rhs) {
+	std::cout << "The result after multiplication is a real number with value ";
 	return getX() * rhs.getX() + getY() * rhs.getY() + getZ() * rhs.getZ();
 }
 
 Vector Vector::operator*(const double a) {
-	std::cout << "The result after multiplication is a new vector with coordinates: ";
+	std::cout << "The result after multiplication is a new vector with coordinates ";
 	return Vector(getX() * a, getY() * a, getZ() * a);
 }
 
-double Vector::operator()(const Vector& v2, const Vector& v3) const{
+double Vector::operator()(const Vector& v2, const Vector& v3) {
 	cout << "Result after multiplication: " << endl;
 	return (this->getY() * v2.getZ() - v2.getY() * this->getZ()) * v3.getX() - (this->getX() * v2.getZ() - v2.getX() * this->getZ()) * v3.getY() + (this->getX() * v2.getY() - this->getY() * v2.getX()) * v3.getZ();
 }

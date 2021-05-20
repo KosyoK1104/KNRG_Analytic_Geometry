@@ -28,7 +28,8 @@ public:
 	Vector operator-(const Vector&);
 	double operator*(const Vector&);
 	Vector operator*(const double);
-	double operator()(const Vector&, const Vector&) const;
+	Vector operator^(const Vector&);
+	double operator()(const Vector&, const Vector&);
 	virtual ostream& ins(std::ostream&)const;
 	virtual istream& ext(std::istream&);
 
