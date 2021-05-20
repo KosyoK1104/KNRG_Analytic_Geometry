@@ -374,9 +374,10 @@ void ExecuteVectorOperations()
 			break;
 		}
 		default:
+			cout << "Please choose a valid option";
 			break;
 		}
-	} while (opt > 0 && opt < 9 );
+	} while (opt != 0);
 }
 
 /*Triangle CreateTriangleObject()
