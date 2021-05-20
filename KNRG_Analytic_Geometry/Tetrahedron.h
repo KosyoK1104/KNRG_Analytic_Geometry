@@ -10,8 +10,10 @@ class Tetrahedron : public Point
 		Tetrahedron& operator=(const Tetrahedron&);
 		~Tetrahedron();
 		
-		double izchisliLiceNaPovurhnina() const;
-		double izchisliObem() const ;
+		bool vsichkiStraniSaRavni() const;
+		bool ortogonalen() const;
+		double izchisliLiceNaPovurhnina(const Tetrahedron&);
+		double izchisliObem(const Tetrahedron&) ;
 
 		bool operator<(const Point&);
 		bool operator>(const Point&);
