@@ -374,7 +374,8 @@ void ExecuteVectorOperations()
 			break;
 		}
 		default:
-			cout << "Please choose a valid option";
+			cout << "Please choose a valid option\n";
+			cout << "\n";
 			break;
 		}
 	} while (opt != 0);
