@@ -167,8 +167,8 @@ void ExecuteVectorOperations()
 			<< "7. Sum two vectors\n"
 			<< "8. Substract two vectors\n"
 			<< "9. Multiply vector with real number\n"
-			<< "10. Scalar multiply two vectors\n"
-			<< "11. Multiply two vectors\n"
+			<< "10. Scalar multiply two vectors (result is real number)\n"
+			<< "11. Multiply two vectors (result is vector)\n"
 			<< "12. Mixed multiplication of three vectors\n"
 			<< "0. Exit to Main Menu\n";
 		cout << "\n";
@@ -338,7 +338,14 @@ void ExecuteVectorOperations()
 		case 11:
 		{
 			system("cls");
-			
+			int opt1, opt2;
+			cout << "Please choose two vectors to multiply:\n";
+			cout << "Enter the first vector: ";
+			cin >> opt1;
+			cout << "Enter the second vector: ";
+			cin >> opt2;
+			cout << (*(static_cast<Vector*>(elementsArr[opt1])) ^ *(static_cast<Vector*>(elementsArr[opt2]))) << "\n";
+			cout << "\n";
 			break;
 		}
 		case 12:
