@@ -84,7 +84,12 @@ Vector Vector::operator-(const Vector& rhs) {
 	return Vector(getX() - rhs.getX(), getY() - rhs.getY(), getZ() - rhs.getZ());
 }
 
-double Vector::operator *(const Vector& rhs) {
+Vector Vector::operator^(const Vector& v) {
+	cout << "Result after vector multiplication of two vectors is new vector: " << endl;
+	return Vector(getX() * v.getX(), getY() * v.getY(), getZ() * v.getZ());
+}
+
+double Vector::operator*(const Vector& rhs) {
 	std::cout << "The result after multiplication is a real number with value ";
 	return getX() * rhs.getX() + getY() * rhs.getY() + getZ() * rhs.getZ();
 }
