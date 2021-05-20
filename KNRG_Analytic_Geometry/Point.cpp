@@ -72,5 +72,4 @@ double Point::findDistanceToPoint(const Point& smth)
 	return sqrt((pow((getX() - smth.getX()), 2))
 		+ (pow((getY() - smth.getY()), 2))
 		+ (pow((getZ() - smth.getZ()), 2)));
-
 }
