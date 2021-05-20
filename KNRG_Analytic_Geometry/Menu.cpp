@@ -109,9 +109,11 @@ void ExecutePointOperations()
 			cout << "\n";
 			break;
 		}
-		case 0: 
+		default:
+			system("cls");
+			cout << "Please choose a valid option from the list below\n";
+			cout << "\n";
 			break;
-			system("pause");
 		}
 	} while (opt != 0);
 }
@@ -374,7 +376,8 @@ void ExecuteVectorOperations()
 			break;
 		}
 		default:
-			cout << "Please choose a valid option\n";
+			system("cls");
+			cout << "Please choose a valid option from the list below\n";
 			cout << "\n";
 			break;
 		}
