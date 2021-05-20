@@ -107,6 +107,20 @@ Point& Triangle::findTriangleMedicenter() const
 
 }
 
+bool Triangle::operator<(const Point& rhs)
+{
+	return true;
+}
+
+bool Triangle::operator>(const Point&)
+{
+	return true;
+}
+
+bool Triangle::operator==(const Point&)
+{
+	return true;
+}
 
 
 std::ostream& Triangle::ins(std::ostream& out)const {

@@ -23,6 +23,10 @@ public:
     double findTrianglePerimeter() const;
     Point& findTriangleMedicenter() const;
 
+    bool operator<(const Point&);
+    bool operator>(const Point&);
+    bool operator==(const Point&);
+
     std::ostream& ins(std::ostream&)const;
     //std::istream& ext(std::istream&);
 
