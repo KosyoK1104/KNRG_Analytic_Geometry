@@ -18,7 +18,7 @@ Tetrahedron::Tetrahedron(const Tetrahedron& rhs)
 	this->t4 = rhs.t4;
 }
 
-Tetrahedron& Tetrahedron::operator=() {
+Tetrahedron& Tetrahedron::operator=(const Tetrahedron& rhs) {
 
 	if (this != &rhs)
 	{

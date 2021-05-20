@@ -24,7 +24,7 @@ public:
     Point& findTriangleMedicenter() const;
 
     std::ostream& ins(std::ostream&)const;
-    std::istream& ext(std::istream&);
+    //std::istream& ext(std::istream&);
 
 private :
     Point x, y, z;

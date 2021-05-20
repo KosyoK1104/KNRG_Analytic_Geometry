@@ -1,6 +1,4 @@
 #include "Triangle.h"
-Triangle::~Triangle() {}
-
 
 Triangle::Triangle() : a(0), b(0), c(0)
 {
