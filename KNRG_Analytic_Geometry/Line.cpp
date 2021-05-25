@@ -54,9 +54,10 @@ Vector Line::getVectorAB() const {
 	return vectorAB;
 }
 
-bool Line::operator||(const Line& line)
+bool Line::operator||(Line& line)
 {
-	return ((vectorAB.getX() / line.vectorAB.getX()) == (vectorAB.getY() / line.vectorAB.getY()) == (vectorAB.getZ() == line.vectorAB.getZ()));
+	return getVectorAB().paralelVector(line.getVectorAB());
+	//return ((vectorAB.getX() / line.vectorAB.getX()) == (vectorAB.getY() / line.vectorAB.getY()) == (vectorAB.getZ() == line.vectorAB.getZ()));
 
 }
 

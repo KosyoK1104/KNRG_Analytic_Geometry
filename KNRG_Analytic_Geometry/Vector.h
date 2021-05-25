@@ -20,7 +20,7 @@ public:
 	double dulzhinaVector();
 	Vector posokaVector();
 	bool zeroVector();
-	bool paralelVector(Vector&);
+	bool paralelVector(const Vector&);
 	bool perpendicularVector(Vector&);
 
 	//zadacha 3

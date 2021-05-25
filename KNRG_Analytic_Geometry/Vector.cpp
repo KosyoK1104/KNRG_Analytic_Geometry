@@ -52,7 +52,7 @@ return Vector(i, j, k);
 bool Vector::zeroVector() {
 	return (getX() == 0 && getY() == 0 && getZ() == 0);
 }
-bool Vector::paralelVector(Vector& v) {
+bool Vector::paralelVector(const Vector& v) {
 	if (this->getX() / v.getX() == this->getY() && this->getY() / v.getY() == this->getZ() / v.getZ()) {
 		cout << "Vectors are parallel" << endl;
 		return true;

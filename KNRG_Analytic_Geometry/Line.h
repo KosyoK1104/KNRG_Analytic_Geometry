@@ -17,7 +17,7 @@ public:
     Point getPointB() const;
     Vector getVectorAB() const;
 
-    bool operator||(const Line&);
+    bool operator||(Line&);
     bool operator+(const Point&);
     bool operator==(const Line&);
     bool operator&&(const Line&);
