@@ -52,13 +52,13 @@ return Vector(i, j, k);
 bool Vector::zeroVector() {
 	return (getX() == 0 && getY() == 0 && getZ() == 0);
 }
-bool Vector::paralelVector(const Vector& v) {
-	if (this->getX() / v.getX() == this->getY() && this->getY() / v.getY() == this->getZ() / v.getZ()) {
-		cout << "Vectors are parallel" << endl;
+bool Vector::paralelVector(const Vector& v) 
+{
+	if (this->getX() / v.getX() == this->getY() && this->getY() / v.getY() == this->getZ() / v.getZ()) 
+	{
 		return true;
 	}
 	else {
-		cout << "Vectors are not parallel" << endl;
 		return false;
 	}
 }

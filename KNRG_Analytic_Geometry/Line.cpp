@@ -27,7 +27,14 @@ Vector Line::lineDirection()
 
 Vector Line::findNormalVector()
 {
-	return Vector();
+	if (getVectorAB().getZ() < getVectorAB().getX()) 
+	{
+		return Vector(getVectorAB().getY(), -(getVectorAB().getX()), 0);
+	}
+	else 
+	{
+		return Vector(0, -(getVectorAB().getZ()), getVectorAB().getY());
+	}
 }
 
 int Line::angleTwoLines(Line& l)

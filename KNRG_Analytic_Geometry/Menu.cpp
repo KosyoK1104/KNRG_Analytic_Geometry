@@ -276,8 +276,16 @@ void ExecuteVectorOperations()
 			cin >> opt1;
 			cout << "Enter the second vector: ";
 			cin >> opt2;
-			dynamic_cast<Vector*>(elementsArr[opt1])->paralelVector(*static_cast<Vector*>(elementsArr[opt2]));
-			cout << "\n";
+			if (dynamic_cast<Vector*>(elementsArr[opt1])->paralelVector(*static_cast<Vector*>(elementsArr[opt2])))
+			{
+				cout << "Vectors are parallel\n";
+				cout << "\n";
+			}
+			else
+			{
+				cout << "Vectors are not parallel\n";
+				cout << "\n";
+			}
 			break;
 		}
 		case 6:
@@ -401,11 +409,11 @@ void ExecuteLineOperations()
 			<< "3. Find the normal vector\n"			//NE RABOTI -> FIX IT - ASSIGNED TO KOSYO
 			<< "4. Find the angle between two lines\n"
 			<< "5. Check if a point lies on a line\n"
-			<< "6. Check if a line is parallel to another line\n"	//NE RABOTI -> FIX IT - ASSIGNED TO KOSYO
+			<< "6. Check if a line is parallel to another line\n"
 			<< "7. Check if a line matches to another line\n"
 			<< "8. Check if a line intersects another line\n"
 			<< "9. Check if a line is crosses another line\n"
-			<< "10. Check if a line is perpendicular to another line\n"	//NE RABOTI -> FIX IT - ASSIGNED TO KOSYO
+			<< "10. Check if a line is perpendicular to another line\n"
 			<< "0. Exit to Main Menu\n";
 		cout << "\n";
 		cout << "Please enter your choice: ";
@@ -483,7 +491,7 @@ void ExecuteLineOperations()
 		{
 			system("cls");
 			int opt1, opt2;
-			cout << "Enter the first line: ";												//IMA NUJDA OT FIKSACIQ V LINE.CPP I TOGAVA SHTE OPRAVIM NESHTATA
+			cout << "Enter the first line: ";
 			cin >> opt1;
 			cout << "Enter the second line:";
 			cin >> opt2;
