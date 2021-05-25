@@ -51,6 +51,10 @@ void Menu()
 
 		}
 	}
+
+	if (elementsArr != nullptr) {
+		delete elementsArr;
+	}
 }
 
 void CreatePointObject()
@@ -467,6 +471,7 @@ void ExecuteLineOperations()
 			cin >> opt;
 			cout << static_cast<Line*>(elementsArr[opt])->lineDirection() << "\n";
 			cout << "\n";
+			break;
 		}
 		case 3:
 		{
@@ -475,6 +480,7 @@ void ExecuteLineOperations()
 			cin >> opt;
 			cout << static_cast<Line*>(elementsArr[opt])->findNormalVector() << "\n";
 			cout << "\n";
+			break;
 		}
 		case 4:
 		{
@@ -485,6 +491,7 @@ void ExecuteLineOperations()
 			cin >> opt2;
 			//cout << &static_cast<Line*>(elementsArr[opt1])->angleTwoLines(*static_cast<Line*>(elementsArr[opt2])) << "\n";
 			cout << "\n";
+			break;
 		}
 		case 5:
 		{
@@ -503,6 +510,7 @@ void ExecuteLineOperations()
 				cout << "The point doesn't lie on the line\n";
 				cout << "\n";
 			}
+			break;
 		}
 		case 6:
 		{
@@ -521,6 +529,7 @@ void ExecuteLineOperations()
 				cout << "The lines are not parallel\n";
 				cout << "\n";
 			}
+			break;
 		}
 		case 7:
 		{
@@ -539,6 +548,7 @@ void ExecuteLineOperations()
 				cout << "The lines does not match\n";
 				cout << "\n";
 			}
+			break;
 		}
 		case 8:
 		{
@@ -558,6 +568,7 @@ void ExecuteLineOperations()
 				
 				cout << "\n";
 			}
+			break;
 		}
 		case 9:
 		{
@@ -576,6 +587,7 @@ void ExecuteLineOperations()
 				cout << "The lines does not cross eachother\n";
 				cout << "\n";
 			}
+			break;
 		}
 		case 10:
 		{
@@ -594,6 +606,7 @@ void ExecuteLineOperations()
 				cout << "The lines are not perpendicular\n";
 				cout << "\n";
 			}
+			break;
 		}
 		}
 		
