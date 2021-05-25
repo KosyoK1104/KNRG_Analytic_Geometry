@@ -30,7 +30,7 @@ Vector Line::findNormalVector()
 	return Vector();
 }
 
-int Line::angleTwoLines(Line& l)
+void Line::angleTwoLines(Line& l)
 {
 	double x1 = vectorAB.getX();
 	double y1 = vectorAB.getY();
@@ -42,12 +42,10 @@ int Line::angleTwoLines(Line& l)
 
 	if ((x1 == x2) || (y1 == y2) || (z1 == z2)) {
 		double cos_angle = ((x1 * x2) + (y1 * y2) + (z1 * z2)) / (sqrt(pow(x1, 2) + pow(y1, 2) + pow(z1, 2)) * sqrt(pow(x2, 2) + pow(y2, 2) + pow(z2, 2)));
-	
-		return (acos(cos_angle) * 180. / 3.14);
+		std::cout << (acos(cos_angle) * 180. / 3.14);
 	}
 	else {
 		std::cout << "Cannot calculate angle of the two lines\n";
-		return 0;
 	}
 }
 
@@ -69,7 +67,7 @@ bool Line::operator||(const Line& line)
 
 bool Line::operator+(const Point& p)
 {
-	return (this->getPointA().findDistanceToPoint(p) == this->getPointA().findDistanceToPoint(this->getPointB()));
+	return (this->getPointA().findDistanceToPoint(p) + this->getPointB().findDistanceToPoint(p) == this->getPointA().findDistanceToPoint(this->getPointB()));
 }
 
 bool Line::operator==(const Line& l)

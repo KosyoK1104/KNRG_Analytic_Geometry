@@ -413,7 +413,7 @@ void ExecuteLineOperations()
 		case 1:
 		{
 			do {
-				system("cls");
+				//system("cls");
 				cout << "Available ways to create a line: \n"
 					<< "1. Input with points\n"
 					<< "2. Input with vector and point\n"
@@ -433,6 +433,7 @@ void ExecuteLineOperations()
 					cout << "Enter second point: ";
 					cin >> b;
 					CreateLineObject(*dynamic_cast<Point*>(elementsArr[a]), *dynamic_cast<Point*>(elementsArr[b]));
+					cout << "Line successfully created!\n";
 					cout << "\n";
 					break;
 				}
@@ -445,6 +446,7 @@ void ExecuteLineOperations()
 					cout << "Enter a point: \n";
 					cin >> b;
 					CreateLineObject(*dynamic_cast<Vector*>(elementsArr[a]), *dynamic_cast<Point*>(elementsArr[b]));
+					cout << "Line successfully created!\n";
 					cout << "\n";
 					break;
 				}
@@ -463,8 +465,46 @@ void ExecuteLineOperations()
 			int opt;
 			cout << "Enter a line: ";
 			cin >> opt;
-			cout << static_cast<Line*>(elementsArr[opt])->lineDirection();
+			cout << static_cast<Line*>(elementsArr[opt])->lineDirection() << "\n";
+			cout << "\n";
 		}
+		case 3:
+		{
+			int opt;
+			cout << "Enter a line: ";													//IMA NUJDA OT FIKSACIQ V LINE.CPP I TOGAVA SHTE OPRAVIM NESHTATA
+			cin >> opt;
+			cout << static_cast<Line*>(elementsArr[opt])->findNormalVector() << "\n";
+			cout << "\n";
+		}
+		case 4:
+		{
+			int opt1, opt2;
+			cout << "Enter first line: ";												//IMA NUJDA OT FIKSACIQ V LINE.CPP I TOGAVA SHTE OPRAVIM NESHTATA
+			cin >> opt1;
+			cout << "Enter second line:";
+			cin >> opt2;
+			cout << static_cast<Line*>(elementsArr[opt1])->angleTwoLines(*static_cast<Line*>(elementsArr[opt2])) << "\n";
+			cout << "\n";
+		}
+		case 5:
+		{
+			int opt1, opt2;
+			cout << "Enter a line: ";
+			cin >> opt1;
+			cout << "Enter a point: ";
+			cin >> opt2;
+			if (*(static_cast<Line*>(elementsArr[opt1])) + *(static_cast<Point*>(elementsArr[opt2])))
+			{
+				cout << "The point lies on the line\n";
+				cout << "\n";
+			}
+			else
+			{
+				cout << "The point doesn't lie on the line\n";
+				cout << "\n";
+			}
+		}
+		case 6:
 		}
 		
 	} while (opt != 0);
