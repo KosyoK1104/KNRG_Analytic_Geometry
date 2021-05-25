@@ -487,7 +487,7 @@ void ExecuteLineOperations()
 			cin >> opt1;
 			cout << "Enter the second line:";
 			cin >> opt2;
-			//cout << &static_cast<Line*>(elementsArr[opt1])->angleTwoLines(*static_cast<Line*>(elementsArr[opt2])) << "\n";
+			cout << static_cast<Line*>(elementsArr[opt1])->angleTwoLines(*static_cast<Line*>(elementsArr[opt2])) << "\n";
 			cout << "\n";
 			break;
 		}

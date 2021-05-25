@@ -115,7 +115,7 @@ bool Line::operator!=(const Line& l)
 
 bool Line::operator|(const Line& l)
 {
-	if ((vectorAB.getX() * l.vectorAB.getX()) + (vectorAB.getY() * l.vectorAB.getY()) + (vectorAB.getZ() * l.vectorAB.getZ())==0) {
+	if ((vectorAB.getX() * l.vectorAB.getX()) + (vectorAB.getY() * l.vectorAB.getY()) + (vectorAB.getZ() * l.vectorAB.getZ()) == 0) {
 		return true;
 	}
 	return false;
