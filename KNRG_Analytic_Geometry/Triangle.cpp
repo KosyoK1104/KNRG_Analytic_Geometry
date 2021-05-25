@@ -44,6 +44,21 @@ double Triangle::getC() const
 	return c;
 }
 
+Point Triangle::getX() const
+{
+	return x;
+}
+
+Point Triangle::getY() const
+{
+	return y;
+}
+
+Point Triangle::getZ() const
+{
+	return z;
+}
+
 void Triangle::findTriangleKindS() const
 {
 	if (a == b == c)
@@ -107,19 +122,33 @@ Point& Triangle::findTriangleMedicenter() const
 
 }
 
-bool Triangle::operator<(const Point& rhs)
+bool Triangle::operator<(Point& rhs)
 {
-	return true;
+	Triangle P1(x, rhs, y);
+	Triangle P2(y, rhs, z);
+	Triangle P3(z, rhs, x);
+
+	return this->findTriangleSurface() == P1.findTriangleSurface() + P2.findTriangleSurface() + P3.findTriangleSurface();
 }
 
-bool Triangle::operator>(const Point&)
+bool Triangle::operator>(Point& rhs)
 {
-	return true;
+	Triangle P1(x, rhs, y);
+	Triangle P2(y, rhs, z);
+	Triangle P3(z, rhs, x);
+
+	return this->findTriangleSurface() != P1.findTriangleSurface() + P2.findTriangleSurface() + P3.findTriangleSurface();
 }
 
-bool Triangle::operator==(const Point&)
+bool Triangle::operator==(Point& rhs)
 {
-	return true;
+	bool apb, apc, bpc;
+
+	apb = x.findDistanceToPoint(rhs) + y.findDistanceToPoint(rhs) == x.findDistanceToPoint(y);
+	apc = x.findDistanceToPoint(rhs) + z.findDistanceToPoint(rhs) == x.findDistanceToPoint(z);
+	bpc = z.findDistanceToPoint(rhs) + y.findDistanceToPoint(rhs) == z.findDistanceToPoint(y);
+
+	return apb || apc || bpc;
 }
 
 

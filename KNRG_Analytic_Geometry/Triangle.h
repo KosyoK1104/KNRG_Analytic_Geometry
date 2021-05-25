@@ -16,6 +16,9 @@ public:
     double getB() const;
     double getC() const;
 
+    Point getX() const;
+    Point getY() const;
+    Point getZ() const;
 
     void findTriangleKindS() const;
     void findTriangleKindA() const;
@@ -23,9 +26,9 @@ public:
     double findTrianglePerimeter() const;
     Point& findTriangleMedicenter() const;
 
-    bool operator<(const Point&);
-    bool operator>(const Point&);
-    bool operator==(const Point&);
+    bool operator<(Point&);
+    bool operator>(Point&);
+    bool operator==(Point&);
 
     std::ostream& ins(std::ostream&)const;
     //std::istream& ext(std::istream&);
