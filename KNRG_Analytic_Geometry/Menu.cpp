@@ -479,9 +479,9 @@ void ExecuteLineOperations()
 		case 4:
 		{
 			int opt1, opt2;
-			cout << "Enter first line: ";												//IMA NUJDA OT FIKSACIQ V LINE.CPP I TOGAVA SHTE OPRAVIM NESHTATA
+			cout << "Enter the first line: ";												//IMA NUJDA OT FIKSACIQ V LINE.CPP I TOGAVA SHTE OPRAVIM NESHTATA
 			cin >> opt1;
-			cout << "Enter second line:";
+			cout << "Enter the second line:";
 			cin >> opt2;
 			//cout << &static_cast<Line*>(elementsArr[opt1])->angleTwoLines(*static_cast<Line*>(elementsArr[opt2])) << "\n";
 			cout << "\n";
@@ -493,7 +493,7 @@ void ExecuteLineOperations()
 			cin >> opt1;
 			cout << "Enter a point: ";
 			cin >> opt2;
-			if (*(static_cast<Line*>(elementsArr[opt1])) + *(static_cast<Point*>(elementsArr[opt2])))
+			if(*(static_cast<Line*>(elementsArr[opt1])) + *(static_cast<Point*>(elementsArr[opt2])))
 			{
 				cout << "The point lies on the line\n";
 				cout << "\n";
@@ -505,6 +505,96 @@ void ExecuteLineOperations()
 			}
 		}
 		case 6:
+		{
+			int opt1, opt2;
+			cout << "Enter the first line: ";
+			cin >> opt1;
+			cout << "Enter the second line: ";
+			cin >> opt2;
+			if(*(static_cast<Line*>(elementsArr[opt1])) || *(static_cast<Line*>(elementsArr[opt2])))
+			{
+				cout << "The lines are parallel\n";
+				cout << "\n";
+			}
+			else
+			{
+				cout << "The lines are not parallel\n";
+				cout << "\n";
+			}
+		}
+		case 7:
+		{
+			int opt1, opt2;
+			cout << "Enter the first line: ";
+			cin >> opt1;
+			cout << "Enter the second line: ";
+			cin >> opt2;
+			if (*(static_cast<Line*>(elementsArr[opt1])) == *(static_cast<Line*>(elementsArr[opt2])))
+			{
+				cout << "The lines match\n";
+				cout << "\n";
+			}
+			else
+			{
+				cout << "The lines does not match\n";
+				cout << "\n";
+			}
+		}
+		case 8:
+		{
+			int opt1, opt2;
+			cout << "Enter the first line: ";
+			cin >> opt1;
+			cout << "Enter the second line: ";
+			cin >> opt2;
+			if (*(static_cast<Line*>(elementsArr[opt1])) && *(static_cast<Line*>(elementsArr[opt2])))
+			{
+				cout << "The lines intersect\n";
+				cout << "\n";
+			}
+			else
+			{
+				cout << "The lines does not intersect\n";
+				
+				cout << "\n";
+			}
+		}
+		case 9:
+		{
+			int opt1, opt2;
+			cout << "Enter the first line: ";
+			cin >> opt1;
+			cout << "Enter the second line: ";
+			cin >> opt2;
+			if (*(static_cast<Line*>(elementsArr[opt1])) != *(static_cast<Line*>(elementsArr[opt2])))
+			{
+				cout << "The lines cross eachother\n";
+				cout << "\n";
+			}
+			else
+			{
+				cout << "The lines does not cross eachother\n";
+				cout << "\n";
+			}
+		}
+		case 10:
+		{
+			int opt1, opt2;
+			cout << "Enter the first line: ";
+			cin >> opt1;
+			cout << "Enter the second line: ";
+			cin >> opt2;
+			if (*(static_cast<Line*>(elementsArr[opt1])) | *(static_cast<Line*>(elementsArr[opt2])))
+			{
+				cout << "The lines are perpendicular\n";
+				cout << "\n";
+			}
+			else
+			{
+				cout << "The lines are not perpendicular\n";
+				cout << "\n";
+			}
+		}
 		}
 		
 	} while (opt != 0);
