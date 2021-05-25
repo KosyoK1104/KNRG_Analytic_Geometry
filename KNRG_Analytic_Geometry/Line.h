@@ -11,7 +11,7 @@ public:
     Vector lineDirection();
     Vector findNormalVector();
 
-    void angleTwoLines(Line&);
+    int angleTwoLines(Line&);
 
     Point getPointA() const;
     Point getPointB() const;
