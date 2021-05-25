@@ -398,16 +398,15 @@ void ExecuteLineOperations()
 		cout << "Available line operations: \n"
 			<< "1. Create a line\n"
 			<< "2. Find the direction of the line\n"
-			<< "3. Find the normal vector - NE BACHKA MA NE BACHKA MA NE BACHKA MA NE BACHKA MA\n"
+			<< "3. Find the normal vector\n"			//NE RABOTI -> FIX IT - ASSIGNED TO KOSYO
 			<< "4. Find the angle between two lines\n"
-			<< "5. Check if a point lays on a line\n"
-			<< "6. Check if a line is parallel to another line\n"
-			<< "7. Check if a line coincides to another line\n"
-			<< "8. Check if a line crosses another line\n"
-			<< "9. Check if a line is being intercrossed by another line\n"
-			<< "10. Check if a line is perpendicular to another line\n"
+			<< "5. Check if a point lies on a line\n"
+			<< "6. Check if a line is parallel to another line\n"	//NE RABOTI -> FIX IT - ASSIGNED TO KOSYO
+			<< "7. Check if a line matches to another line\n"
+			<< "8. Check if a line intersects another line\n"
+			<< "9. Check if a line is crosses another line\n"
+			<< "10. Check if a line is perpendicular to another line\n"	//NE RABOTI -> FIX IT - ASSIGNED TO KOSYO
 			<< "0. Exit to Main Menu\n";
-
 		cout << "\n";
 		cout << "Please enter your choice: ";
 		cin >> opt;
@@ -415,18 +414,20 @@ void ExecuteLineOperations()
 		switch(opt)
 		{
 		case 1:
-		{
+		{	
+			int opt1;
 			do {
-				//system("cls");
+				system("cls");
 				cout << "Available ways to create a line: \n"
 					<< "1. Input with points\n"
 					<< "2. Input with vector and point\n"
 					<< "0. Exit to Main Menu\n";
 				cout << "\n";
 				cout << "Please enter your choice: ";
-				cin >> opt;
+				cin >> opt1;
+				cout << "\n";
 
-				switch (opt)
+				switch (opt1)
 				{
 				case 1:
 				{
@@ -454,18 +455,13 @@ void ExecuteLineOperations()
 					cout << "\n";
 					break;
 				}
-				default:
-					system("cls");
-					cout << "Please choose a valid option from the list below\n";
-					cout << "\n";
-					break;
-
 				}
-			} while (opt != 0);
+			} while (opt1 != 0);
 			break;
 		}
 		case 2:
 		{
+			system("cls");
 			int opt;
 			cout << "Enter a line: ";
 			cin >> opt;
@@ -475,6 +471,7 @@ void ExecuteLineOperations()
 		}
 		case 3:
 		{
+			system("cls");
 			int opt;
 			cout << "Enter a line: ";													//IMA NUJDA OT FIKSACIQ V LINE.CPP I TOGAVA SHTE OPRAVIM NESHTATA
 			cin >> opt;
@@ -484,6 +481,7 @@ void ExecuteLineOperations()
 		}
 		case 4:
 		{
+			system("cls");
 			int opt1, opt2;
 			cout << "Enter the first line: ";												//IMA NUJDA OT FIKSACIQ V LINE.CPP I TOGAVA SHTE OPRAVIM NESHTATA
 			cin >> opt1;
@@ -495,6 +493,7 @@ void ExecuteLineOperations()
 		}
 		case 5:
 		{
+			system("cls");
 			int opt1, opt2;
 			cout << "Enter a line: ";
 			cin >> opt1;
@@ -514,6 +513,7 @@ void ExecuteLineOperations()
 		}
 		case 6:
 		{
+			system("cls");
 			int opt1, opt2;
 			cout << "Enter the first line: ";
 			cin >> opt1;
@@ -533,6 +533,7 @@ void ExecuteLineOperations()
 		}
 		case 7:
 		{
+			system("cls");
 			int opt1, opt2;
 			cout << "Enter the first line: ";
 			cin >> opt1;
@@ -552,6 +553,7 @@ void ExecuteLineOperations()
 		}
 		case 8:
 		{
+			system("cls");
 			int opt1, opt2;
 			cout << "Enter the first line: ";
 			cin >> opt1;
@@ -572,6 +574,7 @@ void ExecuteLineOperations()
 		}
 		case 9:
 		{
+			system("cls");
 			int opt1, opt2;
 			cout << "Enter the first line: ";
 			cin >> opt1;
@@ -591,6 +594,7 @@ void ExecuteLineOperations()
 		}
 		case 10:
 		{
+			system("cls");
 			int opt1, opt2;
 			cout << "Enter the first line: ";
 			cin >> opt1;
@@ -608,6 +612,11 @@ void ExecuteLineOperations()
 			}
 			break;
 		}
+		default:
+			system("cls");
+			cout << "Please choose a valid option from the list below\n";
+			cout << "\n";
+			break;
 		}
 		
 	} while (opt != 0);
