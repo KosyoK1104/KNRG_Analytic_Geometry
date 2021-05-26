@@ -19,12 +19,12 @@ Line::Line(const Vector& v, const Point& a)
 
 	pointB = Point((v.getX() + a.getX()), (v.getY() + a.getY()), (v.getX() + a.getY()));
 }
-//функция за намиране на посоката на линия
+//функция за намиране на посоката на линия (function for finding the direction of a line)
 Vector Line::lineDirection()
 {
 	return vectorAB.posokaVector();
 }
-//функция за намиране на нормален вектор
+//функция за намиране на нормален вектор (function for finding a normal vector)
 Vector Line::findNormalVector()
 {
 	if (getVectorAB().getZ() < getVectorAB().getX()) 
@@ -50,7 +50,7 @@ int Line::angleTwoLines(Line& l)
 	double cos_angle = ((x1 * x2) + (y1 * y2) + (z1 * z2)) / (sqrt(pow(x1, 2) + pow(y1, 2) + pow(z1, 2)) * sqrt(pow(x2, 2) + pow(y2, 2) + pow(z2, 2)));
 	return(acos(cos_angle) * 180. / 3.14);
 }
-//гетъри на точки
+//гетъри на точки (getter
 Point Line::getPointA() const {
 	return pointA;
 }
