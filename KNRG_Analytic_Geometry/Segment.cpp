@@ -33,11 +33,11 @@ double Segment::izchisliDulzhina() {
 }
 
 //функция за намиране на среда (function for finding middle of a segment)
-Point& Segment::nameriSrednaTochka() const {
+Point Segment::nameriSrednaTochka() {
 	double sx = (a.getX() + b.getX()) / 2;
 	double sy = (a.getY() + b.getY()) / 2;
 	double sz = (a.getZ() + b.getZ()) / 2;
-	Point srednaTochka = Point(sx, sy, sz);
+	Point srednaTochka(sx, sy, sz);
 
 	return srednaTochka;
 }
@@ -45,9 +45,9 @@ Point& Segment::nameriSrednaTochka() const {
 //предефиниране на оператор == (redefining of == operator)
 bool Segment::operator==(Point& rhs)
 {
-	const double razstoqnieA = this->a.findDistanceToPoint(rhs);
-	const double razstoqnieB = rhs.findDistanceToPoint(this->b);
-	const double dulzhinaOtsechka = this->izchisliDulzhina();
+	double razstoqnieA = this->a.findDistanceToPoint(rhs);
+	double razstoqnieB = rhs.findDistanceToPoint(this->b);
+	double dulzhinaOtsechka = this->izchisliDulzhina();
 
 	return razstoqnieA + razstoqnieB == dulzhinaOtsechka;
 }

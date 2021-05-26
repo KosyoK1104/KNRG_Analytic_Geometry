@@ -12,7 +12,7 @@ public:
 	~Segment();
 
 	double izchisliDulzhina();
-	Point& nameriSrednaTochka() const;
+	Point nameriSrednaTochka();
 	bool operator==(Point& rhs);
 private:
 	Point a, b;

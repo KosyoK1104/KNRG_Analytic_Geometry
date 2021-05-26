@@ -684,11 +684,9 @@ void ExecuteSegmentObject()
 		{
 			system("cls");
 			int opt1;
-			Point p;
 			cout << "Enter a segment: ";
 			cin >> opt1;
-			p = static_cast<Segment*>(elementsArr[opt1])->nameriSrednaTochka();
-			cout << "The middle point of the segment is: " << p << "\n";
+			cout << static_cast<Segment*>(elementsArr[opt1])->nameriSrednaTochka() << "\n";
 			cout << "\n";
 			break;
 		}
