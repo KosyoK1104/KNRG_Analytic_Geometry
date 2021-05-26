@@ -27,14 +27,21 @@ Vector Line::lineDirection()
 //функция за намиране на нормален вектор
 Vector Line::findNormalVector()
 {
-	if (getVectorAB().getZ() < getVectorAB().getX()) 
-	{
-		return Vector(getVectorAB().getY(), -(getVectorAB().getX()), 0);
-	}
-	else 
-	{
-		return Vector(0, -(getVectorAB().getZ()), getVectorAB().getY());
-	}
+	double l = vectorAB.getX();
+	double m = vectorAB.getY();
+	double n = vectorAB.getZ();
+
+	double x1 = pointA.getX();
+	double y1 = pointA.getY();
+	double z1 = pointA.getZ();
+
+	double k = -(l * x1 + m * y1 + n * z1) / (pow(l, 2) + pow(m, 2) + pow(n, 2));
+
+	double vectX = (l * k) + x1;
+	double vectY = (m * k) + y1;
+	double vectZ = (n * k) + z1;
+
+	return Vector(vectX, vectY, vectZ);
 }
 
 int Line::angleTwoLines(Line& l)
