@@ -1,7 +1,7 @@
 #include "Vector.h"
 //дифолтен конструктор (default constructor)
 Vector::Vector(){}
-//конструктор с параметри (constructor with parametersO
+//конструктор с параметри (constructor with parameters)
 Vector::Vector(double x, double y, double z) {
 	setX(x);
 	setY(y);
@@ -28,9 +28,7 @@ Vector& Vector::operator=(const Vector& rhs)
 	return *this;
 }
 //деструктор (destructor)
-Vector::~Vector() {
-	cout << "v desc\n";
-}
+Vector::~Vector() {}
 //задача 2 (task 2)
 //функция за намиране на дължина на вектор (function for finding the lenght of a vector)
 double Vector::dulzhinaVector()
