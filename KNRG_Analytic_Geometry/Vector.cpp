@@ -1,7 +1,7 @@
 #include "Vector.h"
 //дифолтен конструктор (default constructor)
 Vector::Vector(){}
-//конструктор с параметри (constructor with parametersO
+//конструктор с параметри (constructor with parameters)
 Vector::Vector(double x, double y, double z) {
 	setX(x);
 	setY(y);
