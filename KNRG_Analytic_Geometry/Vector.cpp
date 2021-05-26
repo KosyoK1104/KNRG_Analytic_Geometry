@@ -10,12 +10,8 @@ Vector::Vector(double x, double y, double z) {
 Vector::Vector(const Point& A, const Point& B)
 {
 	setX(B.getX() - A.getX());
-	//cout << B.getX() - A.getX() << endl;
 	setY(B.getY() - A.getY());
-	//cout << B.getY() - A.getY() << endl;
 	setZ(B.getZ() - A.getZ());
-	//cout << B.getZ() - A.getZ() << endl;
-	//Vector tmp(B.getX() - A.getX(), B.getY() - A.getY(), B.getZ() - A.getZ());
 	cout << "Vector constructed\n";
 }
 //копи конструктор (copy constructor) 

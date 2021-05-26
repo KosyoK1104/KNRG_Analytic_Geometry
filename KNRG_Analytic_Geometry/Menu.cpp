@@ -46,7 +46,12 @@ void Menu()
 				system("cls");
 				ExecuteLineOperations();
 				break;
-
+			}
+			case 4:
+			{
+				system("cls");
+				ExecuteSegmentObject();
+				break;
 			}
 
 		}
@@ -627,5 +632,90 @@ void ExecuteLineOperations()
 			break;
 		}
 		
+	} while (opt != 0);
+}
+
+void CreateSegmentObject(Point& a, Point& b)
+{
+	elementsArr[++cntEle] = new Segment(a, b);
+}
+
+void ExecuteSegmentObject()
+{
+	int opt;
+	do
+	{
+		cout << "Available segment operations: \n"
+			<< "1. Create a segment\n"
+			<< "2. Get lenght\n"
+			<< "3. Get middle point\n"
+			<< "4. Check if a point lies on the segment\n"
+			<< "0. Exit to Main Menu\n";
+		cout << "\n";
+		cout << "Please enter your choice: ";
+		cin >> opt;
+
+		switch (opt)
+		{
+		case 1:
+		{
+			system("cls");
+			unsigned int a, b;
+			cout << "Enter first point: ";
+			cin >> a;
+			cout << "Enter second point: ";
+			cin >> b;
+			CreateSegmentObject(*static_cast<Point*>(elementsArr[a]), *static_cast<Point*>(elementsArr[b]));
+			cout << "Segment successfully created!\n";
+			cout << "\n";
+			break;
+		}
+		case 2:
+		{
+			system("cls");
+			int opt1;
+			cout << "Enter a segment: ";
+			cin >> opt1;
+			cout << "The lenght of the segment is: " << static_cast<Segment*>(elementsArr[opt1])->izchisliDulzhina() << "\n";
+			cout << "\n";
+			break;
+		}
+		case 3:
+		{
+			system("cls");
+			int opt1;
+			Point p;
+			cout << "Enter a segment: ";
+			cin >> opt1;
+			p = static_cast<Segment*>(elementsArr[opt1])->nameriSrednaTochka();
+			cout << "The middle point of the segment is: " << p << "\n";
+			cout << "\n";
+			break;
+		}
+		case 4:
+		{
+			int opt1, opt2;
+			cout << "Enter a line: ";
+			cin >> opt1;
+			cout << "Enter a point: ";
+			cin >> opt2;
+			if (static_cast<Segment*>(elementsArr[opt1]) == static_cast<Point*>(elementsArr[opt2]))
+			{
+				cout << "The point lies on the segment\n";
+				cout << "\n";
+			}
+			else
+			{
+				cout << "The point does not lie on the segment\n";
+				cout << "\n";
+			}
+			break;
+		}
+		default:
+			system("cls");
+			cout << "Please choose a valid option from the list below\n";
+			cout << "\n";
+			break;
+		}
 	} while (opt != 0);
 }

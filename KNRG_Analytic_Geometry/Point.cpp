@@ -33,8 +33,8 @@ bool Point::operator==(const Point& p) {
 }
 //принтиране
 std::ostream& Point::ins(std::ostream& out) const
-{
-	return out << std::endl << "The cordinates of this point are:" << std::endl << "x: " << x << std::endl << "y: " << y << std::endl << "z: " << z << std::endl;
+{ 
+	return out << std::endl << "The cordinates of this point are: " << std::endl << "x: " << x << std::endl << "y: " << y << std::endl << "z: " << z << std::endl;
 }
 //въвеждане
 std::istream& Point::ext(std::istream& in)

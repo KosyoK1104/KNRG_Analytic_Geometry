@@ -33,9 +33,9 @@ double Segment::izchisliDulzhina() {
 }
 //функция за намиране на среда
 Point& Segment::nameriSrednaTochka() const {
-	double sx = (this->a.getX() + this->b.getX());
-	double sy = (this->a.getY() + this->b.getY());
-	double sz = (this->a.getZ() + this->b.getZ());
+	double sx = (a.getX() + b.getX()) / 2;
+	double sy = (a.getY() + b.getY()) / 2;
+	double sz = (a.getZ() + b.getZ()) / 2;
 	Point srednaTochka = Point(sx, sy, sz);
 
 	return srednaTochka;
