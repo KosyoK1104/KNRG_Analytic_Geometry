@@ -1,17 +1,18 @@
 #include "Segment.h"
 using namespace std;
+//конструктор
 Segment::Segment(Point& a, Point& b) 
 {
 	this->a = a;
 	this->b = b;
 }
-
+//копи конструктор
 Segment::Segment(const Segment& rhs) 
 {
 	this->a = rhs.a;
 	this->b = rhs.b;
 }
-
+//предефиниране на оператор =
 Segment& Segment::operator=(const Segment& rhs)
 {
 	if (this != &rhs)
@@ -21,16 +22,16 @@ Segment& Segment::operator=(const Segment& rhs)
 	}
 	return *this;
 }
-
+//деструктор
 Segment::~Segment() {
 
 
 }
-
+//функция за изчисляване на дължина на отсечка
 double Segment::izchisliDulzhina() {
 	return this->a.findDistanceToPoint(this->b);
 }
-
+//функция за намиране на среда
 Point& Segment::nameriSrednaTochka() const {
 	double sx = (this->a.getX() + this->b.getX());
 	double sy = (this->a.getY() + this->b.getY());
@@ -39,7 +40,7 @@ Point& Segment::nameriSrednaTochka() const {
 
 	return srednaTochka;
 }
-
+//предефиниране на оператор ==
 bool Segment::operator==(Point& rhs)
 {
 	const double razstoqnieA = this->a.findDistanceToPoint(rhs);

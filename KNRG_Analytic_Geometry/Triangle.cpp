@@ -1,17 +1,18 @@
 #include "Triangle.h"
-
+//конструктор за инициализиране
 Triangle::Triangle() : a(0), b(0), c(0)
 {
 	x = Point(0, 0, 0);
     y = Point(0, 0, 0);
     z = Point(0, 0, 0);
 }
-
+//деструктор
 Triangle::~Triangle() {
 
 	std::cout << "Destructed" << std::endl;
 
 }
+//конструктор с параметри
 Triangle::Triangle(Point& a, Point& b, Point& c) {
 
 	x = a;
@@ -22,13 +23,13 @@ Triangle::Triangle(Point& a, Point& b, Point& c) {
 	this->b = x.findDistanceToPoint(z);
 	this->c = x.findDistanceToPoint(y);
 }
-
+//копи конструктор
 Triangle::Triangle(const Triangle& rhs)
 
 	: x(rhs.x), y(rhs.y), z(rhs.z), a(rhs.a), b(rhs.b), c(rhs.c)
 
 {}
-
+//get методи
 double Triangle::getA() const
 {
 	return a;
@@ -58,7 +59,7 @@ Point Triangle::getZ() const
 {
 	return z;
 }
-
+//функция за намиране на типа на триъгълник по страни
 void Triangle::findTriangleKindS() const
 {
 	if (a == b == c)
@@ -76,6 +77,7 @@ void Triangle::findTriangleKindS() const
 
 	}
 }
+//функция за намиране на типа на триъгълник по ъгли
 void Triangle::findTriangleKindA() const 
 {
 	const double Angle = pow(a, 2) + pow(b, 2);
@@ -92,12 +94,14 @@ void Triangle::findTriangleKindA() const
 		std::cout << "The triangle is right" << std::endl;
 	}
 }
+//функция за намиране на обиколка на триъгълник
 double Triangle::findTrianglePerimeter() const
 {
 	double Perimeter;
 	Perimeter = a + b + c;
 	return Perimeter;
 }
+//функция за намиране на лице на триъгълник
 double Triangle::findTriangleSurface() const
 {
 	double Surface, semiPerimeter;
@@ -106,7 +110,7 @@ double Triangle::findTriangleSurface() const
 
 	return Surface;
 }
-
+//функция за намиране на медицентър на триъгълника
 Point& Triangle::findTriangleMedicenter() const
 {
 	double mx;
@@ -121,7 +125,7 @@ Point& Triangle::findTriangleMedicenter() const
 	return mediCenter;
 
 }
-
+//предефиниране на оператор <
 bool Triangle::operator<(Point& rhs)
 {
 	Triangle P1(x, rhs, y);
@@ -130,7 +134,7 @@ bool Triangle::operator<(Point& rhs)
 
 	return this->findTriangleSurface() == P1.findTriangleSurface() + P2.findTriangleSurface() + P3.findTriangleSurface();
 }
-
+//предефиниране на оператор >
 bool Triangle::operator>(Point& rhs)
 {
 	Triangle P1(x, rhs, y);
@@ -139,7 +143,7 @@ bool Triangle::operator>(Point& rhs)
 
 	return this->findTriangleSurface() != P1.findTriangleSurface() + P2.findTriangleSurface() + P3.findTriangleSurface();
 }
-
+//предефиниране на оператор ==
 bool Triangle::operator==(Point& rhs)
 {
 	bool apb, apc, bpc;
@@ -151,7 +155,7 @@ bool Triangle::operator==(Point& rhs)
 	return apb || apc || bpc;
 }
 
-
+//принтиране на триъгълник
 std::ostream& Triangle::ins(std::ostream& out)const {
 	return out << "\n The triangle has the following sides:\na: " << a << "\nb: " << b << "\nc: " << c << std::endl;
 }
