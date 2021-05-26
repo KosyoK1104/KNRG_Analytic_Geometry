@@ -1,18 +1,14 @@
 #include "Triangle.h"
-//конструктор за инициализиране
+//дифолтен конструктор (default constructor)
 Triangle::Triangle() : a(0), b(0), c(0)
 {
 	x = Point(0, 0, 0);
     y = Point(0, 0, 0);
     z = Point(0, 0, 0);
 }
-//деструктор
-Triangle::~Triangle() {
-
-	std::cout << "Destructed" << std::endl;
-
-}
-//конструктор с параметри
+//деструктор (destructor)
+Triangle::~Triangle() {}
+//конструктор с параметри (constructor with parameters)
 Triangle::Triangle(Point& a, Point& b, Point& c) {
 
 	x = a;
@@ -23,13 +19,13 @@ Triangle::Triangle(Point& a, Point& b, Point& c) {
 	this->b = x.findDistanceToPoint(z);
 	this->c = x.findDistanceToPoint(y);
 }
-//копи конструктор
+//копи конструктор (copy constructor)
 Triangle::Triangle(const Triangle& rhs)
 
 	: x(rhs.x), y(rhs.y), z(rhs.z), a(rhs.a), b(rhs.b), c(rhs.c)
 
 {}
-//get методи
+//get методи (get methods)
 double Triangle::getA() const
 {
 	return a;
@@ -59,7 +55,7 @@ Point Triangle::getZ() const
 {
 	return z;
 }
-//функция за намиране на типа на триъгълник по страни
+//функция за намиране на типа на триъгълник по страни (function for finding the type of a triangle by sides)
 void Triangle::findTriangleKindS() const
 {
 	if (a == b == c)
@@ -77,7 +73,7 @@ void Triangle::findTriangleKindS() const
 
 	}
 }
-//функция за намиране на типа на триъгълник по ъгли
+//функция за намиране на типа на триъгълник по ъгли (function for finding the type of the triangle by angles)
 void Triangle::findTriangleKindA() const 
 {
 	const double Angle = pow(a, 2) + pow(b, 2);
@@ -94,14 +90,14 @@ void Triangle::findTriangleKindA() const
 		std::cout << "The triangle is right" << std::endl;
 	}
 }
-//функция за намиране на обиколка на триъгълник
+//функция за намиране на обиколка на триъгълник (function for finding the parameter of a triangle)
 double Triangle::findTrianglePerimeter() const
 {
 	double Perimeter;
 	Perimeter = a + b + c;
 	return Perimeter;
 }
-//функция за намиране на лице на триъгълник
+//функция за намиране на лице на триъгълник (function for finding the surface of a triangle)
 double Triangle::findTriangleSurface() const
 {
 	double Surface, semiPerimeter;
@@ -110,7 +106,7 @@ double Triangle::findTriangleSurface() const
 
 	return Surface;
 }
-//функция за намиране на медицентър на триъгълника
+//функция за намиране на медицентър на триъгълника (function for finding the medicenter of a triangle)
 Point& Triangle::findTriangleMedicenter() const
 {
 	double mx;
@@ -125,7 +121,7 @@ Point& Triangle::findTriangleMedicenter() const
 	return mediCenter;
 
 }
-//предефиниране на оператор <
+//предефиниране на оператор < (redefining of < operator)
 bool Triangle::operator<(Point& rhs)
 {
 	Triangle P1(x, rhs, y);
@@ -134,7 +130,7 @@ bool Triangle::operator<(Point& rhs)
 
 	return this->findTriangleSurface() == P1.findTriangleSurface() + P2.findTriangleSurface() + P3.findTriangleSurface();
 }
-//предефиниране на оператор >
+//предефиниране на оператор > (redefining of > operator)
 bool Triangle::operator>(Point& rhs)
 {
 	Triangle P1(x, rhs, y);
@@ -143,7 +139,7 @@ bool Triangle::operator>(Point& rhs)
 
 	return this->findTriangleSurface() != P1.findTriangleSurface() + P2.findTriangleSurface() + P3.findTriangleSurface();
 }
-//предефиниране на оператор ==
+//предефиниране на оператор == (redefining of == operator)
 bool Triangle::operator==(Point& rhs)
 {
 	bool apb, apc, bpc;
@@ -155,7 +151,7 @@ bool Triangle::operator==(Point& rhs)
 	return apb || apc || bpc;
 }
 
-//принтиране на триъгълник
+//дефиниране на инсъртър (defining of an inserter)
 std::ostream& Triangle::ins(std::ostream& out)const {
 	return out << "\n The triangle has the following sides:\na: " << a << "\nb: " << b << "\nc: " << c << std::endl;
 }

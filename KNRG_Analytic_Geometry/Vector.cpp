@@ -32,9 +32,7 @@ Vector& Vector::operator=(const Vector& rhs)
 	return *this;
 }
 //деструктор (destructor)
-Vector::~Vector() {
-	cout << "v desc\n";
-}
+Vector::~Vector() {}
 //задача 2 (task 2)
 //функция за намиране на дължина на вектор (function for finding the lenght of a vector)
 double Vector::dulzhinaVector()
