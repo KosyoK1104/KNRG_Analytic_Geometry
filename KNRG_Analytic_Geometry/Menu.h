@@ -2,8 +2,9 @@
 #include "Point.h"
 #include "Vector.h"
 #include "Line.h"
-#include "Triangle.h"
 #include "Segment.h"
+#include "Triangle.h"
+#include "Tetrahedron.h"
 #include "EqualPointException.h"
 #include "VectorLenghtException.h"
 #include <cstdlib>
@@ -25,6 +26,9 @@ void ExecuteLineOperations();
 
 void CreateSegmentObject(Point&, Point&);
 void ExecuteSegmentObject();
+
+void CreateTriangleObject(Point&, Point&, Point&);
+void ExecuteTriangleObject();
 
 //Triangle CreateTriangleObject();
 //void ExecuteTriangleOperations();

@@ -53,6 +53,12 @@ void Menu()
 				ExecuteSegmentObject();
 				break;
 			}
+			case 5:
+			{
+				system("cls");
+				ExecuteTriangleObject();
+				break;
+			}
 
 		}
 	}
@@ -705,6 +711,163 @@ void ExecuteSegmentObject()
 			else
 			{
 				cout << "The point does not lie on the segment\n";
+				cout << "\n";
+			}
+			break;
+		}
+		default:
+			system("cls");
+			cout << "Please choose a valid option from the list below\n";
+			cout << "\n";
+			break;
+		}
+	} while (opt != 0);
+}
+
+void CreateTriangleObject(Point& a, Point& b, Point& c) {
+	elementsArr[++cntEle] = new Triangle(a, b, c);
+}
+
+void ExecuteTriangleObject()
+{
+	int opt;
+	do
+	{
+		cout << "Available triangle operations: \n"
+			<< "1. Create a triangle\n"
+			<< "2. Get the type of a triangle by it's sides\n"
+			<< "3. Get the type of a triangle by it's angles\n"
+			<< "4. Get triangle's surface\n"
+			<< "5. Get triangle's perimeter\n"
+			<< "6. Find triangle's medicentre\n"
+			<< "7. Check if a point is in triangle\n"
+			<< "8. Check if a point is part of triangle's plane\n"
+			<< "9. Check if a point is on one of the sides of a triangle\n"   //TRQBVA FIKSACIQ
+			<< "0. Exit to Main Menu\n";
+		cout << "\n";
+		cout << "Please enter your choice: ";
+		cin >> opt;
+
+		switch (opt)
+		{
+		case 1:
+		{
+			system("cls");
+			unsigned int a, b, c;
+			cout << "Enter first point: ";
+			cin >> a;
+			cout << "Enter second point: ";
+			cin >> b;
+			cout << "Enter third point: ";
+			cin >> c;
+			CreateTriangleObject(*static_cast<Point*>(elementsArr[a]), *static_cast<Point*>(elementsArr[b]), *static_cast<Point*>(elementsArr[c]));
+			cout << "Triangle successfully created!\n";
+			cout << "\n";
+			break;
+		}
+		case 2:
+		{
+			system("cls");
+			int opt1;
+			cout << "Enter a triangle: ";
+			cin >> opt1;
+			static_cast<Triangle*>(elementsArr[opt1])->findTriangleKindS();
+			cout << "\n";
+			break;
+		}
+		case 3:
+		{
+			system("cls");
+			int opt1;
+			cout << "Enter a triangle: ";
+			cin >> opt1;
+			static_cast<Triangle*>(elementsArr[opt1])->findTriangleKindA();
+			cout << "\n";
+			break;
+		}
+		case 4:
+		{
+			system("cls");
+			int opt1;
+			cout << "Enter a triangle: ";
+			cin >> opt1;
+			cout << "The triangle's surface is " << static_cast<Triangle*>(elementsArr[opt1])->findTriangleSurface() << "\n";
+			cout << "\n";
+			break;
+		}
+		case 5:
+		{
+			system("cls");
+			int opt1;
+			cout << "Enter a triangle: ";
+			cin >> opt1;
+			cout << "The triangle's perimeter is " <<static_cast<Triangle*>(elementsArr[opt1])->findTrianglePerimeter() << "\n";
+			cout << "\n";
+			break;
+		}
+		case 6:
+		{
+			system("cls");
+			int opt1;
+			cout << "Enter a triangle: ";
+			cin >> opt1;
+			cout << "The medicentre of the triangle is on these coordinates " << static_cast<Triangle*>(elementsArr[opt1])->findTriangleMedicenter() << "\n";
+			cout << "\n";
+			break;
+		}
+		case 7:
+		{
+			int opt1, opt2;
+			cout << "Enter a triangle: ";
+			cin >> opt1;
+			cout << "Enter a point: ";
+			cin >> opt2;
+			if (static_cast<Triangle*>(elementsArr[opt1]) < static_cast<Point*>(elementsArr[opt2]))
+			{
+				cout << "The point is in the triangle\n";
+				cout << "\n";
+			}
+			else
+			{
+				cout << "The point is not in the triangle\n";
+				cout << "\n";
+			}
+			break;
+		}
+		case 8:
+		{
+			int opt1, opt2;
+			cout << "Enter a triangle: ";
+			cin >> opt1;
+			cout << "Enter a point: ";
+			cin >> opt2;
+			if (static_cast<Triangle*>(elementsArr[opt1]) > static_cast<Point*>(elementsArr[opt2]))
+			{
+				cout << "The point is in the triangle\n";
+				cout << "\n";
+			}
+			else
+			{
+				cout << "The point is not in the triangle\n";
+				cout << "\n";
+			}
+			break;
+		}
+		case 9:
+		{
+			int opt1, opt2;
+			cout << "Enter a triangle: ";
+			cin >> opt1;
+			cout << "Enter a point: ";
+			cin >> opt2;
+			if (static_cast<Triangle*>(elementsArr[opt1]) == static_cast<Point*>(elementsArr[opt2]))
+			{
+				cout << "The point is on the triangle's plane\n";
+				cout << "\n";
+			}
+			else
+			{
+				cout << "The point is not on the triangle's plane\n";
 				cout << "\n";
 			}
 			break;
