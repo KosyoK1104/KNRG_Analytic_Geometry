@@ -107,7 +107,7 @@ double Triangle::findTriangleSurface() const
 	return Surface;
 }
 //функция за намиране на медицентър на триъгълника (function for finding the medicenter of a triangle)
-Point& Triangle::findTriangleMedicenter() const
+Point Triangle::findTriangleMedicenter() const
 {
 	double mx;
 	mx = (this->x.getX() + this->y.getX() + this->z.getX()) / 3.0;
@@ -133,11 +133,24 @@ bool Triangle::operator<(Point& rhs)
 //предефиниране на оператор > (redefining of > operator)
 bool Triangle::operator>(Point& rhs)
 {
+	/*
 	Triangle P1(x, rhs, y);
 	Triangle P2(y, rhs, z);
 	Triangle P3(z, rhs, x);
 
+
+
 	return this->findTriangleSurface() != P1.findTriangleSurface() + P2.findTriangleSurface() + P3.findTriangleSurface();
+	*/
+	Vector n1 = Vector(x, y);
+	Vector n2 = Vector(rhs, z);
+	
+	int dotProd = n1.getX() * n2.getX() + n1.getY() * n2.getY() + n1.getZ() * n2.getZ();
+	bool dProd = dotProd == 0;
+	bool nInT = *this < rhs == false;
+
+	return nInT && dProd;
+
 }
 //предефиниране на оператор == (redefining of == operator)
 bool Triangle::operator==(Point& rhs)

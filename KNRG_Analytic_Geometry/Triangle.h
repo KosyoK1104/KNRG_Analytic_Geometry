@@ -1,5 +1,6 @@
 #pragma once
 #include "Point.h"
+#include "Vector.h"
 #ifndef Triangle_h
 #define Triangle_h
 
@@ -24,7 +25,7 @@ public:
     void findTriangleKindA() const;
     double findTriangleSurface() const;
     double findTrianglePerimeter() const;
-    Point& findTriangleMedicenter() const;
+    Point findTriangleMedicenter() const;
 
     bool operator<(Point&);
     bool operator>(Point&);
