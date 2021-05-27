@@ -9,6 +9,7 @@ class Element
 public:
 	virtual std::ostream& ins(std::ostream& out) const = 0;
 	virtual std::istream& ext(std::istream& in) = 0;
+
 };
 
 std::ostream& operator<< (std::ostream& out, const Element& rhs);

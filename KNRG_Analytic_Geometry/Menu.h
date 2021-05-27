@@ -1,10 +1,30 @@
 #include <iostream>
 #include "Point.h"
 #include "Vector.h"
+#include "Line.h"
+#include "Triangle.h"
+#include "Segment.h"
+#include "EqualPointException.h"
+#include "VectorLenghtException.h"
 #include <cstdlib>
+#include <typeinfo>
 
 void Menu();
-Point CreatePointObject();
-Vector CreateVectorObject();
-void ExecutePointOperations(Point& p);
-void ExecuteVectorOperations(Vector& v);
+
+void CreatePointObject();
+void ExecutePointOperations();
+void ComparePoints();
+
+void CreateVectorObject(double x, double y, double z);
+void CreateVectorObject(Point& a, Point& b);
+void ExecuteVectorOperations();
+
+void CreateLineObject(Vector&, Point&);
+void CreateLineObject(Point&, Point&);
+void ExecuteLineOperations();
+
+void CreateSegmentObject(Point&, Point&);
+void ExecuteSegmentObject();
+
+//Triangle CreateTriangleObject();
+//void ExecuteTriangleOperations();

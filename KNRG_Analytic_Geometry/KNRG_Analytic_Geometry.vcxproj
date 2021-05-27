@@ -43,7 +43,6 @@
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v142</PlatformToolset>
-    <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
@@ -140,16 +139,31 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Element.cpp" />
+    <ClCompile Include="EqualPointException.cpp" />
+    <ClCompile Include="Line.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="Menu.cpp" />
     <ClCompile Include="Point.cpp" />
+    <ClCompile Include="Segment.cpp" />
+    <ClCompile Include="Tetrahedron.cpp" />
+    <ClCompile Include="Triangle.cpp" />
     <ClCompile Include="Vector.cpp" />
+    <ClCompile Include="VectorLenghtException.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Element.h" />
+    <ClInclude Include="EqualPointException.h" />
+    <ClInclude Include="Line.h" />
     <ClInclude Include="Menu.h" />
     <ClInclude Include="Point.h" />
+    <ClInclude Include="Segment.h" />
+    <ClInclude Include="Tetrahedron.h" />
+    <ClInclude Include="Triangle.h" />
     <ClInclude Include="Vector.h" />
+    <ClInclude Include="VectorLenghtException.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ClassDiagram.cd" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
