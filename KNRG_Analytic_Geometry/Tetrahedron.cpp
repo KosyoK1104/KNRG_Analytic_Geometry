@@ -59,5 +59,11 @@ double Tetrahedron::izchisliLiceNaPovurhnina()
 //функция за изчисляване на обем (function for calculating volume)
 double Tetrahedron::izchisliObem()
 {
-	return (1.0 / 12) * sqrt(2) * pow(this->t1.getA(), 2);
+	Vector ab(a, b);
+	Vector ac(a, c);
+	Vector ad(a, d);
+
+	return (ab^ac)*ad / 6;
+
+	//return (1.0 / 12) * sqrt(2) * pow(this->t1.getA(), 2);
 }
