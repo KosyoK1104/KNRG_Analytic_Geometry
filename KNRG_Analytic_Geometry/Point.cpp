@@ -24,9 +24,7 @@ Point& Point::operator=(const Point& p) {
 }
 //деструктор (destructor)
 Point::~Point()
-{
-	std::cout << "Point destructed\n";
-}
+{}
 
 //предефиниране на оператор == (redefining of == operator)
 bool Point::operator==(const Point& p) {

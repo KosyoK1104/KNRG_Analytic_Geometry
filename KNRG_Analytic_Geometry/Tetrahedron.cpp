@@ -60,7 +60,6 @@ bool Tetrahedron::vsichkiStraniSaRavni() const
 double Tetrahedron::izchisliLiceNaPovurhnina()
 {
 	return t2.findTriangleSurface() + t3.findTriangleSurface() +t4.findTriangleSurface();
-	//return  sqrt(3) * pow(this->t1.getA(), 2);;
 }
 
 //функция за изчисляване на обем (function for calculating volume)
@@ -69,10 +68,7 @@ double Tetrahedron::izchisliObem()
 	Vector ab(a, b);
 	Vector ac(a, c);
 	Vector ad(a, d);
-	cout << fabs((ab * (ac ^ ad))) << endl;
 	return fabs((ab(ac,ad))) / 6;
-
-	//return (1.0 / 12) * sqrt(2) * pow(this->t1.getA(), 2);
 }
 
 bool Tetrahedron::operator<(Point& rhs)
