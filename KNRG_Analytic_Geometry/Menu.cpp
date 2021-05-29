@@ -919,7 +919,8 @@ void ExecuteTriangleObject()
 	} while (opt != 0);
 }
 
-void CreateTetrahedronObject(Point& a, Point& b, Point& c, Point& d) {
+void CreateTetrahedronObject(Point& a, Point& b, Point& c, Point& d) 
+{
 	if (a == b || a == c || b == c || a == d || b == d || c == d) throw EqualPointException("Cannot create triangle while two or more points are with same coordinations\n");
 	elementsArr[++cntEle] = new Tetrahedron(a, b, c, d);
 }
@@ -957,7 +958,8 @@ void ExecuteTetrahedronObject()
 			cin >> c;
 			cout << "Enter peak point: ";
 			cin >> d;
-			try {
+			try 
+			{
 				CreateTetrahedronObject(*static_cast<Point*>(elementsArr[a]), *static_cast<Point*>(elementsArr[b]), *static_cast<Point*>(elementsArr[c]), *static_cast<Point*>(elementsArr[d]));
 			}
 			catch (EqualPointException& e) {
@@ -974,10 +976,12 @@ void ExecuteTetrahedronObject()
 			int opt1;
 			cout << "Enter a Tetrahedron: ";
 			cin >> opt1;
-			if (static_cast<Tetrahedron*>(elementsArr[opt1])->vsichkiStraniSaRavni()) {
+			if (static_cast<Tetrahedron*>(elementsArr[opt1])->vsichkiStraniSaRavni()) 
+			{
 				cout << "The tetrahedron is right\n";
 			}
-			else {
+			else 
+			{
 				cout << "The tetrahedron is not right\n";
 			}
 			cout << "\n";
