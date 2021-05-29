@@ -314,7 +314,14 @@ void ExecuteVectorOperations()
 			cin >> opt1;
 			cout << "Enter the second vector: ";
 			cin >> opt2;
-			dynamic_cast<Vector*>(elementsArr[opt1])->perpendicularVector(*static_cast<Vector*>(elementsArr[opt2]));
+			if (dynamic_cast<Vector*>(elementsArr[opt1])->perpendicularVector(*static_cast<Vector*>(elementsArr[opt2]))) \
+			{
+				cout << "Vectors are perpendicular" << endl;
+			}
+			else 
+			{
+				cout << "Vectors are not perpendicular" << endl;
+			}
 			cout << "\n";
 			break;
 		}
@@ -965,13 +972,19 @@ void ExecuteTetrahedronObject()
 		}
 		case 3:
 		{
-			//Orthogonal pyramid
-			system("cls");
-			int opt1;
-			cout << "Enter a triangle: ";
-			cin >> opt1;
-			cout << "The triangle's surface is " << static_cast<Triangle*>(elementsArr[opt1])->findTriangleSurface() << "\n";
-			cout << "\n";
+			int opt;
+			cout << "Enter a tetrahedron: ";
+			cin >> opt;
+			if (static_cast<Tetrahedron*>(elementsArr[opt])->daliEOrtogonalen())
+			{
+				cout << "The tetrahedron is orthogonal"<<endl;
+				cout << "\n";
+			}
+			else
+			{
+				cout << "The tetrahedron is not orthogonal\n";
+				cout << "\n";
+			}
 			break;
 		}
 		case 4:

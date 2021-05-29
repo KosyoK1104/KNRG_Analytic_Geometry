@@ -1,4 +1,5 @@
 #include "Tetrahedron.h"
+//конструктор (constructor)
 Tetrahedron::Tetrahedron(Point& a, Point& b, Point& c, Point& d)
 {
 	this->a = a;
@@ -71,6 +72,15 @@ double Tetrahedron::izchisliObem()
 	return fabs((ab(ac,ad))) / 6;
 }
 
+//функция за проверяване дали тетраедърът е ортогонален [всеки два срещуположни ръба са перпендикулярни]
+//function for checking if the tetrahedron is ortogonal [every two opposite edges are perpendicullar]
+bool Tetrahedron::daliEOrtogonalen() {
+	Vector ad(a, d);
+	Vector bd(b, d);
+	Vector cd(c, d);
+	if (ad.perpendicularVector(bd) && bd.perpendicularVector(cd) && ad.perpendicularVector(cd)) return true;
+	return false;
+}
 bool Tetrahedron::operator<(Point& rhs)
 {
 	return t1<rhs || t2<rhs || t3<rhs || t4<rhs;

@@ -66,11 +66,9 @@ bool Vector::paralelVector(const Vector& v)
 //функция за намиране дали векторът е перпендикулярен на друг вектор (function for finding if vector is perpendicular to other vector)
 bool Vector::perpendicularVector(Vector& v) {
 	if (this->getX() * v.getX() + this->getY() * v.getY() + this->getZ() * getZ() == 0) {
-		cout << "Vectors are perpendicular" << endl;
 		return true;
 	}
 	else {
-		cout << "Vectors are not perpendicular" << endl;
 		return false;
 	}
 }
