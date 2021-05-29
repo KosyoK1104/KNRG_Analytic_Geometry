@@ -150,7 +150,7 @@ void ComparePoints()
 		}
 	}
 	else {
-		cout << "Shto si pederast da slagash razlichni obekti";
+		cout << "Please choose two objects of type Point";
 	}
 }
 
