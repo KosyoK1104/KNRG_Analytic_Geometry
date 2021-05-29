@@ -2,7 +2,7 @@
 #include "Point.h"
 #include "Triangle.h"
 using namespace std;
-class Tetrahedron : public Point
+class Tetrahedron : public Triangle
 {
 	public:
 		Tetrahedron(Point&, Point&, Point&, Point&);
@@ -12,8 +12,9 @@ class Tetrahedron : public Point
 		
 		bool vsichkiStraniSaRavni() const;
 		bool ortogonalen() const;
-		double izchisliLiceNaPovurhnina() const;
-		double izchisliObem() const ;
+		double izchisliLiceNaPovurhnina();
+		double visochina(double, double, double, double, double, double);
+		double izchisliObem() ;
 
 		bool operator<(const Point&);
 		bool operator>(const Point&);

@@ -1,10 +1,10 @@
 #include "Tetrahedron.h"
-
 Tetrahedron::Tetrahedron(Point& a, Point& b, Point& c, Point& d)
 {
 
 }
 
+//копи конструктор (copy constructor)
 Tetrahedron::Tetrahedron(const Tetrahedron& rhs)
 {
 	this->a = rhs.a;
@@ -17,7 +17,8 @@ Tetrahedron::Tetrahedron(const Tetrahedron& rhs)
 	this->t4 = rhs.t4;
 }
 
-Tetrahedron& Tetrahedron::operator=() {
+//предефиниране на оператор = (redefining of = operator)
+Tetrahedron& Tetrahedron::operator=(const Tetrahedron& rhs) {
 
 	if (this != &rhs)
 	{
@@ -32,30 +33,44 @@ Tetrahedron& Tetrahedron::operator=() {
 	}
 	return *this;
 }
+
+//деструктор (destrucror)
 Tetrahedron::~Tetrahedron()
 {
 	std::cout<<"Tetrahedron distructing..."<<std::endl;
 }
 
-bool Tetrahedron::vsichkiStraniSaRavni() const 
+//функция, която проверява дали всички страни са равни (function that checks if all sides are equal)
+bool Tetrahedron::vsichkiStraniSaRavni() const
 {
-	const bool saRavni = this->t1.getA() == this->t1.getB() == this->t1.getC() ==
-		this->t2.getA() == this->t2.getC() == this->t3.getC();
+	bool saRavni = t1.getA() == t1.getB() == t1.getC() ==
+		t2.getA() == t2.getC() == t3.getC();
 
 	return saRavni;
 }
 
-double Tetrahedron::izchisliLiceNaPovurhnina() const
+//функция за изчисляване на лице на повърхнина (function for calculating surface area)
+double Tetrahedron::izchisliLiceNaPovurhnina()
 {
-	const double liceNaPovurhnina = sqrt(3) * pow(this->t1.getA(), 2);
-
-	return liceNaPovurhnina;
+	return t1.findTriangleSurface() + t2.findTriangleSurface() + t3.findTriangleSurface() + t4.findTriangleSurface();
+	//return  sqrt(3) * pow(this->t1.getA(), 2);;
+}
+//функция за изчисляване на височина на тетраедъра (function for calculating the height of the tetrahedron)
+double Tetrahedron::visochina(double x1, double y1,
+	double z1, double a,
+	double b, double c,
+	double d)
+{
+	d = fabs((a * x1 + b * y1 +
+		c * z1 + d));
+	double e = sqrt(a * a + b *
+		b + c * c);
+	int vis=d/e;
+	return vis;
 }
 
-double Tetrahedron::izchisliObem() const
+//функция за изчисляване на обем (function for calculating volume)
+double Tetrahedron::izchisliObem()
 {
-	const double obem = (1.0 / 12) * sqrt(2) * pow(this->t1.getA(), 2);
-
-	return obem;
+	return (1.0 / 12) * sqrt(2) * pow(this->t1.getA(), 2);
 }
-
