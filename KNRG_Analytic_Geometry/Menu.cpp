@@ -932,7 +932,7 @@ void ExecuteTetrahedronObject()
 		cout << "Available triangle operations: \n"
 			<< "1. Create a tetrahedron\n"
 			<< "2. Check if a tetrahedron is right\n"
-			<< "3. Check if orthogonal is right\n"  //need fiksaciq
+			<< "3. Check if the tetrahedron is orthogonal\n"
 			<< "4. Get tetrahedron's surrounding surface area\n"
 			<< "5. Get tetrahedron's volume\n"
 			<< "6. Check if a point is in any of a tetrahedron's sides\n"
