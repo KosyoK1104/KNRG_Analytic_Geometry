@@ -149,12 +149,13 @@ bool Triangle::operator>(Point& rhs)
 	
 	*/
 
-	bool inPlane = (rhs.getX() - x.getX()) * (y.getY() - x.getY()) * (z.getZ() - x.getZ()) +
+	bool inPlane = 
+		(rhs.getX() - x.getX()) * (y.getY() - x.getY()) * (z.getZ() - x.getZ()) +
 		(rhs.getY() - x.getY()) * (y.getZ() - x.getZ()) * (z.getX() - x.getX()) +
 		(rhs.getZ() - x.getZ()) * (y.getX() - x.getX()) * (z.getY() - x.getY()) -
 		(rhs.getZ() - x.getZ()) * (y.getY() - x.getY()) * (z.getX() - x.getX()) -
 		(rhs.getY() - x.getY()) * (y.getX() - x.getX()) * (z.getZ() - x.getZ()) -
-		(rhs.getX() - x.getX()) * (y.getZ() - x.getZ()) * (z.getY() - x.getY()) < 0;
+		(rhs.getX() - x.getX()) * (y.getZ() - x.getZ()) * (z.getY() - x.getY()) == 0;
 
 	return inPlane && *this < rhs;
 }

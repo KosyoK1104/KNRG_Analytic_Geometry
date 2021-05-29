@@ -933,7 +933,7 @@ void ExecuteTetrahedronObject()
 		cout << "Available triangle operations: \n"
 			<< "1. Create a tetrahedron\n"
 			<< "2. Check if a tetrahedron is right\n"
-			<< "3. Check if orthogonal is right\n"  //need fiksaciq
+			<< "3. Check if the tetrahedron is orthogonal\n"
 			<< "4. Get tetrahedron's surrounding surface area\n"
 			<< "5. Get tetrahedron's volume\n"
 			<< "6. Check if a point is in any of a tetrahedron's sides\n"
@@ -989,13 +989,18 @@ void ExecuteTetrahedronObject()
 		}
 		case 3:
 		{
-			//Orthogonal pyramid
 			system("cls");
-			int opt1;
-			cout << "Enter a triangle: ";
-			cin >> opt1;
-			cout << "The triangle's surface is " << static_cast<Triangle*>(elementsArr[opt1])->findTriangleSurface() << "\n";
-			cout << "\n";
+			int opt;
+			cout << "Enter a tetrahedron: ";
+			cin >> opt;
+			if (static_cast<Tetrahedron*>(elementsArr[opt])->daliEOrtogonalen() == true)
+			{
+				cout << "The tetrahedron is orthogonal " << endl;
+			}
+			else
+			{
+				cout << "The tetrahedron is not orthogonal" << endl;
+			}
 			break;
 		}
 		case 4:
