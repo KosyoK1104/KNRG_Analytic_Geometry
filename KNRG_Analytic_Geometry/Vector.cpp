@@ -12,7 +12,6 @@ Vector::Vector(const Point& A, const Point& B)
 	setX(B.getX() - A.getX());
 	setY(B.getY() - A.getY());
 	setZ(B.getZ() - A.getZ());
-	cout << "Vector constructed\n";
 }
 //копи конструктор (copy constructor) 
 Vector::Vector(const Vector& rhs) 
