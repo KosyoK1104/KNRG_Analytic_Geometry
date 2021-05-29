@@ -16,8 +16,8 @@ void CreatePointObject();
 void ExecutePointOperations();
 void ComparePoints();
 
-void CreateVectorObject(double x, double y, double z);
-void CreateVectorObject(Point& a, Point& b);
+void CreateVectorObject(double, double, double);
+void CreateVectorObject(Point&, Point&);
 void ExecuteVectorOperations();
 
 void CreateLineObject(Vector&, Point&);
@@ -30,7 +30,5 @@ void ExecuteSegmentObject();
 void CreateTriangleObject(Point&, Point&, Point&);
 void ExecuteTriangleObject();
 
-void CreateTetrahedronObject(Point& a, Point& b, Point& c);
+void CreateTetrahedronObject(Point&, Point&, Point&, Point&);
 void ExecuteTetrahedronObject();
-//Triangle CreateTriangleObject();
-//void ExecuteTriangleOperations();

@@ -15,9 +15,9 @@ class Tetrahedron : public Triangle
 		double izchisliLiceNaPovurhnina();
 		double izchisliObem() ;
 
-		bool operator<(const Point&);
-		bool operator>(const Point&);
-		bool operator==(const Point&);
+		bool operator<(Point&);
+		bool operator>(Point&);
+		bool operator==(Point&);
 
 	private:
 		Point a, b, c, d;

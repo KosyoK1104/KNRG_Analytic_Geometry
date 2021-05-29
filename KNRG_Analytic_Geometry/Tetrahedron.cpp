@@ -52,7 +52,7 @@ bool Tetrahedron::vsichkiStraniSaRavni() const
 //функция за изчисляване на лице на повърхнина (function for calculating surface area)
 double Tetrahedron::izchisliLiceNaPovurhnina()
 {
-	return t1.findTriangleSurface() + t2.findTriangleSurface() + t3.findTriangleSurface() + t4.findTriangleSurface();
+	return t1.findTriangleSurface() + t2.findTriangleSurface() + t3.findTriangleSurface();
 	//return  sqrt(3) * pow(this->t1.getA(), 2);;
 }
 
@@ -66,4 +66,20 @@ double Tetrahedron::izchisliObem()
 	return (ab^ac)*ad / 6;
 
 	//return (1.0 / 12) * sqrt(2) * pow(this->t1.getA(), 2);
+}
+
+bool Tetrahedron::operator<(Point& rhs)
+{
+	return t1<rhs || t2<rhs || t3<rhs || t4<rhs;
+
+}
+
+bool Tetrahedron::operator>(Point&)
+{
+	return false;
+}
+
+bool Tetrahedron::operator==(Point& rhs)
+{
+	return t1 == rhs || t2 == rhs || t3 == rhs || t4 == rhs;
 }

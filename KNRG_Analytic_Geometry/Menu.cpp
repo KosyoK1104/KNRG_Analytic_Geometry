@@ -59,6 +59,12 @@ void Menu()
 				ExecuteTriangleObject();
 				break;
 			}
+			case 6:
+			{
+				system("cls");
+				ExecuteTetrahedronObject();
+				break;
+			}
 
 		}
 	}
@@ -417,7 +423,7 @@ void ExecuteLineOperations()
 		cout << "Available line operations: \n"
 			<< "1. Create a line\n"
 			<< "2. Find the direction of the line\n"
-			<< "3. Find the normal vector\n"			//NE RABOTI -> FIX IT - ASSIGNED TO KOSYO
+			<< "3. Find the normal vector\n"			
 			<< "4. Find the angle between two lines\n"
 			<< "5. Check if a point lies on a line\n"
 			<< "6. Check if a line is parallel to another line\n"
@@ -492,7 +498,7 @@ void ExecuteLineOperations()
 		{
 			system("cls");
 			int opt;
-			cout << "Enter a line: ";													//IMA NUJDA OT FIKSACIQ V LINE.CPP I TOGAVA SHTE OPRAVIM NESHTATA
+			cout << "Enter a line: ";													
 			cin >> opt;
 			cout << static_cast<Line*>(elementsArr[opt])->findNormalVector() << "\n";
 			cout << "\n";
@@ -741,8 +747,8 @@ void ExecuteTriangleObject()
 			<< "5. Get triangle's perimeter\n"
 			<< "6. Find triangle's medicentre\n"
 			<< "7. Check if a point is in triangle\n"
-			<< "8. Check if a point is part of triangle's plane\n"
-			<< "9. Check if a point is on one of the sides of a triangle\n"   //TRQBVA FIKSACIQ
+			<< "8. Check if a point is part of triangle's plane\n"	//TRQBVA FIKSACIQ
+			<< "9. Check if a point is on one of the sides of a triangle\n"   
 			<< "0. Exit to Main Menu\n";
 		cout << "\n";
 		cout << "Please enter your choice: ";
@@ -891,15 +897,14 @@ void ExecuteTetrahedronObject()
 	do
 	{
 		cout << "Available triangle operations: \n"
-			<< "1. Create a triangle\n"
-			<< "2. Get the type of a triangle by it's sides\n"
-			<< "3. Get the type of a triangle by it's angles\n"
-			<< "4. Get triangle's surface\n"
-			<< "5. Get triangle's perimeter\n"
-			<< "6. Find triangle's medicentre\n"
-			<< "7. Check if a point is in triangle\n"
-			<< "8. Check if a point is part of triangle's plane\n"
-			<< "9. Check if a point is on one of the sides of a triangle\n"   //TRQBVA FIKSACIQ
+			<< "1. Create a tetrahedron\n"
+			<< "2. Check if a tetrahedron is right\n"
+			<< "3. Check if orthogonal is right\n"  //need fiksaciq
+			<< "4. Get tetrahedron's surrounding surface area\n"
+			<< "5. Get tetrahedron's volume\n"
+			<< "6. Check if a point is in any of a tetrahedron's sides\n"
+			<< "7. Check if a point is part of any of tetrahedron's sides' plane\n"   //TRQBVA FIKSACIQ
+			<< "8. Check if a point is on one of the sides of a tetrahedron\n"   
 			<< "0. Exit to Main Menu\n";
 		cout << "\n";
 		cout << "Please enter your choice: ";
@@ -917,10 +922,10 @@ void ExecuteTetrahedronObject()
 			cin >> b;
 			cout << "Enter third point: ";
 			cin >> c;
-			cout << "Enter fourth point: ";
+			cout << "Enter peak point: ";
 			cin >> d;
 			CreateTetrahedronObject(*static_cast<Point*>(elementsArr[a]), *static_cast<Point*>(elementsArr[b]), *static_cast<Point*>(elementsArr[c]), *static_cast<Point*>(elementsArr[d]));
-			cout << "Triangle successfully created!\n";
+			cout << "Tetrahedron successfully created!\n";
 			cout << "\n";
 			break;
 		}
@@ -931,26 +936,17 @@ void ExecuteTetrahedronObject()
 			cout << "Enter a Tetrahedron: ";
 			cin >> opt1;
 			if (static_cast<Tetrahedron*>(elementsArr[opt1])->vsichkiStraniSaRavni()) {
-				cout << "The tetrahedron has equal sides\n";
+				cout << "The tetrahedron is right\n";
 			}
 			else {
-				cout << "The tetrahedron does not have equal sides\n";
+				cout << "The tetrahedron is not right\n";
 			}
 			cout << "\n";
 			break;
 		}
 		case 3:
 		{
-			system("cls");
-			int opt1;
-			cout << "Enter a triangle: ";
-			cin >> opt1;
-			static_cast<Triangle*>(elementsArr[opt1])->findTriangleKindA();
-			cout << "\n";
-			break;
-		}
-		case 4:
-		{
+			//Orthogonal pyramid
 			system("cls");
 			int opt1;
 			cout << "Enter a triangle: ";
@@ -959,41 +955,60 @@ void ExecuteTetrahedronObject()
 			cout << "\n";
 			break;
 		}
+		case 4:
+		{
+			system("cls");
+			int opt1;
+			cout << "Enter a tetrahedron: ";
+			cin >> opt1;
+			cout << "The tetrahedron's surrounding surface is " << static_cast<Tetrahedron*>(elementsArr[opt1])->izchisliLiceNaPovurhnina() << "\n";
+			cout << "\n";
+			break;
+		}
 		case 5:
 		{
 			system("cls");
 			int opt1;
-			cout << "Enter a triangle: ";
+			cout << "Enter a tetrahedron: ";
 			cin >> opt1;
-			cout << "The triangle's perimeter is " << static_cast<Triangle*>(elementsArr[opt1])->findTrianglePerimeter() << "\n";
+			cout << "The tetrahedron's volume is " << static_cast<Tetrahedron*>(elementsArr[opt1])->izchisliObem() << "\n";
 			cout << "\n";
 			break;
 		}
 		case 6:
 		{
-			system("cls");
-			int opt1;
-			cout << "Enter a triangle: ";
+			int opt1, opt2;
+			cout << "Enter a tetrahedron: ";
 			cin >> opt1;
-			cout << "The medicentre of the triangle is on these coordinates " << static_cast<Triangle*>(elementsArr[opt1])->findTriangleMedicenter() << "\n";
-			cout << "\n";
+			cout << "Enter a point: ";
+			cin >> opt2;
+			if (static_cast<Tetrahedron*>(elementsArr[opt1]) < static_cast<Point*>(elementsArr[opt2]))
+			{
+				cout << "The point is in the tetrahedron\n";
+				cout << "\n";
+			}
+			else
+			{
+				cout << "The point is not in the tetrahedron\n";
+				cout << "\n";
+			}
 			break;
 		}
 		case 7:
 		{
 			int opt1, opt2;
-			cout << "Enter a triangle: ";
+			cout << "Enter a tetrahedron: ";
 			cin >> opt1;
 			cout << "Enter a point: ";
 			cin >> opt2;
-			if (static_cast<Triangle*>(elementsArr[opt1]) < static_cast<Point*>(elementsArr[opt2]))
+			if (static_cast<Tetrahedron*>(elementsArr[opt1]) > static_cast<Point*>(elementsArr[opt2]))
 			{
-				cout << "The point is in the triangle\n";
+				cout << "The point is in the tetrahedron\n";
 				cout << "\n";
 			}
 			else
 			{
-				cout << "The point is not in the triangle\n";
+				cout << "The point is not in the tetrahedron\n";
 				cout << "\n";
 			}
 			break;
@@ -1001,37 +1016,18 @@ void ExecuteTetrahedronObject()
 		case 8:
 		{
 			int opt1, opt2;
-			cout << "Enter a triangle: ";
+			cout << "Enter a tetrahedron: ";
 			cin >> opt1;
 			cout << "Enter a point: ";
 			cin >> opt2;
-			if (static_cast<Triangle*>(elementsArr[opt1]) > static_cast<Point*>(elementsArr[opt2]))
+			if (static_cast<Tetrahedron*>(elementsArr[opt1]) == static_cast<Point*>(elementsArr[opt2]))
 			{
-				cout << "The point is in the triangle\n";
+				cout << "The point is on one of tetrahedron's sides\n";
 				cout << "\n";
 			}
 			else
 			{
-				cout << "The point is not in the triangle\n";
-				cout << "\n";
-			}
-			break;
-		}
-		case 9:
-		{
-			int opt1, opt2;
-			cout << "Enter a triangle: ";
-			cin >> opt1;
-			cout << "Enter a point: ";
-			cin >> opt2;
-			if (static_cast<Triangle*>(elementsArr[opt1]) == static_cast<Point*>(elementsArr[opt2]))
-			{
-				cout << "The point is on the triangle's plane\n";
-				cout << "\n";
-			}
-			else
-			{
-				cout << "The point is not on the triangle's plane\n";
+				cout << "The point is not on one of tetrahedron's sides\n";
 				cout << "\n";
 			}
 			break;
