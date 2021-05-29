@@ -78,32 +78,32 @@ bool Vector::perpendicularVector(Vector& v) {
 //задача 3 (task 3)
 //предефиниране на оператор + [събиране на два вектора] (redefining of + operator [additon of two vectors])
 Vector Vector::operator+(const Vector& rhs) {
-	cout << "Result after addition is new vector with coordinates: " << endl;
+
 	return Vector(getX() + rhs.getX(), getY() + rhs.getY(), getZ() + rhs.getZ());
 }
 //предефиниране на оператор - [изваждане на два вектора] (redefining of - operator [substraction of two vectors])
 Vector Vector::operator-(const Vector& rhs) {
-	cout << "Result after substraction is new vector: " << endl;
+
 	return Vector(getX() - rhs.getX(), getY() - rhs.getY(), getZ() - rhs.getZ());
 }
 //предефиниране на оператор ^ [векторно произведение на два вектора](redefining of ^ operator [vector multiplication of two vectors])
 Vector Vector::operator^(const Vector& v) {
-	cout << "Result after vector multiplication of two vectors is new vector: " << endl;
+
 	return Vector(getX() * v.getX(), getY() * v.getY(), getZ() * v.getZ());
 }
 //предефиниране на оператор * [за умножение на вектор с друг вектор] (redefining of * operator [for multiplication of a vector with another vector]) 
 double Vector::operator*(const Vector& rhs) {
-	std::cout << "The result after multiplication is a real number with value ";
+
 	return getX() * rhs.getX() + getY() * rhs.getY() + getZ() * rhs.getZ();
 }
 //предефиниране на оператор * [за умножение на вектор с реално число] (redefining of * operator [for multiplication of a vector with a real number])
 Vector Vector::operator*(const double a) {
-	std::cout << "The result after multiplication is a new vector with coordinates ";
+
 	return Vector(getX() * a, getY() * a, getZ() * a);
 }
 //предефиниране на оператор() [за умножение на 3 вектора] (redefining of () operator [for multiplication of 3 vectors])
 double Vector::operator()(const Vector& v2, const Vector& v3) {
-	cout << "Result after multiplication: " << endl;
+
 	return (this->getY() * v2.getZ() - v2.getY() * this->getZ()) * v3.getX() - (this->getX() * v2.getZ() - v2.getX() * this->getZ()) * v3.getY() + (this->getX() * v2.getY() - this->getY() * v2.getX()) * v3.getZ();
 }
 //принтиране на вектор (printing a vector)

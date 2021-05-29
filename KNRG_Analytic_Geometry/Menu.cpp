@@ -327,6 +327,7 @@ void ExecuteVectorOperations()
 			cin >> opt1;
 			cout << "Enter the second vector: ";
 			cin >> opt2;
+			cout << "Result after addition is new vector with coordinates: " << endl;
 			cout << (*(static_cast<Vector*>(elementsArr[opt1])) + *(static_cast<Vector*>(elementsArr[opt2]))) << "\n";
 			cout << "\n";
 			break;
@@ -340,6 +341,7 @@ void ExecuteVectorOperations()
 			cin >> opt1;
 			cout << "Enter the second vector: ";
 			cin >> opt2;
+			cout << "Result after substraction is new vector: " << endl;
 			cout << (*(static_cast<Vector*>(elementsArr[opt1])) - *(static_cast<Vector*>(elementsArr[opt2]))) << "\n";
 			cout << "\n";
 			break;
@@ -353,6 +355,7 @@ void ExecuteVectorOperations()
 			cin >> opt1;
 			cout << "Please enter a real number: ";
 			cin >> a;
+			std::cout << "The result after multiplication is a new vector with coordinates ";
 			cout << *(static_cast<Vector*>(elementsArr[opt1])) * a << "\n";
 			cout << "\n";
 			break;
@@ -366,6 +369,7 @@ void ExecuteVectorOperations()
 			cin >> opt1;
 			cout << "Enter the second vector: ";
 			cin >> opt2;
+			std::cout << "The result after multiplication is a real number with value ";
 			cout << *(static_cast<Vector*>(elementsArr[opt1])) * *(static_cast<Vector*>(elementsArr[opt2])) << "\n";
 			cout << "\n";
 			break;
@@ -379,6 +383,7 @@ void ExecuteVectorOperations()
 			cin >> opt1;
 			cout << "Enter the second vector: ";
 			cin >> opt2;
+			cout << "Result after vector multiplication of two vectors is new vector: " << endl;
 			cout << (*(static_cast<Vector*>(elementsArr[opt1])) ^ *(static_cast<Vector*>(elementsArr[opt2]))) << "\n";
 			cout << "\n";
 			break;
@@ -394,6 +399,7 @@ void ExecuteVectorOperations()
 			cin >> opt2;
 			cout << "Enter the third vector: ";
 			cin >> opt3;
+			cout << "Result after multiplication: " << endl;
 			cout << (*static_cast<Vector*>(elementsArr[opt1]))(*(static_cast<Vector*>(elementsArr[opt2])), *(static_cast<Vector*>(elementsArr[opt3]))) << "\n";
 			cout << "\n";
 			break;

@@ -72,7 +72,7 @@ double Point::getZ() const {
 //функция за намиране на разстояние до точка (function for finding the distance to a point)
 double Point::findDistanceToPoint(const Point& smth)
 {
-	return sqrt((pow((getX() - smth.getX()), 2))
-		+ (pow((getY() - smth.getY()), 2))
-		+ (pow((getZ() - smth.getZ()), 2)));
+	return sqrt((pow((smth.getX() - getX()), 2))
+		+ (pow((smth.getY() - getY()), 2))
+		+ (pow((smth.getZ() - getZ()), 2)));
 }
