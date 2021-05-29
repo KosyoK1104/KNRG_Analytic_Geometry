@@ -137,23 +137,26 @@ bool Triangle::operator<(Point& rhs)
 bool Triangle::operator>(Point& rhs)
 {
 	/*
-	Triangle P1(x, rhs, y);
-	Triangle P2(y, rhs, z);
-	Triangle P3(z, rhs, x);
-
-
-
-	return this->findTriangleSurface() != P1.findTriangleSurface() + P2.findTriangleSurface() + P3.findTriangleSurface();
-	*/
-	Vector n1 = Vector(x, y);
-	Vector n2 = Vector(rhs, z);
 	
-	int dotProd = n1.getX() * n2.getX() + n1.getY() * n2.getY() + n1.getZ() * n2.getZ();
-	bool dProd = dotProd == 0;
-	bool nInT = *this < rhs == false;
+	x = rhs
+	1 = this->x
+	2 = this->y
+	3 = this->z
 
-	return nInT && dProd;
+	|x-x1	y-y1	z-z1
+	|x2-x1	y2-y1	z2-z1
+	|x3-x1	y3-y1	z3-z1
+	
+	*/
 
+	bool inPlane = (rhs.getX() - x.getX()) * (y.getY() - x.getY()) * (z.getZ() - x.getZ()) +
+		(rhs.getY() - x.getY()) * (y.getZ() - x.getZ()) * (z.getX() - x.getX()) +
+		(rhs.getZ() - x.getZ()) * (y.getX() - x.getX()) * (z.getY() - x.getY()) -
+		(rhs.getZ() - x.getZ()) * (y.getY() - x.getY()) * (z.getX() - x.getX()) -
+		(rhs.getY() - x.getY()) * (y.getX() - x.getX()) * (z.getZ() - x.getZ()) -
+		(rhs.getX() - x.getX()) * (y.getZ() - x.getZ()) * (z.getY() - x.getY()) < 0;
+
+	return inPlane && *this < rhs;
 }
 //предефиниране на оператор == (redefining of == operator)
 bool Triangle::operator==(Point& rhs)
