@@ -1,6 +1,7 @@
 #pragma once
 #include "Point.h"
 #include "Triangle.h"
+#include "Vector.h"
 using namespace std;
 class Tetrahedron : public Triangle
 {
@@ -9,12 +10,10 @@ class Tetrahedron : public Triangle
 		Tetrahedron(const Tetrahedron&);
 		Tetrahedron& operator=(const Tetrahedron&);
 		~Tetrahedron();
-		
 		bool vsichkiStraniSaRavni() const;
-		bool ortogonalen() const;
 		double izchisliLiceNaPovurhnina();
-		double izchisliObem() ;
-
+		double izchisliObem();
+		bool daliEOrtogonalen();
 		bool operator<(Point&);
 		bool operator>(Point&);
 		bool operator==(Point&);
