@@ -985,6 +985,7 @@ void ExecuteTetrahedronObject()
 		}
 		case 3:
 		{
+			//Orthogonal pyramid
 			system("cls");
 			int opt;
 			cout << "Enter a tetrahedron: ";
