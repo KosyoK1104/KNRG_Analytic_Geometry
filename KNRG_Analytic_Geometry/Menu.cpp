@@ -731,6 +731,7 @@ void ExecuteSegmentObject()
 }
 
 void CreateTriangleObject(Point& a, Point& b, Point& c) {
+	if (a == b || a == c || b == c) throw EqualPointException("Cannot create triangle while two or more points are with same coordinations\n");
 	elementsArr[++cntEle] = new Triangle(a, b, c);
 }
 
@@ -766,9 +767,14 @@ void ExecuteTriangleObject()
 			cin >> b;
 			cout << "Enter third point: ";
 			cin >> c;
-			CreateTriangleObject(*static_cast<Point*>(elementsArr[a]), *static_cast<Point*>(elementsArr[b]), *static_cast<Point*>(elementsArr[c]));
-			cout << "Triangle successfully created!\n";
-			cout << "\n";
+			try {
+				CreateTriangleObject(*static_cast<Point*>(elementsArr[a]), *static_cast<Point*>(elementsArr[b]), *static_cast<Point*>(elementsArr[c]));
+				cout << "Triangle successfully created!\n";
+				cout << "\n";
+			}
+			catch (EqualPointException& e) {
+				cerr << "Error: " << e.what();
+			}
 			break;
 		}
 		case 2:
@@ -888,6 +894,7 @@ void ExecuteTriangleObject()
 }
 
 void CreateTetrahedronObject(Point& a, Point& b, Point& c, Point& d) {
+	if (a == b || a == c || b == c || a == d || b == d || c == d) throw EqualPointException("Cannot create triangle while two or more points are with same coordinations\n");
 	elementsArr[++cntEle] = new Tetrahedron(a, b, c, d);
 }
 
@@ -924,6 +931,12 @@ void ExecuteTetrahedronObject()
 			cin >> c;
 			cout << "Enter peak point: ";
 			cin >> d;
+			try {
+				CreateTetrahedronObject(*static_cast<Point*>(elementsArr[a]), *static_cast<Point*>(elementsArr[b]), *static_cast<Point*>(elementsArr[c]), *static_cast<Point*>(elementsArr[d]));
+			}
+			catch (EqualPointException& e) {
+				cerr << "Error: " << e.what();
+			}
 			CreateTetrahedronObject(*static_cast<Point*>(elementsArr[a]), *static_cast<Point*>(elementsArr[b]), *static_cast<Point*>(elementsArr[c]), *static_cast<Point*>(elementsArr[d]));
 			cout << "Tetrahedron successfully created!\n";
 			cout << "\n";

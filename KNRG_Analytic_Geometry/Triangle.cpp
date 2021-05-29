@@ -10,7 +10,7 @@ Triangle::Triangle() : a(0), b(0), c(0)
 Triangle::~Triangle() {}
 //конструктор с параметри (constructor with parameters)
 Triangle::Triangle(Point& a, Point& b, Point& c) {
-
+	
 	x = a;
 	y = b;
 	z = c;
@@ -100,6 +100,9 @@ double Triangle::findTrianglePerimeter() const
 //функция за намиране на лице на триъгълник (function for finding the surface of a triangle)
 double Triangle::findTriangleSurface() const
 {
+
+
+
 	double Surface, semiPerimeter;
 	semiPerimeter = (a + b + c) / 2;
 	Surface = sqrt((semiPerimeter * (semiPerimeter - a) * (semiPerimeter - b) * (semiPerimeter - c)));

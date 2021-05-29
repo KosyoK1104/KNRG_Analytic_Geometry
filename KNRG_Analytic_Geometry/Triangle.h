@@ -1,6 +1,7 @@
 #pragma once
 #include "Point.h"
 #include "Vector.h"
+#include "EqualPointException.h"
 #ifndef Triangle_h
 #define Triangle_h
 
