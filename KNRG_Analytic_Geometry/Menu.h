@@ -30,5 +30,7 @@ void ExecuteSegmentObject();
 void CreateTriangleObject(Point&, Point&, Point&);
 void ExecuteTriangleObject();
 
+void CreateTetrahedronObject(Point& a, Point& b, Point& c);
+void ExecuteTetrahedronObject();
 //Triangle CreateTriangleObject();
 //void ExecuteTriangleOperations();
