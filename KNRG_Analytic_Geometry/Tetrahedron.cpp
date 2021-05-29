@@ -1,7 +1,14 @@
 #include "Tetrahedron.h"
 Tetrahedron::Tetrahedron(Point& a, Point& b, Point& c, Point& d)
 {
-
+	this->a = a;
+	this->b = b;
+	this->c = c;
+	this->d = d;
+	t1 = Triangle(a, b, c);
+	t2 = Triangle(a, b, d);
+	t3 = Triangle(b, c, d);
+	t4 = Triangle(c, a, d);
 }
 
 //копи конструктор (copy constructor)
@@ -52,7 +59,7 @@ bool Tetrahedron::vsichkiStraniSaRavni() const
 //функция за изчисляване на лице на повърхнина (function for calculating surface area)
 double Tetrahedron::izchisliLiceNaPovurhnina()
 {
-	return t1.findTriangleSurface() + t2.findTriangleSurface() + t3.findTriangleSurface();
+	return t2.findTriangleSurface() + t3.findTriangleSurface() +t4.findTriangleSurface();
 	//return  sqrt(3) * pow(this->t1.getA(), 2);;
 }
 
@@ -62,8 +69,8 @@ double Tetrahedron::izchisliObem()
 	Vector ab(a, b);
 	Vector ac(a, c);
 	Vector ad(a, d);
-
-	return (ab^ac)*ad / 6;
+	cout << fabs((ab * (ac ^ ad))) << endl;
+	return fabs((ab(ac,ad))) / 6;
 
 	//return (1.0 / 12) * sqrt(2) * pow(this->t1.getA(), 2);
 }
