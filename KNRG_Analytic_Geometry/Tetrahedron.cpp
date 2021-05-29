@@ -55,19 +55,6 @@ double Tetrahedron::izchisliLiceNaPovurhnina()
 	return t1.findTriangleSurface() + t2.findTriangleSurface() + t3.findTriangleSurface() + t4.findTriangleSurface();
 	//return  sqrt(3) * pow(this->t1.getA(), 2);;
 }
-//функция за изчисляване на височина на тетраедъра (function for calculating the height of the tetrahedron)
-double Tetrahedron::visochina(double x1, double y1,
-	double z1, double a,
-	double b, double c,
-	double d)
-{
-	d = fabs((a * x1 + b * y1 +
-		c * z1 + d));
-	double e = sqrt(a * a + b *
-		b + c * c);
-	int vis=d/e;
-	return vis;
-}
 
 //функция за изчисляване на обем (function for calculating volume)
 double Tetrahedron::izchisliObem()

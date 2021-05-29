@@ -13,7 +13,6 @@ class Tetrahedron : public Triangle
 		bool vsichkiStraniSaRavni() const;
 		bool ortogonalen() const;
 		double izchisliLiceNaPovurhnina();
-		double visochina(double, double, double, double, double, double);
 		double izchisliObem() ;
 
 		bool operator<(const Point&);

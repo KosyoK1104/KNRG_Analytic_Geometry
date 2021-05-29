@@ -1,7 +1,12 @@
 #include <iostream>
 #include "Point.h"
 #include "Vector.h"
+#include "Line.h"
+#include "Segment.h"
 #include "Triangle.h"
+#include "Tetrahedron.h"
+#include "EqualPointException.h"
+#include "VectorLenghtException.h"
 #include <cstdlib>
 #include <typeinfo>
 
@@ -15,5 +20,17 @@ void CreateVectorObject(double x, double y, double z);
 void CreateVectorObject(Point& a, Point& b);
 void ExecuteVectorOperations();
 
+void CreateLineObject(Vector&, Point&);
+void CreateLineObject(Point&, Point&);
+void ExecuteLineOperations();
+
+void CreateSegmentObject(Point&, Point&);
+void ExecuteSegmentObject();
+
+void CreateTriangleObject(Point&, Point&, Point&);
+void ExecuteTriangleObject();
+
+void CreateTetrahedronObject(Point& a, Point& b, Point& c);
+void ExecuteTetrahedronObject();
 //Triangle CreateTriangleObject();
 //void ExecuteTriangleOperations();
