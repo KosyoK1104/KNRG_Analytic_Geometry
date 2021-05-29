@@ -253,16 +253,12 @@ void ExecuteVectorOperations()
 			cout << "Please choose an existing Vector to find it's direction: ";
 			cin >> opt;
 			try {
-				if (static_cast<Vector*>(elementsArr[opt])->zeroVector()) {
-					throw VectorLenghtException("The vector is null vector!");
-				}
-				else {
-					cout << "The direction of Vector " << opt << " is: " << static_cast<Vector*>(elementsArr[opt])->posokaVector() << '\n';
-					cout << "\n";
-				}
+				if (static_cast<Vector*>(elementsArr[opt])->zeroVector()) throw VectorLenghtException("The vector is null vector!");
+				cout << "The direction of Vector " << opt << " is: " << static_cast<Vector*>(elementsArr[opt])->posokaVector() << '\n';
+				cout << "\n";
 			}
 			catch (VectorLenghtException& e) {
-				cerr << e.what() << "\n";
+				cerr << "Error: "<< e.what() << "\n";
 			}
 			break;
 		}
@@ -293,16 +289,23 @@ void ExecuteVectorOperations()
 			cin >> opt1;
 			cout << "Enter the second vector: ";
 			cin >> opt2;
-			if (dynamic_cast<Vector*>(elementsArr[opt1])->paralelVector(*static_cast<Vector*>(elementsArr[opt2])))
-			{
-				cout << "Vectors are parallel\n";
-				cout << "\n";
+			try {
+				if (static_cast<Vector*>(elementsArr[opt1])->zeroVector() || static_cast<Vector*>(elementsArr[opt2])->zeroVector()) throw VectorLenghtException("One of the vectors is null vector!");
+				if (dynamic_cast<Vector*>(elementsArr[opt1])->paralelVector(*static_cast<Vector*>(elementsArr[opt2])))
+				{
+					cout << "Vectors are parallel\n";
+					cout << "\n";
+				}
+				else
+				{
+					cout << "Vectors are not parallel\n";
+					cout << "\n";
+				}
 			}
-			else
-			{
-				cout << "Vectors are not parallel\n";
-				cout << "\n";
+			catch (VectorLenghtException& e) {
+				cerr << "Error: " << e.what() << "\n";
 			}
+			
 			break;
 		}
 		case 6:
@@ -314,7 +317,22 @@ void ExecuteVectorOperations()
 			cin >> opt1;
 			cout << "Enter the second vector: ";
 			cin >> opt2;
-			dynamic_cast<Vector*>(elementsArr[opt1])->perpendicularVector(*static_cast<Vector*>(elementsArr[opt2]));
+			try {
+				if (static_cast<Vector*>(elementsArr[opt1])->zeroVector() || static_cast<Vector*>(elementsArr[opt2])->zeroVector()) throw VectorLenghtException("One of the vectors is null vector!");
+				if (dynamic_cast<Vector*>(elementsArr[opt1])->perpendicularVector(*static_cast<Vector*>(elementsArr[opt2])))
+				{
+					cout << "Vectors are perpendicular" << endl;
+					cout << "\n";
+				}
+				else
+				{
+					cout << "Vectors are not perpendicular" << endl;
+					cout << "\n";
+				}
+			}
+			catch (VectorLenghtException& e) {
+				cerr << "Error: " << e.what() << "\n";
+			}
 			cout << "\n";
 			break;
 		}
@@ -737,7 +755,6 @@ void ExecuteSegmentObject()
 }
 
 void CreateTriangleObject(Point& a, Point& b, Point& c) {
-	if (a == b || a == c || b == c) throw EqualPointException("Cannot create triangle while two or more points are with same coordinations\n");
 	elementsArr[++cntEle] = new Triangle(a, b, c);
 }
 
@@ -774,6 +791,9 @@ void ExecuteTriangleObject()
 			cout << "Enter third point: ";
 			cin >> c;
 			try {
+				if (a == b) throw EqualPointException("Cannot create triangle while" + to_string(a) + " and " + to_string(b) + " are with same coordinates\n");
+				if (a == c) throw EqualPointException("Cannot create triangle while" + to_string(a) + " and " + to_string(c) + " are with same coordinates\n");
+				if (b == c) throw EqualPointException("Cannot create triangle while" + to_string(b) + " and " + to_string(c) + " are with same coordinates\n");
 				CreateTriangleObject(*static_cast<Point*>(elementsArr[a]), *static_cast<Point*>(elementsArr[b]), *static_cast<Point*>(elementsArr[c]));
 				cout << "Triangle successfully created!\n";
 				cout << "\n";
