@@ -1,10 +1,9 @@
 #include "Line.h"
-
+//дифолтен конструктор (default constructor)
 Line::Line()
-{
-
-}
-
+{}
+ 
+//конструктор с параметри (constructor with parameters)
 Line::Line(const Point& a, const Point& b)
 {
 	pointA = a;
@@ -20,16 +19,33 @@ Line::Line(const Vector& v, const Point& a)
 	pointB = Point((v.getX() + a.getX()), (v.getY() + a.getY()), (v.getX() + a.getY()));
 }
 
+//функция за намиране на посоката на линия (function for finding the direction of a line)
 Vector Line::lineDirection()
 {
 	return vectorAB.posokaVector();
 }
 
+//функция за намиране на нормален вектор (function for finding a normal vector)
 Vector Line::findNormalVector()
 {
-	return Vector();
+	double l = vectorAB.getX();
+	double m = vectorAB.getY();
+	double n = vectorAB.getZ();
+
+	double x1 = pointA.getX();
+	double y1 = pointA.getY();
+	double z1 = pointA.getZ();
+
+	double k = -(l * x1 + m * y1 + n * z1) / (pow(l, 2) + pow(m, 2) + pow(n, 2));
+
+	double vectX = (l * k) + x1;
+	double vectY = (m * k) + y1;
+	double vectZ = (n * k) + z1;
+
+	return Vector(vectX, vectY, vectZ);
 }
 
+//функция за намиране на ъгъла между две линии (function for finding the angle between two lines)
 int Line::angleTwoLines(Line& l)
 {
 	double x1 = vectorAB.getX();
@@ -40,38 +56,38 @@ int Line::angleTwoLines(Line& l)
 	double y2 = l.getVectorAB().getY();
 	double z2 = l.getVectorAB().getZ();
 
-	if ((x1 == x2) || (y1 == y2) || (z1 == z2)) {
-		double cos_angle = ((x1 * x2) + (y1 * y2) + (z1 * z2)) / (sqrt(pow(x1, 2) + pow(y1, 2) + pow(z1, 2)) * sqrt(pow(x2, 2) + pow(y2, 2) + pow(z2, 2)));
-	
-		return (acos(cos_angle) * 180. / 3.14);
-	}
-	else {
-		std::cout << "Cannot calculate angle of the two lines\n";
-		return 0;
-	}
+	double cos_angle = ((x1 * x2) + (y1 * y2) + (z1 * z2)) / (sqrt(pow(x1, 2) + pow(y1, 2) + pow(z1, 2)) * sqrt(pow(x2, 2) + pow(y2, 2) + pow(z2, 2)));
+	return(acos(cos_angle) * 180. / 3.14);
 }
 
+//get функция, която връща точката A (get function that returns point A)
 Point Line::getPointA() const {
 	return pointA;
 }
+
+//get функция, която връща точката B (get function that returns point B)
 Point Line::getPointB() const {
 	return pointB;
 }
+
+//get функция, която връща вектор AB (get function that returns vector AB)
 Vector Line::getVectorAB() const {
 	return vectorAB;
 }
 
-bool Line::operator||(const Line& line)
+//предефиниране на оператор || (redefining of || operator)
+bool Line::operator||(Line& line)
 {
-	return ((vectorAB.getX() / line.vectorAB.getX()) == (vectorAB.getY() / line.vectorAB.getY()) == (vectorAB.getZ() == line.vectorAB.getZ()));
-
+	return getVectorAB().paralelVector(line.getVectorAB());
 }
 
+//предефиниране на оператор + (redefining of + operator)
 bool Line::operator+(const Point& p)
 {
-	return (this->getPointA().findDistanceToPoint(p) == this->getPointA().findDistanceToPoint(this->getPointB()));
+	return (this->getPointA().findDistanceToPoint(p) + this->getPointB().findDistanceToPoint(p) == this->getPointA().findDistanceToPoint(this->getPointB()));
 }
 
+//предефиниране на оператор == (redefining of == operator)
 bool Line::operator==(const Line& l)
 {
 	if (
@@ -86,6 +102,7 @@ bool Line::operator==(const Line& l)
 	return false;
 }
 
+//предефиниране на оператор && (redefining of && operator)
 bool Line::operator&&(const Line& l)
 {
 	if (
@@ -98,6 +115,7 @@ bool Line::operator&&(const Line& l)
 	return false;
 }
 
+//предефиниране на оператор != (redefining of != operator)
 bool Line::operator!=(const Line& l)
 {
 	double x1 = pointA.getX(), y1 = pointA.getY(), z1 = pointA.getZ();
@@ -119,12 +137,11 @@ bool Line::operator!=(const Line& l)
 	return false;
 }
 
+//предефиниране на оператор | (redefining of | operator)
 bool Line::operator|(const Line& l)
 {
-	if ((vectorAB.getX() * l.vectorAB.getX()) + (vectorAB.getY() * l.vectorAB.getY()) + (vectorAB.getZ() * l.vectorAB.getZ())) {
+	if ((vectorAB.getX() * l.vectorAB.getX()) + (vectorAB.getY() * l.vectorAB.getY()) + (vectorAB.getZ() * l.vectorAB.getZ()) == 0) {
 		return true;
 	}
 	return false;
 }
-
-
