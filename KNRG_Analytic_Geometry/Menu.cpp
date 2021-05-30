@@ -915,7 +915,7 @@ void ExecuteTriangleObject()
 				cin >> opt1;
 				cout << "Enter a point: ";
 				cin >> opt2;
-				if (static_cast<Triangle*>(elementsArr[opt1]) == static_cast<Point*>(elementsArr[opt2]))
+				if (*static_cast<Triangle*>(elementsArr[opt1]) == *static_cast<Point*>(elementsArr[opt2]))
 				{
 					cout << "The point is on one of the triangle sides\n";
 					cout << "\n";
