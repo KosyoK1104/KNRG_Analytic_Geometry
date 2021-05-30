@@ -1,5 +1,4 @@
 #include <iostream>
-#include <fstream>
 #include "Point.h"
 #include "Vector.h"
 #include "Line.h"
@@ -13,23 +12,23 @@
 
 void Menu();
 
-void CreatePointObject(bool);
-void ExecutePointOperations(bool);
-void ComparePoints(bool);
+void CreatePointObject();
+void ExecutePointOperations();
+void ComparePoints();
 
 void CreateVectorObject(double, double, double);
 void CreateVectorObject(Point&, Point&);
-void ExecuteVectorOperations(bool);
+void ExecuteVectorOperations();
 
 void CreateLineObject(Vector&, Point&);
 void CreateLineObject(Point&, Point&);
-void ExecuteLineOperations(bool);
+void ExecuteLineOperations();
 
 void CreateSegmentObject(Point&, Point&);
-void ExecuteSegmentObject(bool);
+void ExecuteSegmentObject();
 
 void CreateTriangleObject(Point&, Point&, Point&);
-void ExecuteTriangleObject(bool);
+void ExecuteTriangleObject();
 
 void CreateTetrahedronObject(Point&, Point&, Point&, Point&);
-void ExecuteTetrahedronObject(bool);
+void ExecuteTetrahedronObject();
