@@ -5,88 +5,126 @@ using namespace std;
 char menuInput[1024];
 int cntInput = 0, cntEle = 0;
 Element** elementsArr = new Element*[100];
+ifstream input;
 
 void Menu()
 {
+	bool mode;
 	int optionSelect;
+	cin >> optionSelect;
+	
 
+	if (optionSelect == 1) {
+		mode = true;
+		input.open("Vectors.txt");
+	}
+	else {
+		mode = false;
+	}
 	while (true)
 	{
-		cout << "Available objects: \n"
-			<< "1. Point\n"
-			<< "2. Vector\n"
-			<< "3. Line\n"
-			<< "4. Segment\n"
-			<< "5. Triangle\n"
-			<< "6. Tetrahedron\n"
-			<< "0. Exit\n";
+		if (!input.eof()) {
+			cout << "Available objects: \n"
+				<< "1. Point\n"
+				<< "2. Vector\n"
+				<< "3. Line\n"
+				<< "4. Segment\n"
+				<< "5. Triangle\n"
+				<< "6. Tetrahedron\n"
+				<< "0. Exit\n";
 
-		cout << "\n";
-		cout << "Please select an object: ";
-		cin >> optionSelect;
+			cout << "\n";
+			cout << "Please select an object: ";
+			if (mode) {
+				input >> optionSelect;
+			}
+			else {
+				cin >> optionSelect;
+			}
 
-		switch (optionSelect)
-		{
+
+			switch (optionSelect)
+			{
 			case 0:
 				exit(EXIT_SUCCESS);
 			case 1:
 			{
 				system("cls");
-				ExecutePointOperations();
+				ExecutePointOperations(mode);
 				break;
 			}
 			case 2:
 			{
 				system("cls");
-				ExecuteVectorOperations();
+				ExecuteVectorOperations(mode);
 				break;
 			}
 			case 3:
 			{
 				system("cls");
-				ExecuteLineOperations();
+				ExecuteLineOperations(mode);
 				break;
 			}
 			case 4:
 			{
 				system("cls");
-				ExecuteSegmentObject();
+				ExecuteSegmentObject(mode);
 				break;
 			}
 			case 5:
 			{
 				system("cls");
-				ExecuteTriangleObject();
+				ExecuteTriangleObject(mode);
 				break;
 			}
 			case 6:
 			{
 				system("cls");
-				ExecuteTetrahedronObject();
+				ExecuteTetrahedronObject(mode);
 				break;
 			}
 
+			}
+		}
+		else {
+			exit(EXIT_SUCCESS);
 		}
 	}
-
+	input.close();
 	if (elementsArr != nullptr) {
 		delete elementsArr;
 	}
 }
 
-void CreatePointObject()
+void CreatePointObject(bool mode)
 {
 	double x, y, z;
 	cout << "Enter x coordinate: ";
-	cin >> x;
+	if (mode) {
+		input >> x;
+		cout << x << "\n";
+	}
+	else {
+		cin >> x;
+	}
 	cout << "Enter y coordinate: ";
-	cin >> y;
+	if (mode) {
+		input >> y;
+	}
+	else {
+		cin >> y;
+	}
 	cout << "Enter z coordinate: ";
-	cin >> z;
+	if (mode) {
+		input >> z;
+	}
+	else {
+		cin >> z;
+	}
 	elementsArr[++cntEle] = new Point(x, y, z);
 }
 
-void ExecutePointOperations()
+void ExecutePointOperations(bool mode)
 {
 	int opt;
 	do
@@ -98,36 +136,46 @@ void ExecutePointOperations()
 			<< "0. Exit to Main Menu\n";
 		cout << "\n";
 		cout << "Please enter your choice: ";
-		cin >> opt;
+		if (mode) {
+			input >> opt;
+		}
+		else {
+			cin >> opt;
+		}
 
 		switch(opt)
 		{
 		case 1:
 		{
-			system("cls");
-			CreatePointObject();
+			if(!mode) system("cls");
+			CreatePointObject(mode);
 			cout << "\n";
 			break;
 		}
 		case 2:
 		{
-			system("cls");
+			if (!mode) system("cls");
 			int opt;
 			cout << "Please select the point you want to print: ";
-			cin >> opt;
+			if (mode) {
+				input >> opt;
+			}
+			else {
+				cin >> opt;
+			}
 			cout << *elementsArr[opt];
 			cout << "\n";
 			break;
 		}
 		case 3:
 		{
-			system("cls");
-			ComparePoints();
+			if (!mode) system("cls");
+			ComparePoints(mode);
 			cout << "\n";
 			break;
 		}
 		default:
-			system("cls");
+			if (!mode) system("cls");
 			cout << "Please choose a valid option from the list below\n";
 			cout << "\n";
 			break;
@@ -135,13 +183,20 @@ void ExecutePointOperations()
 	} while (opt != 0);
 }
 
-void ComparePoints()
+void ComparePoints(bool mode)
 {
 	unsigned int opt1, opt2;
-	cout << "First Point: ";
-	cin >> opt1;
-	cout << "Second Point: ";
-	cin >> opt2;
+	if (mode) {
+		input >> opt1;
+		input >> opt2;
+	}
+	else {
+		cout << "First Point: ";
+		cin >> opt1;
+		cout << "Second Point: ";
+		cin >> opt2;
+	}
+	
 
 	if (typeid(elementsArr[opt1]) == typeid(elementsArr[opt2])) 
 	{
@@ -170,7 +225,7 @@ void CreateVectorObject(Point& a, Point& b)
 	elementsArr[++cntEle] = new Vector(a, b);
 }
 
-void ExecuteVectorOperations()
+void ExecuteVectorOperations(bool mode)
 {
 	int opt;
 	do {
@@ -190,45 +245,69 @@ void ExecuteVectorOperations()
 			<< "0. Exit to Main Menu\n";
 		cout << "\n";
 		cout << "Please enter your choice: ";
-		cin >> opt;
+		if (mode) {
+			input >> opt;
+		}
+		else {
+			cin >> opt;
+		}
 
 		switch (opt)
 		{
 		case 1:
 		{
-			system("cls");
+			if (!mode) system("cls");
 			cout << "Available ways to create a vector: \n"
 				<< "1. Input with coordinates\n"
 				<< "2. Input with points\n"
 				<< "0. Exit to Main Menu\n";
 			cout << "\n";
 			cout << "Please enter your choice: ";
-			cin >> opt;
+			if (mode) {
+				input >> opt;
+			}
+			else {
+				cin >> opt;
+			}
 
 			switch (opt)
 			{
 			case 1:
 			{
-				system("cls");
+				if (!mode) system("cls");
 				double x, y, z;
-				cout << "Enter x coordinate: ";
-				cin >> x;
-				cout << "Enter y coordinate: ";
-				cin >> y;
-				cout << "Enter z coordinate: ";
-				cin >> z;
+				if (mode) {
+					input >> x;
+					input >> y;
+					input >> z;
+				}
+				else {
+					cout << "Enter x coordinate: ";
+					cin >> x;
+					cout << "Enter y coordinate: ";
+					cin >> y;
+					cout << "Enter z coordinate: ";
+					cin >> z;
+				}
+
 				CreateVectorObject(x, y, z);
 				cout << "\n";
 				break;
 			}
 			case 2:
 			{
-				system("cls");
+				if (!mode) system("cls");
 				unsigned int a, b;
-				cout << "Enter A: \n";
-				cin >> a;
-				cout << "Enter B: \n";
-				cin >> b;
+				if (mode) {
+					input >> a;
+					input >> b;
+				}
+				else {
+					cout << "Enter A: \n";
+					cin >> a;
+					cout << "Enter B: \n";
+					cin >> b;
+				}
 				CreateVectorObject(*dynamic_cast<Point*>(elementsArr[a]), *dynamic_cast<Point*>(elementsArr[b]));
 				cout << "\n";
 				break;
@@ -248,10 +327,16 @@ void ExecuteVectorOperations()
 		}
 		case 3:
 		{
-			system("cls");
+			if(!mode) system("cls");
 			int opt;
 			cout << "Please choose an existing Vector to find it's direction: ";
-			cin >> opt;
+			if (mode) {
+				input >> opt;
+			}
+			else {
+				cin >> opt;
+			}
+	
 			try {
 				if (static_cast<Vector*>(elementsArr[opt])->zeroVector()) throw VectorLenghtException("The vector is null vector!");
 				cout << "The direction of Vector " << opt << " is: " << static_cast<Vector*>(elementsArr[opt])->posokaVector() << '\n';
@@ -264,10 +349,15 @@ void ExecuteVectorOperations()
 		}
 		case 4:
 		{
-			system("cls");
+			if (!mode) system("cls");
 			int opt;
 			cout << "Please choose an existing Vector to check if it's zero: ";
-			cin >> opt;
+			if (mode) {
+				input >> opt;
+			}
+			else {
+				cin >> opt;
+			}
 			if ((static_cast<Vector*>(elementsArr[opt])->zeroVector()) == 1)
 			{
 				cout << "Vector " << opt << " is zero vector\n";
@@ -282,13 +372,20 @@ void ExecuteVectorOperations()
 
 		case 5:
 		{
-			system("cls");
+			if (!mode) system("cls");
 			int opt1, opt2;
 			cout << "Please choose two vectors to check if they are parallel:\n";
-			cout << "Enter the first vector: ";
-			cin >> opt1;
-			cout << "Enter the second vector: ";
-			cin >> opt2;
+			if (mode) {
+				input >> opt1;
+				input >> opt2;
+			}
+			else {
+				cout << "Enter the first vector: ";
+				cin >> opt1;
+				cout << "Enter the second vector: ";
+				cin >> opt2;
+			}
+
 			try {
 				if (static_cast<Vector*>(elementsArr[opt1])->zeroVector() || static_cast<Vector*>(elementsArr[opt2])->zeroVector()) throw VectorLenghtException("One of the vectors is null vector!");
 				if (dynamic_cast<Vector*>(elementsArr[opt1])->paralelVector(*static_cast<Vector*>(elementsArr[opt2])))
@@ -310,13 +407,20 @@ void ExecuteVectorOperations()
 		}
 		case 6:
 		{
-			system("cls");
+			if (!mode) system("cls");
 			int opt1, opt2;
 			cout << "Please choose two vectors to check if they are perpendicular:\n";
-			cout << "Enter the first vector: ";
-			cin >> opt1;
-			cout << "Enter the second vector: ";
-			cin >> opt2;
+			if (mode) {
+				input >> opt1;
+				input >> opt2;
+			}
+			else {
+				cout << "Enter the first vector: ";
+				cin >> opt1;
+				cout << "Enter the second vector: ";
+				cin >> opt2;
+			}
+
 			try {
 				if (static_cast<Vector*>(elementsArr[opt1])->zeroVector() || static_cast<Vector*>(elementsArr[opt2])->zeroVector()) throw VectorLenghtException("One of the vectors is null vector!");
 				if (dynamic_cast<Vector*>(elementsArr[opt1])->perpendicularVector(*static_cast<Vector*>(elementsArr[opt2])))
@@ -338,13 +442,20 @@ void ExecuteVectorOperations()
 		}
 		case 7:
 		{
-			system("cls");
+			if (!mode) system("cls");
 			int opt1, opt2;
 			cout << "Please choose two vectors to sum:\n";
-			cout << "Enter the first vector: ";
-			cin >> opt1;
-			cout << "Enter the second vector: ";
-			cin >> opt2;
+			if (mode) {
+				input >> opt1;
+				input >> opt2;
+			}
+			else {
+				cout << "Enter the first vector: ";
+				cin >> opt1;
+				cout << "Enter the second vector: ";
+				cin >> opt2;
+			}
+
 			cout << "Result after addition is new vector with coordinates: " << endl;
 			cout << (*(static_cast<Vector*>(elementsArr[opt1])) + *(static_cast<Vector*>(elementsArr[opt2]))) << "\n";
 			cout << "\n";
@@ -352,13 +463,20 @@ void ExecuteVectorOperations()
 		}
 		case 8:
 		{
-			system("cls");
+			if (!mode) system("cls");
 			int opt1, opt2;
 			cout << "Please choose two vectors to substract:\n";
-			cout << "Enter the first vector: ";
-			cin >> opt1;
-			cout << "Enter the second vector: ";
-			cin >> opt2;
+			if (mode) {
+				input >> opt1;
+				input >> opt2;
+			}
+			else {
+				cout << "Enter the first vector: ";
+				cin >> opt1;
+				cout << "Enter the second vector: ";
+				cin >> opt2;
+			}
+
 			cout << "Result after substraction is new vector: " << endl;
 			cout << (*(static_cast<Vector*>(elementsArr[opt1])) - *(static_cast<Vector*>(elementsArr[opt2]))) << "\n";
 			cout << "\n";
@@ -366,13 +484,18 @@ void ExecuteVectorOperations()
 		}
 		case 9:
 		{
-			system("cls");
+			if (!mode) system("cls");
 			int opt1;
 			double a;
-			cout << "Please choose an existing Vector: ";
-			cin >> opt1;
-			cout << "Please enter a real number: ";
-			cin >> a;
+			if (mode) {
+				input >> opt1;
+				input >> a;
+			}else {
+				cout << "Please choose an existing Vector: ";
+				cin >> opt1;
+				cout << "Please enter a real number: ";
+				cin >> a;
+			}
 			std::cout << "The result after multiplication is a new vector with coordinates ";
 			cout << *(static_cast<Vector*>(elementsArr[opt1])) * a << "\n";
 			cout << "\n";
@@ -380,27 +503,40 @@ void ExecuteVectorOperations()
 		}
 		case 10:
 		{
-			system("cls");
+			if(!mode) system("cls");
 			int opt1, opt2;
 			cout << "Please choose two vectors to multiply:\n";
-			cout << "Enter the first vector: ";
-			cin >> opt1;
-			cout << "Enter the second vector: ";
-			cin >> opt2;
-			std::cout << "The result after multiplication is a real number with value ";
+			if (mode) {
+				input >> opt1;
+				input >> opt2;
+			}
+			else {
+				cout << "Enter the first vector: ";
+				cin >> opt1;
+				cout << "Enter the second vector: ";
+				cin >> opt2;
+			}
+
+			cout << "The result after multiplication is a real number with value ";
 			cout << *(static_cast<Vector*>(elementsArr[opt1])) * *(static_cast<Vector*>(elementsArr[opt2])) << "\n";
 			cout << "\n";
 			break;
 		}
 		case 11:
 		{
-			system("cls");
+			if (!mode) system("cls");
 			int opt1, opt2;
 			cout << "Please choose two vectors to multiply:\n";
-			cout << "Enter the first vector: ";
-			cin >> opt1;
-			cout << "Enter the second vector: ";
-			cin >> opt2;
+			if (mode) {
+				input >> opt1;
+				input >> opt2;
+			}
+			else {
+				cout << "Enter the first vector: ";
+				cin >> opt1;
+				cout << "Enter the second vector: ";
+				cin >> opt2;
+			}
 			cout << "Result after vector multiplication of two vectors is new vector: " << endl;
 			cout << (*(static_cast<Vector*>(elementsArr[opt1])) ^ *(static_cast<Vector*>(elementsArr[opt2]))) << "\n";
 			cout << "\n";
@@ -408,22 +544,30 @@ void ExecuteVectorOperations()
 		}
 		case 12:
 		{
-			system("cls");
+			if(!mode) system("cls");
 			int opt1, opt2, opt3;
 			cout << "Please choose two vectors and real number to multiply:\n";
-			cout << "Enter the first vector: ";
-			cin >> opt1;
-			cout << "Enter the second vector: ";
-			cin >> opt2;
-			cout << "Enter the third vector: ";
-			cin >> opt3;
+			if (mode) {
+				input >> opt1;
+				input >> opt2;
+				input >> opt2;
+			}
+			else {
+				cout << "Enter the first vector: ";
+				cin >> opt1;
+				cout << "Enter the second vector: ";
+				cin >> opt2;
+				cout << "Enter the third vector: ";
+				cin >> opt3;
+			}
+
 			cout << "Result after multiplication: " << endl;
 			cout << (*static_cast<Vector*>(elementsArr[opt1]))(*(static_cast<Vector*>(elementsArr[opt2])), *(static_cast<Vector*>(elementsArr[opt3]))) << "\n";
 			cout << "\n";
 			break;
 		}
 		default:
-			system("cls");
+			if(!mode) system("cls");
 			cout << "Please choose a valid option from the list below\n";
 			cout << "\n";
 			break;
@@ -439,7 +583,7 @@ void CreateLineObject(Point& a, Point& b)
 {
 	elementsArr[++cntEle] = new Line(a, b);
 }
-void ExecuteLineOperations() 
+void ExecuteLineOperations(bool mode) 
 {
 	int opt;
 	do 
@@ -458,7 +602,12 @@ void ExecuteLineOperations()
 			<< "0. Exit to Main Menu\n";
 		cout << "\n";
 		cout << "Please enter your choice: ";
-		cin >> opt;
+		if (mode) {
+			input >> opt;
+		}
+		else {
+			cin >> opt;
+		}
 
 		switch(opt)
 		{
@@ -466,26 +615,38 @@ void ExecuteLineOperations()
 		{	
 			int opt1;
 			do {
-				system("cls");
+				if(!mode) system("cls");
 				cout << "Available ways to create a line: \n"
 					<< "1. Input with points\n"
 					<< "2. Input with vector and point\n"
 					<< "0. Exit to Main Menu\n";
 				cout << "\n";
 				cout << "Please enter your choice: ";
-				cin >> opt1;
+				if (mode) {
+					input >> opt;
+				}
+				else {
+					cin >> opt1;
+				}
 				cout << "\n";
 
 				switch (opt1)
 				{
 				case 1:
 				{
-					system("cls");
+					if(!mode) system("cls");
 					unsigned int a, b;
-					cout << "Enter first point: ";
-					cin >> a;
-					cout << "Enter second point: ";
-					cin >> b;
+					if (mode) {
+						input >> a;
+						input >> b;
+					}
+					else {
+						cout << "Enter first point: ";
+						cin >> a;
+						cout << "Enter second point: ";
+						cin >> b;
+					}
+
 					CreateLineObject(*dynamic_cast<Point*>(elementsArr[a]), *dynamic_cast<Point*>(elementsArr[b]));
 					cout << "Line successfully created!\n";
 					cout << "\n";
@@ -493,12 +654,18 @@ void ExecuteLineOperations()
 				}
 				case 2:
 				{
-					system("cls");
+					if (!mode) system("cls");
 					unsigned int a, b;
-					cout << "Enter a vector: \n";
-					cin >> a;
-					cout << "Enter a point: \n";
-					cin >> b;
+					if (mode) {
+						input >> a;
+						input >> b;
+					}
+					else {
+						cout << "Enter a vector: \n";
+						cin >> a;
+						cout << "Enter a point: \n";
+						cin >> b;
+					}
 					CreateLineObject(*dynamic_cast<Vector*>(elementsArr[a]), *dynamic_cast<Point*>(elementsArr[b]));
 					cout << "Line successfully created!\n";
 					cout << "\n";
@@ -510,44 +677,66 @@ void ExecuteLineOperations()
 		}
 		case 2:
 		{
-			system("cls");
+			if (!mode) system("cls");
 			int opt;
 			cout << "Enter a line: ";
-			cin >> opt;
+			if (mode) {
+				input >> opt;
+			}
+			else {
+				cin >> opt;
+			}
 			cout << static_cast<Line*>(elementsArr[opt])->lineDirection() << "\n";
 			cout << "\n";
 			break;
 		}
 		case 3:
 		{
-			system("cls");
+			if (!mode) system("cls");
 			int opt;
 			cout << "Enter a line: ";													
-			cin >> opt;
+			if (mode) {
+				input >> opt;
+			}
+			else {
+				cin >> opt;
+			}
 			cout << static_cast<Line*>(elementsArr[opt])->findNormalVector() << "\n";
 			cout << "\n";
 			break;
 		}
 		case 4:
 		{
-			system("cls");
+			if (!mode) system("cls");
 			int opt1, opt2;
-			cout << "Enter the first line: ";
-			cin >> opt1;
-			cout << "Enter the second line:";
-			cin >> opt2;
+			if (mode) {
+				input >> opt1;
+				input >> opt2;
+			}
+			else {
+				cout << "Enter the first line: ";
+				cin >> opt1;
+				cout << "Enter the second line:";
+				cin >> opt2;
+			}
 			cout << static_cast<Line*>(elementsArr[opt1])->angleTwoLines(*static_cast<Line*>(elementsArr[opt2])) << "\n";
 			cout << "\n";
 			break;
 		}
 		case 5:
 		{
-			system("cls");
+			if(!mode) system("cls");
 			int opt1, opt2;
-			cout << "Enter a line: ";
-			cin >> opt1;
-			cout << "Enter a point: ";
-			cin >> opt2;
+			if (mode) {
+				input >> opt1;
+				input >> opt2;
+			}
+			else {
+				cout << "Enter a line: ";
+				cin >> opt1;
+				cout << "Enter a point: ";
+				cin >> opt2;
+			}
 			if(*(static_cast<Line*>(elementsArr[opt1])) + *(static_cast<Point*>(elementsArr[opt2])))
 			{
 				cout << "The point lies on the line\n";
@@ -562,12 +751,18 @@ void ExecuteLineOperations()
 		}
 		case 6:
 		{
-			system("cls");
+			if(!mode) system("cls");
 			int opt1, opt2;
-			cout << "Enter the first line: ";
-			cin >> opt1;
-			cout << "Enter the second line: ";
-			cin >> opt2;
+			if (mode) {
+				input >> opt1;
+				input >> opt2;
+			}
+			else {
+				cout << "Enter the first line: ";
+				cin >> opt1;
+				cout << "Enter the second line:";
+				cin >> opt2;
+			}
 			if(*(static_cast<Line*>(elementsArr[opt1])) || *(static_cast<Line*>(elementsArr[opt2])))
 			{
 				cout << "The lines are parallel\n";
@@ -582,12 +777,18 @@ void ExecuteLineOperations()
 		}
 		case 7:
 		{
-			system("cls");
+			if (!mode) system("cls");
 			int opt1, opt2;
-			cout << "Enter the first line: ";
-			cin >> opt1;
-			cout << "Enter the second line: ";
-			cin >> opt2;
+			if (mode) {
+				input >> opt1;
+				input >> opt2;
+			}
+			else {
+				cout << "Enter the first line: ";
+				cin >> opt1;
+				cout << "Enter the second line:";
+				cin >> opt2;
+			}
 			if (*(static_cast<Line*>(elementsArr[opt1])) == *(static_cast<Line*>(elementsArr[opt2])))
 			{
 				cout << "The lines match\n";
@@ -602,12 +803,18 @@ void ExecuteLineOperations()
 		}
 		case 8:
 		{
-			system("cls");
+			if (!mode) system("cls");
 			int opt1, opt2;
-			cout << "Enter the first line: ";
-			cin >> opt1;
-			cout << "Enter the second line: ";
-			cin >> opt2;
+			if (mode) {
+				input >> opt1;
+				input >> opt2;
+			}
+			else {
+				cout << "Enter the first line: ";
+				cin >> opt1;
+				cout << "Enter the second line:";
+				cin >> opt2;
+			}
 			if (*(static_cast<Line*>(elementsArr[opt1])) && *(static_cast<Line*>(elementsArr[opt2])))
 			{
 				cout << "The lines intersect\n";
@@ -623,12 +830,18 @@ void ExecuteLineOperations()
 		}
 		case 9:
 		{
-			system("cls");
+			if (!mode) system("cls");
 			int opt1, opt2;
-			cout << "Enter the first line: ";
-			cin >> opt1;
-			cout << "Enter the second line: ";
-			cin >> opt2;
+			if (mode) {
+				input >> opt1;
+				input >> opt2;
+			}
+			else {
+				cout << "Enter the first line: ";
+				cin >> opt1;
+				cout << "Enter the second line:";
+				cin >> opt2;
+			}
 			if (*(static_cast<Line*>(elementsArr[opt1])) != *(static_cast<Line*>(elementsArr[opt2])))
 			{
 				cout << "The lines cross eachother\n";
@@ -643,12 +856,18 @@ void ExecuteLineOperations()
 		}
 		case 10:
 		{
-			system("cls");
+			if (!mode) system("cls");
 			int opt1, opt2;
-			cout << "Enter the first line: ";
-			cin >> opt1;
-			cout << "Enter the second line: ";
-			cin >> opt2;
+			if (mode) {
+				input >> opt1;
+				input >> opt2;
+			}
+			else {
+				cout << "Enter the first line: ";
+				cin >> opt1;
+				cout << "Enter the second line:";
+				cin >> opt2;
+			}
 			if (*(static_cast<Line*>(elementsArr[opt1])) | *(static_cast<Line*>(elementsArr[opt2])))
 			{
 				cout << "The lines are perpendicular\n";
@@ -662,7 +881,7 @@ void ExecuteLineOperations()
 			break;
 		}
 		default:
-			system("cls");
+			if (!mode) system("cls");
 			cout << "Please choose a valid option from the list below\n";
 			cout << "\n";
 			break;
@@ -676,7 +895,7 @@ void CreateSegmentObject(Point& a, Point& b)
 	elementsArr[++cntEle] = new Segment(a, b);
 }
 
-void ExecuteSegmentObject()
+void ExecuteSegmentObject(bool mode)
 {
 	int opt;
 	do
@@ -689,18 +908,30 @@ void ExecuteSegmentObject()
 			<< "0. Exit to Main Menu\n";
 		cout << "\n";
 		cout << "Please enter your choice: ";
-		cin >> opt;
+		if (mode) {
+			input >> opt;
+		}
+		else {
+			cin >> opt;
+		}
 
 		switch (opt)
 		{
 		case 1:
 		{
-			system("cls");
+			if(!mode) system("cls");
 			unsigned int a, b;
-			cout << "Enter first point: ";
-			cin >> a;
-			cout << "Enter second point: ";
-			cin >> b;
+			if (mode) {
+				input >> a;
+				input >> b;
+			}
+			else {
+				cout << "Enter first point: ";
+				cin >> a;
+				cout << "Enter second point: ";
+				cin >> b;
+			}
+
 			CreateSegmentObject(*static_cast<Point*>(elementsArr[a]), *static_cast<Point*>(elementsArr[b]));
 			cout << "Segment successfully created!\n";
 			cout << "\n";
@@ -708,31 +939,48 @@ void ExecuteSegmentObject()
 		}
 		case 2:
 		{
-			system("cls");
+			if(!mode) system("cls");
 			int opt1;
-			cout << "Enter a segment: ";
-			cin >> opt1;
+			if (mode) {
+				input >> opt1;
+			}
+			else {
+				cout << "Enter a segment: ";
+				cin >> opt1;
+			}
 			cout << "The lenght of the segment is: " << static_cast<Segment*>(elementsArr[opt1])->izchisliDulzhina() << "\n";
 			cout << "\n";
 			break;
 		}
 		case 3:
 		{
-			system("cls");
+			if (!mode) system("cls");
 			int opt1;
-			cout << "Enter a segment: ";
-			cin >> opt1;
+			if (mode) {
+				input >> opt1;
+			}
+			else {
+				cout << "Enter a segment: ";
+				cin >> opt1;
+			}
 			cout << static_cast<Segment*>(elementsArr[opt1])->nameriSrednaTochka() << "\n";
 			cout << "\n";
 			break;
 		}
 		case 4:
 		{
+			if (!mode) system("cls");
 			int opt1, opt2;
-			cout << "Enter a line: ";
-			cin >> opt1;
-			cout << "Enter a point: ";
-			cin >> opt2;
+			if (mode) {
+				input >> opt1;
+				input >> opt2;
+			}
+			else {
+				cout << "Enter a segment: ";
+				cin >> opt1;
+				cout << "Enter a point: ";
+				cin >> opt2;
+			}
 			if (static_cast<Segment*>(elementsArr[opt1]) == static_cast<Point*>(elementsArr[opt2]))
 			{
 				cout << "The point lies on the segment\n";
@@ -746,7 +994,7 @@ void ExecuteSegmentObject()
 			break;
 		}
 		default:
-			system("cls");
+			if (!mode) system("cls");
 			cout << "Please choose a valid option from the list below\n";
 			cout << "\n";
 			break;
@@ -758,7 +1006,7 @@ void CreateTriangleObject(Point& a, Point& b, Point& c) {
 	elementsArr[++cntEle] = new Triangle(a, b, c);
 }
 
-void ExecuteTriangleObject()
+void ExecuteTriangleObject(bool mode)
 {
 	int opt;
 	do
@@ -776,20 +1024,33 @@ void ExecuteTriangleObject()
 			<< "0. Exit to Main Menu\n";
 		cout << "\n";
 		cout << "Please enter your choice: ";
-		cin >> opt;
+		if (mode) {
+			input >> opt;
+		}
+		else {
+			cin >> opt;
+		}
 
 		switch (opt)
 		{
 		case 1:
 		{
-			system("cls");
+			if(!mode) system("cls");
 			unsigned int a, b, c;
-			cout << "Enter first point: ";
-			cin >> a;
-			cout << "Enter second point: ";
-			cin >> b;
-			cout << "Enter third point: ";
-			cin >> c;
+			if (mode) {
+				input >> a;
+				input >> b;
+				input >> c;
+			}
+			else {
+				cout << "Enter first point: ";
+				cin >> a;
+				cout << "Enter second point: ";
+				cin >> b;
+				cout << "Enter third point: ";
+				cin >> c;
+			}
+
 			try {
 				if (a == b) throw EqualPointException("Cannot create triangle while" + to_string(a) + " and " + to_string(b) + " are with same coordinates\n");
 				if (a == c) throw EqualPointException("Cannot create triangle while" + to_string(a) + " and " + to_string(c) + " are with same coordinates\n");
@@ -805,61 +1066,94 @@ void ExecuteTriangleObject()
 		}
 		case 2:
 		{
-			system("cls");
+			if (!mode) system("cls");
 			int opt1;
-			cout << "Enter a triangle: ";
-			cin >> opt1;
+			if (mode) {
+				input >> opt1;
+			}
+			else {
+				cout << "Enter a triangle: ";
+				cin >> opt1;
+			}
 			static_cast<Triangle*>(elementsArr[opt1])->findTriangleKindS();
 			cout << "\n";
 			break;
 		}
 		case 3:
 		{
-			system("cls");
+			if (!mode) system("cls");
 			int opt1;
-			cout << "Enter a triangle: ";
-			cin >> opt1;
+			if (mode) {
+				input >> opt1;
+			}
+			else {
+				cout << "Enter a triangle: ";
+				cin >> opt1;
+			}
 			static_cast<Triangle*>(elementsArr[opt1])->findTriangleKindA();
 			cout << "\n";
 			break;
 		}
 		case 4:
 		{
-			system("cls");
+			if (!mode) system("cls");
 			int opt1;
-			cout << "Enter a triangle: ";
-			cin >> opt1;
+			if (mode) {
+				input >> opt1;
+			}
+			else {
+				cout << "Enter a triangle: ";
+				cin >> opt1;
+			}
 			cout << "The triangle's surface is " << static_cast<Triangle*>(elementsArr[opt1])->findTriangleSurface() << "\n";
 			cout << "\n";
 			break;
 		}
 		case 5:
 		{
-			system("cls");
+			if (!mode) system("cls");
 			int opt1;
-			cout << "Enter a triangle: ";
-			cin >> opt1;
+			if (mode) {
+				input >> opt1;
+			}
+			else {
+				cout << "Enter a triangle: ";
+				cin >> opt1;
+			}
 			cout << "The triangle's perimeter is " <<static_cast<Triangle*>(elementsArr[opt1])->findTrianglePerimeter() << "\n";
 			cout << "\n";
 			break;
 		}
 		case 6:
 		{
-			system("cls");
+			if (!mode) system("cls");
 			int opt1;
-			cout << "Enter a triangle: ";
-			cin >> opt1;
+			if (mode) {
+				input >> opt1;
+			}
+			else {
+				cout << "Enter a triangle: ";
+				cin >> opt1;
+			}
 			cout << "The medicentre of the triangle is on these coordinates " << static_cast<Triangle*>(elementsArr[opt1])->findTriangleMedicenter() << "\n";
 			cout << "\n";
 			break;
 		}
 		case 7:
 		{
+			if (!mode) system("cls");
 			int opt1, opt2;
-			cout << "Enter a triangle: ";
-			cin >> opt1;
-			cout << "Enter a point: ";
-			cin >> opt2;
+			if (mode) {
+				input >> opt1;
+				input >> opt2;
+			}
+			else {
+				cout << "Enter a triangle: ";
+				cin >> opt1;
+				cout << "Enter a point: ";
+				cin >> opt2;
+			}
+
 			if (static_cast<Triangle*>(elementsArr[opt1]) < static_cast<Point*>(elementsArr[opt2]))
 			{
 				cout << "The point is in the triangle\n";
@@ -874,11 +1168,18 @@ void ExecuteTriangleObject()
 		}
 		case 8:
 		{
+			if (!mode) system("cls");
 			int opt1, opt2;
-			cout << "Enter a triangle: ";
-			cin >> opt1;
-			cout << "Enter a point: ";
-			cin >> opt2;
+			if (mode) {
+				input >> opt1;
+				input >> opt2;
+			}
+			else {
+				cout << "Enter a triangle: ";
+				cin >> opt1;
+				cout << "Enter a point: ";
+				cin >> opt2;
+			}
 			if (static_cast<Triangle*>(elementsArr[opt1]) > static_cast<Point*>(elementsArr[opt2]))
 			{
 				cout << "The point is in the triangle\n";
@@ -893,11 +1194,18 @@ void ExecuteTriangleObject()
 		}
 		case 9:
 		{
+			if (!mode) system("cls");
 			int opt1, opt2;
-			cout << "Enter a triangle: ";
-			cin >> opt1;
-			cout << "Enter a point: ";
-			cin >> opt2;
+			if (mode) {
+				input >> opt1;
+				input >> opt2;
+			}
+			else {
+				cout << "Enter a triangle: ";
+				cin >> opt1;
+				cout << "Enter a point: ";
+				cin >> opt2;
+			}
 			if (static_cast<Triangle*>(elementsArr[opt1]) == static_cast<Point*>(elementsArr[opt2]))
 			{
 				cout << "The point is on the triangle's plane\n";
@@ -911,7 +1219,7 @@ void ExecuteTriangleObject()
 			break;
 		}
 		default:
-			system("cls");
+			if (!mode) system("cls");
 			cout << "Please choose a valid option from the list below\n";
 			cout << "\n";
 			break;
@@ -925,7 +1233,7 @@ void CreateTetrahedronObject(Point& a, Point& b, Point& c, Point& d)
 	elementsArr[++cntEle] = new Tetrahedron(a, b, c, d);
 }
 
-void ExecuteTetrahedronObject()
+void ExecuteTetrahedronObject(bool mode)
 {
 	int opt;
 	do
@@ -942,22 +1250,35 @@ void ExecuteTetrahedronObject()
 			<< "0. Exit to Main Menu\n";
 		cout << "\n";
 		cout << "Please enter your choice: ";
-		cin >> opt;
-
+		if (mode) {
+			input >> opt;
+		}
+		else {
+			cin >> opt;
+		}
 		switch (opt)
 		{
 		case 1:
 		{
-			system("cls");
+			if(!mode) system("cls");
 			unsigned int a, b, c, d;
-			cout << "Enter first point: ";
-			cin >> a;
-			cout << "Enter second point: ";
-			cin >> b;
-			cout << "Enter third point: ";
-			cin >> c;
-			cout << "Enter peak point: ";
-			cin >> d;
+			if (mode) {
+				input >> a;
+				input >> b;
+				input >> c;
+				input >> d;
+			}
+			else {
+				cout << "Enter first point: ";
+				cin >> a;
+				cout << "Enter second point: ";
+				cin >> b;
+				cout << "Enter third point: ";
+				cin >> c;
+				cout << "Enter peak point: ";
+				cin >> d;
+			}
+
 			try 
 			{
 				CreateTetrahedronObject(*static_cast<Point*>(elementsArr[a]), *static_cast<Point*>(elementsArr[b]), *static_cast<Point*>(elementsArr[c]), *static_cast<Point*>(elementsArr[d]));
@@ -972,10 +1293,16 @@ void ExecuteTetrahedronObject()
 		}
 		case 2:
 		{
-			system("cls");
+			if (!mode) system("cls");
 			int opt1;
-			cout << "Enter a Tetrahedron: ";
-			cin >> opt1;
+			if (mode) {
+				input >> opt1;
+			}
+			else {
+				cout << "Enter a Tetrahedron: ";
+				cin >> opt1;
+			}
+
 			if (static_cast<Tetrahedron*>(elementsArr[opt1])->vsichkiStraniSaRavni()) 
 			{
 				cout << "The tetrahedron is right\n";
@@ -989,10 +1316,15 @@ void ExecuteTetrahedronObject()
 		}
 		case 3:
 		{
-			system("cls");
+			if (!mode) system("cls");
 			int opt;
-			cout << "Enter a tetrahedron: ";
-			cin >> opt;
+			if (mode) {
+				input >> opt;
+			}
+			else {
+				cout << "Enter a Tetrahedron: ";
+				cin >> opt;
+			}
 			if (static_cast<Tetrahedron*>(elementsArr[opt])->daliEOrtogonalen() == true)
 			{
 				cout << "The tetrahedron is orthogonal " << endl;
@@ -1005,31 +1337,49 @@ void ExecuteTetrahedronObject()
 		}
 		case 4:
 		{
-			system("cls");
+			if(!mode) system("cls");
 			int opt1;
-			cout << "Enter a tetrahedron: ";
-			cin >> opt1;
+			if (mode) {
+				input >> opt1;
+			}
+			else {
+				cout << "Enter a Tetrahedron: ";
+				cin >> opt1;
+			}
 			cout << "The tetrahedron's surrounding surface is " << static_cast<Tetrahedron*>(elementsArr[opt1])->izchisliLiceNaPovurhnina() << "\n";
 			cout << "\n";
 			break;
 		}
 		case 5:
 		{
-			system("cls");
+			if (!mode) system("cls");
 			int opt1;
-			cout << "Enter a tetrahedron: ";
-			cin >> opt1;
+			if (mode) {
+				input >> opt1;
+			}
+			else {
+				cout << "Enter a Tetrahedron: ";
+				cin >> opt1;
+			}
 			cout << "The tetrahedron's volume is " << static_cast<Tetrahedron*>(elementsArr[opt1])->izchisliObem() << "\n";
 			cout << "\n";
 			break;
 		}
 		case 6:
 		{
+			if (!mode) system("cls");
 			int opt1, opt2;
-			cout << "Enter a tetrahedron: ";
-			cin >> opt1;
-			cout << "Enter a point: ";
-			cin >> opt2;
+			if (mode) {
+				input >> opt1;
+				input >> opt2;
+			}
+			else {
+				cout << "Enter a tetrahedron: ";
+				cin >> opt1;
+				cout << "Enter a point: ";
+				cin >> opt2;
+			}
+
 			if (static_cast<Tetrahedron*>(elementsArr[opt1]) < static_cast<Point*>(elementsArr[opt2]))
 			{
 				cout << "The point is in the tetrahedron\n";
@@ -1044,11 +1394,18 @@ void ExecuteTetrahedronObject()
 		}
 		case 7:
 		{
+			if (!mode) system("cls");
 			int opt1, opt2;
-			cout << "Enter a tetrahedron: ";
-			cin >> opt1;
-			cout << "Enter a point: ";
-			cin >> opt2;
+			if (mode) {
+				input >> opt1;
+				input >> opt2;
+			}
+			else {
+				cout << "Enter a tetrahedron: ";
+				cin >> opt1;
+				cout << "Enter a point: ";
+				cin >> opt2;
+			}
 			if (static_cast<Tetrahedron*>(elementsArr[opt1]) > static_cast<Point*>(elementsArr[opt2]))
 			{
 				cout << "The point is in the tetrahedron\n";
@@ -1063,11 +1420,18 @@ void ExecuteTetrahedronObject()
 		}
 		case 8:
 		{
+			if (!mode) system("cls");
 			int opt1, opt2;
-			cout << "Enter a tetrahedron: ";
-			cin >> opt1;
-			cout << "Enter a point: ";
-			cin >> opt2;
+			if (mode) {
+				input >> opt1;
+				input >> opt2;
+			}
+			else {
+				cout << "Enter a tetrahedron: ";
+				cin >> opt1;
+				cout << "Enter a point: ";
+				cin >> opt2;
+			}
 			if (static_cast<Tetrahedron*>(elementsArr[opt1]) == static_cast<Point*>(elementsArr[opt2]))
 			{
 				cout << "The point is on one of tetrahedron's sides\n";
@@ -1081,7 +1445,7 @@ void ExecuteTetrahedronObject()
 			break;
 		}
 		default:
-			system("cls");
+			if (!mode) system("cls");
 			cout << "Please choose a valid option from the list below\n";
 			cout << "\n";
 			break;
