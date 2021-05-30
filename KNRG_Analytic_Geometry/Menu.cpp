@@ -938,7 +938,7 @@ void ExecuteTetrahedronObject()
 			<< "5. Get tetrahedron's volume\n"
 			<< "6. Check if a point is in any of a tetrahedron's sides\n"
 			<< "7. Check if a point is part of any of tetrahedron's sides' plane\n"   //TRQBVA FIKSACIQ
-			<< "8. Check if a point is on one of the sides of a tetrahedron\n"   
+			<< "8. Check if a point is on one of the edges of a tetrahedron\n"   
 			<< "0. Exit to Main Menu\n";
 		cout << "\n";
 		cout << "Please enter your choice: ";

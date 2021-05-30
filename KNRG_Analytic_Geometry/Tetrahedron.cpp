@@ -87,9 +87,9 @@ bool Tetrahedron::operator<(Point& rhs)
 
 }
 
-bool Tetrahedron::operator>(Point&)
+bool Tetrahedron::operator>(Point& rhs)
 {
-	return false;
+	return t1 > rhs || t2 > rhs || t3 > rhs || t4 > rhs;
 }
 
 bool Tetrahedron::operator==(Point& rhs)
