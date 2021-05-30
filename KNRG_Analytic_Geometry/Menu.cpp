@@ -1049,7 +1049,7 @@ void ExecuteTetrahedronObject()
 				cin >> opt1;
 				cout << "Enter a point: ";
 				cin >> opt2;
-				if (static_cast<Tetrahedron*>(elementsArr[opt1]) < static_cast<Point*>(elementsArr[opt2]))
+				if (*static_cast<Tetrahedron*>(elementsArr[opt1]) < *static_cast<Point*>(elementsArr[opt2]))
 				{
 					cout << "The point is in the tetrahedron\n";
 					cout << "\n";
@@ -1068,7 +1068,7 @@ void ExecuteTetrahedronObject()
 				cin >> opt1;
 				cout << "Enter a point: ";
 				cin >> opt2;
-				if (static_cast<Tetrahedron*>(elementsArr[opt1]) > static_cast<Point*>(elementsArr[opt2]))
+				if (*static_cast<Tetrahedron*>(elementsArr[opt1]) > *static_cast<Point*>(elementsArr[opt2]))
 				{
 					cout << "The point is in the tetrahedron\n";
 					cout << "\n";
@@ -1087,7 +1087,7 @@ void ExecuteTetrahedronObject()
 				cin >> opt1;
 				cout << "Enter a point: ";
 				cin >> opt2;
-				if (static_cast<Tetrahedron*>(elementsArr[opt1]) == static_cast<Point*>(elementsArr[opt2]))
+				if (*static_cast<Tetrahedron*>(elementsArr[opt1]) == *static_cast<Point*>(elementsArr[opt2]))
 				{
 					cout << "The point is on one of tetrahedron's sides\n";
 					cout << "\n";
