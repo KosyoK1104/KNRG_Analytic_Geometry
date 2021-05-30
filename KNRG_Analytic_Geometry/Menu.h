@@ -1,4 +1,6 @@
 #include <iostream>
+#include <cstdlib>
+#include <typeinfo>
 #include "Point.h"
 #include "Vector.h"
 #include "Line.h"
@@ -7,8 +9,6 @@
 #include "Tetrahedron.h"
 #include "EqualPointException.h"
 #include "VectorLenghtException.h"
-#include <cstdlib>
-#include <typeinfo>
 
 void Menu();
 
