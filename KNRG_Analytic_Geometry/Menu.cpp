@@ -1083,7 +1083,6 @@ void ExecuteTriangleObject(bool mode)
 		{
 			if (!mode) system("cls");
 			int opt1;
-			int opt1;
 			if (mode) {
 				input >> opt1;
 			}
