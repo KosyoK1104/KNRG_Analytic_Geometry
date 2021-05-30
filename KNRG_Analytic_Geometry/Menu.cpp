@@ -940,7 +940,7 @@ void ExecuteTriangleObject()
 
 void CreateTetrahedronObject(Point& a, Point& b, Point& c, Point& d) 
 {
-	if (a == b || a == c || b == c || a == d || b == d || c == d) throw EqualPointException("Cannot create triangle while two or more points are with same coordinations\n");
+	if (a == b || a == c || b == c || a == d || b == d || c == d) throw EqualPointException("Cannot create triangle while two or more points are with same coordinates\n");
 	elementsArr[++cntEle] = new Tetrahedron(a, b, c, d);
 }
 
