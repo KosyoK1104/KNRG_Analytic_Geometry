@@ -815,22 +815,10 @@ void ExecuteTriangleObject()
 		}
 		case 3:
 		{
-<<<<<<< HEAD
-			if (!mode) system("cls");
-			int opt1;
-			if (mode) {
-				input >> opt1;
-			}
-			else {
-				cout << "Enter a triangle: ";
-				cin >> opt1;
-			}
-=======
 			system("cls");
 			int opt1;
 			cout << "Enter a triangle: ";
 			cin >> opt1;
->>>>>>> parent of 2fc7d3c (Added read from file as user input functionality)
 			static_cast<Triangle*>(elementsArr[opt1])->findTriangleKindA();
 			cout << "\n";
 			break;
