@@ -10,10 +10,12 @@ class Tetrahedron : public Triangle
 		Tetrahedron(const Tetrahedron&);
 		Tetrahedron& operator=(const Tetrahedron&);
 		~Tetrahedron();
+
 		bool vsichkiStraniSaRavni() const;
 		double izchisliLiceNaPovurhnina();
 		double izchisliObem();
 		bool daliEOrtogonalen();
+
 		bool operator<(Point&);
 		bool operator>(Point&);
 		bool operator==(Point&);

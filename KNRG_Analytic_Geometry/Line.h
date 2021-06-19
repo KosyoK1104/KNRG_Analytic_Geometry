@@ -7,6 +7,9 @@ public:
     Line();
     Line(const Point&, const Point&);
     Line(const Vector&, const Point&);
+    Line(const Line&);
+    Line& operator=(const Line&);
+    ~Line();
 
     Vector lineDirection();
     Vector findNormalVector();
@@ -16,6 +19,7 @@ public:
     Point getPointA() const;
     Point getPointB() const;
     Vector getVectorAB() const;
+
 
     bool operator||(Line&);
     bool operator+(const Point&);

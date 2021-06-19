@@ -19,6 +19,28 @@ Line::Line(const Vector& v, const Point& a)
 	pointB = Point((v.getX() + a.getX()), (v.getY() + a.getY()), (v.getX() + a.getY()));
 }
 
+Line::Line(const Line& l)
+{
+	pointA = l.getPointA();
+	pointB = l.getPointB();
+	vectorAB = l.getVectorAB();
+}
+
+Line& Line::operator=(const Line& l)
+{
+	if (this != &l) {
+		pointA = l.getPointA();
+		pointB = l.getPointB();
+		vectorAB = l.getVectorAB();
+	}
+
+	return *this;
+}
+
+Line::~Line()
+{
+}
+
 //функция за намиране на посоката на линия (function for finding the direction of a line)
 Vector Line::lineDirection()
 {
