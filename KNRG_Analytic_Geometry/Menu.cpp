@@ -786,7 +786,7 @@ void ExecuteTriangleObject()
 			<< "5. Get triangle's perimeter\n"
 			<< "6. Find triangle's medicentre\n"
 			<< "7. Check if a point is in triangle\n"
-			<< "8. Check if a point is part of triangle's plane\n"	//TRQBVA FIKSACIQ
+			<< "8. Check if a point is part of triangle's plane\n"
 			<< "9. Check if a point is on one of the sides of a triangle\n"   
 			<< "0. Exit to Main Menu\n";
 		cout << "\n";
